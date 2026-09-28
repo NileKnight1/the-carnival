@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://d4agiw1423434" path="res://scripts/whac_a_mole.gd" id="1_o004m"]
 [ext_resource type="Texture2D" uid="uid://c37vjkxmde8t6" path="res://assets/Gemini_Generated_Image_qjje8cqjje8cqjje.png" id="2_qvp34"]
 [ext_resource type="Texture2D" uid="uid://ds0l746vnexum" path="res://assets/Gemini_Generated_Image_941mf941mf941mf9.png" id="3_0s8j8"]
+[ext_resource type="PackedScene" uid="uid://chjrkhhhs3gli" path="res://scenes/wac_a_mole_target.tscn" id="4_0s8j8"]
+[ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="5_5ov4v"]
+[ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="6_b38g1"]
+[ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="7_x8qbx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s8j8"]
 bg_color = Color(0.38410872, 0.31069958, 0.027248407, 1)
@@ -86,6 +90,19 @@ fill_to = Vector2(0.4764151, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xdj3n"]
 texture = SubResource("GradientTexture2D_jvuvp")
 
+[sub_resource type="Gradient" id="Gradient_jvuvp"]
+offsets = PackedFloat32Array(0.9459459, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xdj3n"]
+gradient = SubResource("Gradient_jvuvp")
+fill = 1
+fill_from = Vector2(0.504717, 0.495283)
+fill_to = Vector2(0.4764151, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ov4v"]
+texture = SubResource("GradientTexture2D_xdj3n")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ceata"]
 bg_color = Color(0.75686276, 0.52156866, 0.25490198, 1)
 border_width_left = 1
@@ -106,6 +123,142 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2by0"]
+bg_color = Color(0, 0, 0, 0.57254905)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y85w"]
+bg_color = Color(0.0049294494, 0.068595685, 0.13477832, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 2
+shadow_offset = Vector2(1.705, 0.27)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtr58"]
+font = ExtResource("6_b38g1")
+font_size = 24
+font_color = Color(0.6963711, 0.71158415, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_887vd"]
+bg_color = Color(0.29047915, 0.57718354, 1.92523e-07, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_or737"]
+bg_color = Color(0.20112938, 0.41354018, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77xnv"]
+bg_color = Color(0.41127437, 0.8005829, 1.1551381e-06, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_413wr"]
+bg_color = Color(0.58, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfuj0"]
+bg_color = Color(0.41, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtw7n"]
+bg_color = Color(0.8, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Gradient" id="Gradient_xxh7r"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vq0k2"]
+gradient = SubResource("Gradient_xxh7r")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.55982906)
+
+[sub_resource type="Gradient" id="Gradient_pe3rk"]
+offsets = PackedFloat32Array(0, 0.5019305, 1)
+colors = PackedColorArray(1, 1, 1, 0.9019608, 1, 1, 1, 0.7058824, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xxh7r"]
+gradient = SubResource("Gradient_pe3rk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ca1oo"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 1.5
+initial_velocity_min = 50.0
+initial_velocity_max = 150.0
+angular_velocity_min = -30.000015
+angular_velocity_max = 29.999983
+gravity = Vector3(0, -10, 0)
+damping_min = 10.0
+damping_max = 20.0
+scale_min = 0.5
+scale_max = 1.1999999
+color_ramp = SubResource("GradientTexture1D_xxh7r")
+
+[sub_resource type="Gradient" id="Gradient_ld1l8"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e3qrb"]
+gradient = SubResource("Gradient_ld1l8")
+fill = 1
+fill_from = Vector2(0.50869566, 0.3869565)
+fill_to = Vector2(0.5347826, 0.8652174)
 
 [node name="whac_a_mole" type="Node2D" unique_id=197290000]
 script = ExtResource("1_o004m")
@@ -515,6 +668,42 @@ scale = Vector2(-1, 1)
 color = Color(0.64705884, 0.42352942, 0.30588236, 1)
 polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
 
+[node name="Polygon2D13" type="Polygon2D" parent="map" unique_id=410243068]
+position = Vector2(-8.999992, 68.24701)
+scale = Vector2(-1.018, 1.031)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-318.982, -73.00001, -318.982, -84.63637, -420, -137, -427.00003, -125.36364)
+
+[node name="Polygon2D14" type="Polygon2D" parent="map" unique_id=1517826418]
+position = Vector2(-3, 65.24701)
+scale = Vector2(-1, 1)
+color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
+
+[node name="Polygon2D15" type="Polygon2D" parent="map" unique_id=2118251319]
+position = Vector2(-8.999992, 127.24701)
+scale = Vector2(-1.018, 1.031)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-318.982, -73.00001, -318.982, -84.63637, -420, -137, -427.00003, -125.36364)
+
+[node name="Polygon2D16" type="Polygon2D" parent="map" unique_id=817366299]
+position = Vector2(-3, 124.24701)
+scale = Vector2(-1, 1)
+color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
+
+[node name="Polygon2D17" type="Polygon2D" parent="map" unique_id=1375705557]
+position = Vector2(-8.999992, 184.24701)
+scale = Vector2(-1.018, 1.031)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-318.982, -73.00001, -318.982, -84.63637, -420, -137, -427.00003, -125.36364)
+
+[node name="Polygon2D18" type="Polygon2D" parent="map" unique_id=534059789]
+position = Vector2(-3, 181.24701)
+scale = Vector2(-1, 1)
+color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
+
 [node name="GeminiGeneratedImage941Mf941Mf941Mf9" type="Sprite2D" parent="." unique_id=1995632556]
 visible = false
 position = Vector2(6.9999332, -0.99999845)
@@ -532,12 +721,12 @@ ignore_rotation = false
 zoom = Vector2(1.74, 1.74)
 
 [node name="down" type="Node2D" parent="." unique_id=198890604]
-position = Vector2(-310, 268)
+position = Vector2(-310, 231)
 
 [node name="Panel19" type="Panel" parent="down" unique_id=446558004]
 offset_left = 186.0
 offset_top = -150.0
-offset_right = 578.0
+offset_right = 584.0
 offset_bottom = -91.0
 layout_direction = 2
 mouse_filter = 2
@@ -555,16 +744,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jenpt")
 [node name="Panel21" type="Panel" parent="down" unique_id=1789762511]
 offset_left = 33.0
 offset_top = -92.0
-offset_right = 621.0
+offset_right = 626.0
 offset_bottom = -77.0
 layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ymk1g")
 
-[node name="hole" type="Node2D" parent="down" unique_id=1140358515]
-position = Vector2(-201, 83)
+[node name="holes" type="Node2D" parent="down" unique_id=15515212]
+position = Vector2(310, -268)
 
-[node name="Panel22" type="Panel" parent="down/hole" unique_id=2140241202]
+[node name="hole" type="Node2D" parent="down/holes" unique_id=1140358515]
+position = Vector2(-511, 351)
+
+[node name="Panel22" type="Panel" parent="down/holes/hole" unique_id=2140241202]
 offset_left = 278.0
 offset_top = -199.0
 offset_right = 356.0
@@ -574,7 +766,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel23" type="Panel" parent="down/hole" unique_id=1717928271]
+[node name="Panel23" type="Panel" parent="down/holes/hole" unique_id=1717928271]
 offset_left = 278.0
 offset_top = -196.0
 offset_right = 356.0
@@ -583,10 +775,23 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
 
-[node name="hole2" type="Node2D" parent="down" unique_id=1747044142]
-position = Vector2(-169, 56)
+[node name="mask" type="Panel" parent="down/holes/hole" unique_id=156882500]
+clip_children = 1
+offset_left = 278.0
+offset_top = -222.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
-[node name="Panel22" type="Panel" parent="down/hole2" unique_id=1983906007]
+[node name="target" parent="down/holes/hole/mask" unique_id=1318577958 instance=ExtResource("4_0s8j8")]
+position = Vector2(38, 58)
+
+[node name="hole2" type="Node2D" parent="down/holes" unique_id=1067332437]
+position = Vector2(-430, 324)
+
+[node name="Panel22" type="Panel" parent="down/holes/hole2" unique_id=747139894]
 offset_left = 278.0
 offset_top = -199.0
 offset_right = 356.0
@@ -594,8 +799,9 @@ offset_bottom = -180.0
 layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Panel23" type="Panel" parent="down/hole2" unique_id=1889788712]
+[node name="Panel23" type="Panel" parent="down/holes/hole2" unique_id=1795374977]
 offset_left = 278.0
 offset_top = -196.0
 offset_right = 356.0
@@ -604,10 +810,23 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
 
-[node name="hole3" type="Node2D" parent="down" unique_id=577557953]
-position = Vector2(-92, 83)
+[node name="mask" type="Panel" parent="down/holes/hole2" unique_id=1781362717]
+clip_children = 1
+offset_left = 278.0
+offset_top = -222.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
-[node name="Panel22" type="Panel" parent="down/hole3" unique_id=2069126252]
+[node name="target" parent="down/holes/hole2/mask" unique_id=772656012 instance=ExtResource("4_0s8j8")]
+position = Vector2(38, 58)
+
+[node name="hole3" type="Node2D" parent="down/holes" unique_id=506365185]
+position = Vector2(-352, 351)
+
+[node name="Panel22" type="Panel" parent="down/holes/hole3" unique_id=484475947]
 offset_left = 278.0
 offset_top = -199.0
 offset_right = 356.0
@@ -615,8 +834,9 @@ offset_bottom = -180.0
 layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Panel23" type="Panel" parent="down/hole3" unique_id=1007547356]
+[node name="Panel23" type="Panel" parent="down/holes/hole3" unique_id=727917027]
 offset_left = 278.0
 offset_top = -196.0
 offset_right = 356.0
@@ -625,10 +845,23 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
 
-[node name="hole8" type="Node2D" parent="down" unique_id=1684069857]
-position = Vector2(115, 83)
+[node name="mask" type="Panel" parent="down/holes/hole3" unique_id=1346516364]
+clip_children = 1
+offset_left = 278.0
+offset_top = -222.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
-[node name="Panel22" type="Panel" parent="down/hole8" unique_id=854916611]
+[node name="target" parent="down/holes/hole3/mask" unique_id=343075673 instance=ExtResource("4_0s8j8")]
+position = Vector2(38, 58)
+
+[node name="hole4" type="Node2D" parent="down/holes" unique_id=830650580]
+position = Vector2(-271, 324)
+
+[node name="Panel22" type="Panel" parent="down/holes/hole4" unique_id=763513727]
 offset_left = 278.0
 offset_top = -199.0
 offset_right = 356.0
@@ -636,8 +869,9 @@ offset_bottom = -180.0
 layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Panel23" type="Panel" parent="down/hole8" unique_id=1349900341]
+[node name="Panel23" type="Panel" parent="down/holes/hole4" unique_id=1788535320]
 offset_left = 278.0
 offset_top = -196.0
 offset_right = 356.0
@@ -646,10 +880,23 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
 
-[node name="hole10" type="Node2D" parent="down" unique_id=1582727395]
-position = Vector2(214, 83)
+[node name="mask" type="Panel" parent="down/holes/hole4" unique_id=1891625374]
+clip_children = 1
+offset_left = 278.0
+offset_top = -222.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
-[node name="Panel22" type="Panel" parent="down/hole10" unique_id=1981537781]
+[node name="target" parent="down/holes/hole4/mask" unique_id=973056310 instance=ExtResource("4_0s8j8")]
+position = Vector2(38, 58)
+
+[node name="hole5" type="Node2D" parent="down/holes" unique_id=915359877]
+position = Vector2(-189, 351)
+
+[node name="Panel22" type="Panel" parent="down/holes/hole5" unique_id=1810969668]
 offset_left = 278.0
 offset_top = -199.0
 offset_right = 356.0
@@ -657,8 +904,9 @@ offset_bottom = -180.0
 layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Panel23" type="Panel" parent="down/hole10" unique_id=1977964315]
+[node name="Panel23" type="Panel" parent="down/holes/hole5" unique_id=1770609418]
 offset_left = 278.0
 offset_top = -196.0
 offset_right = 356.0
@@ -667,10 +915,23 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
 
-[node name="hole4" type="Node2D" parent="down" unique_id=508755631]
-position = Vector2(-78, 56)
+[node name="mask" type="Panel" parent="down/holes/hole5" unique_id=1156251891]
+clip_children = 1
+offset_left = 278.0
+offset_top = -222.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
-[node name="Panel22" type="Panel" parent="down/hole4" unique_id=1175438432]
+[node name="target" parent="down/holes/hole5/mask" unique_id=323617778 instance=ExtResource("4_0s8j8")]
+position = Vector2(38, 58)
+
+[node name="hole6" type="Node2D" parent="down/holes" unique_id=375035952]
+position = Vector2(-108, 324)
+
+[node name="Panel22" type="Panel" parent="down/holes/hole6" unique_id=1304668276]
 offset_left = 278.0
 offset_top = -199.0
 offset_right = 356.0
@@ -678,8 +939,9 @@ offset_bottom = -180.0
 layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+metadata/_edit_use_anchors_ = true
 
-[node name="Panel23" type="Panel" parent="down/hole4" unique_id=1310973618]
+[node name="Panel23" type="Panel" parent="down/holes/hole6" unique_id=1144484861]
 offset_left = 278.0
 offset_top = -196.0
 offset_right = 356.0
@@ -688,89 +950,21 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
 
-[node name="hole7" type="Node2D" parent="down" unique_id=2048856213]
-position = Vector2(101, 56)
-
-[node name="Panel22" type="Panel" parent="down/hole7" unique_id=1103341044]
+[node name="mask" type="Panel" parent="down/holes/hole6" unique_id=2013233301]
+clip_children = 1
 offset_left = 278.0
-offset_top = -199.0
+offset_top = -222.0
 offset_right = 356.0
 offset_bottom = -180.0
 layout_direction = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
-[node name="Panel23" type="Panel" parent="down/hole7" unique_id=1420352775]
-offset_left = 278.0
-offset_top = -196.0
-offset_right = 356.0
-offset_bottom = -180.0
-layout_direction = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+[node name="target" parent="down/holes/hole6/mask" unique_id=1162432082 instance=ExtResource("4_0s8j8")]
+position = Vector2(38, 58)
 
-[node name="hole9" type="Node2D" parent="down" unique_id=1699234470]
-position = Vector2(191, 56)
-
-[node name="Panel22" type="Panel" parent="down/hole9" unique_id=937665485]
-offset_left = 278.0
-offset_top = -199.0
-offset_right = 356.0
-offset_bottom = -180.0
-layout_direction = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
-
-[node name="Panel23" type="Panel" parent="down/hole9" unique_id=727223996]
-offset_left = 278.0
-offset_top = -196.0
-offset_right = 356.0
-offset_bottom = -180.0
-layout_direction = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
-
-[node name="hole5" type="Node2D" parent="down" unique_id=740080902]
-position = Vector2(12, 83)
-
-[node name="Panel22" type="Panel" parent="down/hole5" unique_id=587191831]
-offset_left = 278.0
-offset_top = -199.0
-offset_right = 356.0
-offset_bottom = -180.0
-layout_direction = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
-
-[node name="Panel23" type="Panel" parent="down/hole5" unique_id=1071520737]
-offset_left = 278.0
-offset_top = -196.0
-offset_right = 356.0
-offset_bottom = -180.0
-layout_direction = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
-
-[node name="hole6" type="Node2D" parent="down" unique_id=89516618]
-position = Vector2(11, 56)
-
-[node name="Panel22" type="Panel" parent="down/hole6" unique_id=412380809]
-offset_left = 278.0
-offset_top = -199.0
-offset_right = 356.0
-offset_bottom = -180.0
-layout_direction = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
-
-[node name="Panel23" type="Panel" parent="down/hole6" unique_id=1168786069]
-offset_left = 278.0
-offset_top = -196.0
-offset_right = 356.0
-offset_bottom = -180.0
-layout_direction = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+[node name="targets" type="Node2D" parent="down" unique_id=116605197]
+position = Vector2(280, -232)
 
 [node name="Panel4" type="Panel" parent="down" unique_id=728541678]
 visible = false
@@ -803,7 +997,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ceata")
 [node name="Panel15" type="Panel" parent="down" unique_id=679384646]
 offset_left = 550.0
 offset_top = -78.0
-offset_right = 621.0
+offset_right = 626.0
 offset_bottom = 156.0
 layout_direction = 2
 mouse_filter = 2
@@ -883,3 +1077,158 @@ offset_bottom = 156.0
 layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oqhny")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1831074139]
+
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=877059497]
+visible = false
+offset_right = 1282.0
+offset_bottom = 719.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y2by0")
+
+[node name="time" type="Label" parent="CanvasLayer" unique_id=1631890542]
+visible = false
+offset_left = 619.0
+offset_top = 15.0
+offset_right = 666.0
+offset_bottom = 78.0
+text = "30"
+label_settings = ExtResource("5_5ov4v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="dark" type="Panel" parent="CanvasLayer" unique_id=2082162281]
+visible = false
+offset_right = 1293.0
+offset_bottom = 720.0
+
+[node name="score" type="Label" parent="CanvasLayer" unique_id=1522856945]
+offset_left = 33.0
+offset_top = 60.0
+offset_right = 176.0
+offset_bottom = 123.0
+text = "Score: 0"
+label_settings = ExtResource("5_5ov4v")
+
+[node name="highest" type="Label" parent="CanvasLayer" unique_id=1973073453]
+visible = false
+offset_left = 33.0
+offset_top = 15.0
+offset_right = 176.0
+offset_bottom = 78.0
+text = "Highest: 0"
+label_settings = ExtResource("5_5ov4v")
+
+[node name="start_menu" type="Node2D" parent="CanvasLayer" unique_id=284555582]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer/start_menu" unique_id=2003996154]
+offset_left = 477.71793
+offset_top = 262.0
+offset_right = 818.2821
+offset_bottom = 491.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1y85w")
+
+[node name="info" type="Label" parent="CanvasLayer/start_menu" unique_id=1759232268]
+offset_left = 505.0
+offset_top = 271.0
+offset_right = 792.0
+offset_bottom = 394.0
+text = "You have to shoot the targets as fast as you can."
+label_settings = SubResource("LabelSettings_vtr58")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="start" type="Button" parent="CanvasLayer/start_menu" unique_id=2067549593]
+offset_left = 499.0
+offset_top = 412.0
+offset_right = 632.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("6_b38g1")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_887vd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_or737")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77xnv")
+text = "Start!"
+
+[node name="leave" type="Button" parent="CanvasLayer/start_menu" unique_id=1379924031]
+offset_left = 663.0
+offset_top = 412.0
+offset_right = 796.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("6_b38g1")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_413wr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tfuj0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dtw7n")
+text = "Leave"
+
+[node name="restart_menu" type="Node2D" parent="CanvasLayer" unique_id=1889862663]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer/restart_menu" unique_id=697738303]
+offset_left = 477.71793
+offset_top = 262.0
+offset_right = 818.2821
+offset_bottom = 491.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1y85w")
+
+[node name="info" type="Label" parent="CanvasLayer/restart_menu" unique_id=1801535790]
+offset_left = 505.0
+offset_top = 271.0
+offset_right = 792.0
+offset_bottom = 394.0
+text = "Restart?"
+label_settings = SubResource("LabelSettings_vtr58")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="start" type="Button" parent="CanvasLayer/restart_menu" unique_id=2120369408]
+offset_left = 499.0
+offset_top = 412.0
+offset_right = 632.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("6_b38g1")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_887vd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_or737")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77xnv")
+text = "Yes"
+
+[node name="leave" type="Button" parent="CanvasLayer/restart_menu" unique_id=1367999296]
+offset_left = 663.0
+offset_top = 412.0
+offset_right = 796.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("6_b38g1")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_413wr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tfuj0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dtw7n")
+text = "Leave"
+
+[node name="341994" type="Sprite2D" parent="CanvasLayer" unique_id=1693734761]
+position = Vector2(-125, 718)
+scale = Vector2(0.57760143, 0.5776014)
+texture = ExtResource("7_x8qbx")
+
+[node name="smoke" type="GPUParticles2D" parent="CanvasLayer/341994" unique_id=1188650540]
+position = Vector2(268.35114, -393.0046)
+scale = Vector2(1.7312977, 1.7312979)
+emitting = false
+texture = SubResource("GradientTexture2D_vq0k2")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ca1oo")
+
+[node name="light" type="PointLight2D" parent="CanvasLayer/341994" unique_id=1248192912]
+visible = false
+position = Vector2(261.42593, -351.45346)
+energy = 13.56
+texture = SubResource("GradientTexture2D_e3qrb")
