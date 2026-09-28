@@ -7,12 +7,12 @@ var game4_location
 # الي يضيف لعبة يعدل هنا بس
 func assign_games_data():
 	# game 2
-	$map/tent2.visible = 1
-	$map/tent2/info/title.text = "Treasure Hunt"
-	$map/tent2/info/info2.text = "Find the treasure!"
-	$map/tent2/info/info3.text = "Highest score/etc"
+	$map/tent2.visible = 0
+	$map/tent2/info/title.text = ""
+	$map/tent2/info/info2.text = ""
+	$map/tent2/info/info3.text = ""
 	#$map/tent2/info/image.texture = ""
-	game2_location = "res://TreasureHunt/TreasureHunt Scenes/treasure_hunt.tscn"
+	game2_location = ""
 	
 	# game 3
 	$map/tent3.visible = 0

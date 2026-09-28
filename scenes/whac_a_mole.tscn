@@ -1,0 +1,885 @@
+[gd_scene format=3 uid="uid://cleerm0m2pfpw"]
+
+[ext_resource type="Script" uid="uid://d4agiw1423434" path="res://scripts/whac_a_mole.gd" id="1_o004m"]
+[ext_resource type="Texture2D" uid="uid://c37vjkxmde8t6" path="res://assets/Gemini_Generated_Image_qjje8cqjje8cqjje.png" id="2_qvp34"]
+[ext_resource type="Texture2D" uid="uid://ds0l746vnexum" path="res://assets/Gemini_Generated_Image_941mf941mf941mf9.png" id="3_0s8j8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s8j8"]
+bg_color = Color(0.38410872, 0.31069958, 0.027248407, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvuvp"]
+bg_color = Color(0.46071017, 0.11550189, 0.059692927, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdj3n"]
+bg_color = Color(0.53333336, 0.17254902, 0.1882353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ov4v"]
+bg_color = Color(0.6156863, 0.39215687, 0.21568628, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b38g1"]
+bg_color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8qbx"]
+bg_color = Color(0.2172521, 0.10908202, 0.031088699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx1rb"]
+bg_color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+skew = Vector2(-1.475, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jenpt"]
+bg_color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+skew = Vector2(1.475, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymk1g"]
+bg_color = Color(0.5078125, 0.3310631, 0.23803711, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_jenpt"]
+offsets = PackedFloat32Array(0.9797297, 1)
+colors = PackedColorArray(0.17254902, 0.14117648, 0.11764706, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0s8j8"]
+gradient = SubResource("Gradient_jenpt")
+fill = 1
+fill_from = Vector2(0.504717, 0.495283)
+fill_to = Vector2(0.4764151, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jenpt"]
+texture = SubResource("GradientTexture2D_0s8j8")
+
+[sub_resource type="Gradient" id="Gradient_0s8j8"]
+offsets = PackedFloat32Array(0.9797297, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jvuvp"]
+gradient = SubResource("Gradient_0s8j8")
+fill = 1
+fill_from = Vector2(0.504717, 0.495283)
+fill_to = Vector2(0.4764151, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xdj3n"]
+texture = SubResource("GradientTexture2D_jvuvp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ceata"]
+bg_color = Color(0.75686276, 0.52156866, 0.25490198, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ef2en"]
+bg_color = Color(0.24705882, 0.52156866, 0.52156866, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqhny"]
+bg_color = Color(0.61960787, 0.17254902, 0.20392157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="whac_a_mole" type="Node2D" unique_id=197290000]
+script = ExtResource("1_o004m")
+
+[node name="map" type="Node2D" parent="." unique_id=212036147]
+
+[node name="Panel4" type="Panel" parent="map" unique_id=984004430]
+visible = false
+offset_left = -372.0
+offset_top = -208.0
+offset_right = 372.0
+offset_bottom = 126.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0s8j8")
+
+[node name="Panel2" type="Panel" parent="map" unique_id=885501985]
+visible = false
+offset_left = -385.0
+offset_top = -208.0
+offset_right = -205.0
+offset_bottom = 223.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jvuvp")
+
+[node name="Panel3" type="Panel" parent="map" unique_id=1312457374]
+visible = false
+offset_left = 215.0
+offset_top = -208.0
+offset_right = 384.0
+offset_bottom = 223.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jvuvp")
+
+[node name="Polygon2D2" type="Polygon2D" parent="map" unique_id=1009091238]
+visible = false
+position = Vector2(0, 28)
+scale = Vector2(1, 0.8)
+color = Color(0.8255019, 0.7376714, 0.5592223, 1)
+polygon = PackedVector2Array(-371, 140, -202, -24, -0.766449, -24.484894, 213, -25, 370, 138)
+
+[node name="Node2D" type="Node2D" parent="map" unique_id=23615132]
+
+[node name="Polygon2D11" type="Polygon2D" parent="map/Node2D" unique_id=1741587662]
+position = Vector2(-0.3842736, -42.69571)
+scale = Vector2(7.5512786, 0.7947322)
+color = Color(0.53333336, 0.17254902, 0.1882353, 1)
+polygon = PackedVector2Array(-52.125706, -207.99997, 51.962624, -213.03311, 52.095055, -172.76799, 0.04149188, -126.99602, -52.65542, -167.73485)
+uv = PackedVector2Array(136, -88)
+
+[node name="Polygon2D10" type="Polygon2D" parent="map/Node2D" unique_id=1211063437]
+position = Vector2(-0.19395396, -42.69571)
+scale = Vector2(4.306902, 0.7947322)
+color = Color(0.654902, 0.43529412, 0.23529412, 1)
+polygon = PackedVector2Array(-56, -208.00002, 56, -208.00002, 144.00003, -88, 0.04149188, -126.99602, -143.88269, -87.20459)
+uv = PackedVector2Array(136, -88)
+
+[node name="Polygon2D9" type="Polygon2D" parent="map/Node2D" unique_id=846981902]
+position = Vector2(-0.14180475, -42.69571)
+scale = Vector2(3.4176507, 0.7947322)
+color = Color(0.53333336, 0.17254902, 0.1882353, 1)
+polygon = PackedVector2Array(-56, -208.00002, 56, -208.00002, 144.00003, -88, 0.04149188, -126.99602, -143.88269, -87.20459)
+uv = PackedVector2Array(136, -88)
+
+[node name="Polygon2D8" type="Polygon2D" parent="map/Node2D" unique_id=26070811]
+position = Vector2(-0.12468156, -16.866898)
+scale = Vector2(3.1258652, 0.9189091)
+color = Color(0.654902, 0.43529412, 0.23529412, 1)
+polygon = PackedVector2Array(-56, -208.00002, 56, -208.00002, 144.00003, -88, -143.88269, -87.20459)
+uv = PackedVector2Array(136, -88)
+
+[node name="Polygon2D7" type="Polygon2D" parent="map/Node2D" unique_id=332100739]
+position = Vector2(-0.09535441, 10.683817)
+scale = Vector2(2.6256616, 1.0513644)
+color = Color(0.53333336, 0.17254902, 0.1882353, 1)
+polygon = PackedVector2Array(-56, -208.00002, 56, -208.00002, 144.00003, -88, -143.88269, -87.20459)
+uv = PackedVector2Array(136, -88)
+
+[node name="Polygon2D6" type="Polygon2D" parent="map/Node2D" unique_id=1459543202]
+position = Vector2(-0.059485726, 14.127655)
+scale = Vector2(2.0143018, 1.0679215)
+color = Color(0.654902, 0.43529412, 0.23529412, 1)
+polygon = PackedVector2Array(-56, -208.00002, 56, -208.00002, 144.00003, -88, -143.88269, -87.20459)
+uv = PackedVector2Array(136, -88)
+
+[node name="Polygon2D5" type="Polygon2D" parent="map/Node2D" unique_id=1828726255]
+position = Vector2(-0.028930664, 15.849564)
+scale = Vector2(1.4932562, 1.0761998)
+color = Color(0.53333336, 0.17254902, 0.1882353, 1)
+polygon = PackedVector2Array(-56, -208.00002, 56, -208.00002, 144.00003, -88, -143.88269, -87.20459)
+uv = PackedVector2Array(136, -88)
+
+[node name="Polygon2D4" type="Polygon2D" parent="map/Node2D" unique_id=2002043103]
+position = Vector2(0, 17.571487)
+scale = Vector2(1, 1.0844783)
+color = Color(0.654902, 0.43529412, 0.23529412, 1)
+polygon = PackedVector2Array(-56, -208.00002, 56, -208.00002, 144.00003, -88, -143.88269, -87.20459)
+uv = PackedVector2Array(136, -88)
+
+[node name="Polygon2D3" type="Polygon2D" parent="map/Node2D" unique_id=1966289551]
+position = Vector2(0, 25.796604)
+scale = Vector2(1, 1.118644)
+color = Color(0.53333336, 0.17254902, 0.1882353, 1)
+polygon = PackedVector2Array(-26, -209, -69, -92, 75, -91, 30, -209)
+
+[node name="Node2D2" type="Node2D" parent="map" unique_id=732964034]
+
+[node name="Panel" type="Panel" parent="map/Node2D2" unique_id=1411884887]
+offset_left = -100.0
+offset_top = -74.0
+offset_right = -55.0
+offset_bottom = 158.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdj3n")
+
+[node name="Panel5" type="Panel" parent="map/Node2D2" unique_id=597801751]
+offset_left = -275.0
+offset_top = -74.0
+offset_right = -230.0
+offset_bottom = 217.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdj3n")
+
+[node name="Panel2" type="Panel" parent="map/Node2D2" unique_id=736637684]
+offset_left = -144.0
+offset_top = -74.0
+offset_right = -99.0
+offset_bottom = 159.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ov4v")
+
+[node name="Panel7" type="Panel" parent="map/Node2D2" unique_id=15154008]
+offset_left = -56.0
+offset_top = -74.0
+offset_right = 55.0
+offset_bottom = 159.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ov4v")
+
+[node name="Panel3" type="Panel" parent="map/Node2D2" unique_id=2027537197]
+offset_left = -187.0
+offset_top = -74.0
+offset_right = -142.0
+offset_bottom = 159.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdj3n")
+
+[node name="Panel4" type="Panel" parent="map/Node2D2" unique_id=1179503358]
+offset_left = -231.0
+offset_top = -74.0
+offset_right = -186.0
+offset_bottom = 160.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ov4v")
+
+[node name="Panel8" type="Panel" parent="map/Node2D2" unique_id=1285296070]
+offset_left = 228.0
+offset_top = -74.0
+offset_right = 273.0
+offset_bottom = 212.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdj3n")
+
+[node name="Panel9" type="Panel" parent="map/Node2D2" unique_id=1771638838]
+offset_left = 53.0
+offset_top = -74.0
+offset_right = 98.0
+offset_bottom = 162.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdj3n")
+
+[node name="Panel10" type="Panel" parent="map/Node2D2" unique_id=1484972456]
+offset_left = 184.0
+offset_top = -74.0
+offset_right = 229.0
+offset_bottom = 159.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ov4v")
+
+[node name="Panel11" type="Panel" parent="map/Node2D2" unique_id=866658616]
+offset_left = 141.0
+offset_top = -74.0
+offset_right = 186.0
+offset_bottom = 159.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xdj3n")
+
+[node name="Panel12" type="Panel" parent="map/Node2D2" unique_id=661962084]
+offset_left = 97.0
+offset_top = -74.0
+offset_right = 142.0
+offset_bottom = 160.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ov4v")
+
+[node name="Panel6" type="Panel" parent="map/Node2D2" unique_id=394333829]
+offset_left = -319.0
+offset_top = -74.0
+offset_right = -274.0
+offset_bottom = 209.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ov4v")
+
+[node name="Panel13" type="Panel" parent="map/Node2D2" unique_id=1941111611]
+offset_left = 272.0
+offset_top = -74.0
+offset_right = 317.0
+offset_bottom = 211.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ov4v")
+
+[node name="Polygon2D" type="Polygon2D" parent="map/Node2D2" unique_id=1798124512]
+position = Vector2(0, 26.889366)
+scale = Vector2(1, 1.3021276)
+color = Color(0.53333336, 0.17254902, 0.1882353, 1)
+polygon = PackedVector2Array(-318, -75, -352, -89, -352, 146, -318, 139.85622)
+
+[node name="Polygon2D2" type="Polygon2D" parent="map/Node2D2" unique_id=2074935883]
+position = Vector2(-31, 16.948952)
+scale = Vector2(1, 1.3702127)
+color = Color(0.6156863, 0.39215687, 0.21568628, 1)
+polygon = PackedVector2Array(-318, -75, -352, -89, -352, 146, -318, 138.70186)
+
+[node name="Polygon2D3" type="Polygon2D" parent="map/Node2D2" unique_id=1520970554]
+position = Vector2(-1.9999999, 23.348545)
+rotation = 3.1415927
+scale = Vector2(1, -1.2670398)
+color = Color(0.53333336, 0.17254902, 0.1882353, 1)
+polygon = PackedVector2Array(-318, -75, -352, -89, -352, 146, -318, 145.13919)
+
+[node name="Polygon2D4" type="Polygon2D" parent="map/Node2D2" unique_id=1971226375]
+position = Vector2(33, 12.7962475)
+rotation = -3.1415927
+scale = Vector2(1, -1.3478904)
+color = Color(0.6156863, 0.39215687, 0.21568628, 1)
+polygon = PackedVector2Array(-317, -74.961334, -352, -89, -352, 146, -317, 146.10199)
+
+[node name="Panel10" type="Panel" parent="map" unique_id=35272846]
+offset_left = -319.0
+offset_top = -19.0
+offset_right = 327.0
+offset_bottom = -13.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel11" type="Panel" parent="map" unique_id=626827440]
+offset_left = -323.0
+offset_top = 42.0
+offset_right = 326.0
+offset_bottom = 47.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel12" type="Panel" parent="map" unique_id=1714250482]
+offset_left = -321.0
+offset_top = 101.0
+offset_right = 326.0
+offset_bottom = 106.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel8" type="Panel" parent="map" unique_id=1961210211]
+offset_left = -328.0
+offset_top = -81.0
+offset_right = -316.0
+offset_bottom = 230.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel13" type="Panel" parent="map" unique_id=412627965]
+offset_left = 316.0
+offset_top = -80.0
+offset_right = 328.0
+offset_bottom = 213.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel9" type="Panel" parent="map" unique_id=1836986629]
+offset_left = 316.29736
+offset_top = -83.0
+offset_right = 328.29736
+offset_bottom = 551.9792
+rotation = 1.5707964
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel14" type="Panel" parent="map" unique_id=540929500]
+offset_left = 316.29736
+offset_top = -19.0
+offset_right = 328.29736
+offset_bottom = 615.9792
+rotation = 1.5707964
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel15" type="Panel" parent="map" unique_id=1997515769]
+offset_left = 316.29736
+offset_top = 40.0
+offset_right = 328.29736
+offset_bottom = 674.9792
+rotation = 1.5707964
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel16" type="Panel" parent="map" unique_id=1053383160]
+offset_left = 316.29736
+offset_top = 97.0
+offset_right = 328.29736
+offset_bottom = 731.9792
+rotation = 1.5707964
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b38g1")
+
+[node name="Panel" type="Panel" parent="map" unique_id=247085247]
+visible = false
+offset_left = -372.0
+offset_top = 162.0
+offset_right = 372.0
+offset_bottom = 294.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x8qbx")
+
+[node name="Polygon2D" type="Polygon2D" parent="map" unique_id=2095958560]
+visible = false
+position = Vector2(0, 24)
+color = Color(0.34509805, 0.1882353, 0.07058824, 1)
+polygon = PackedVector2Array(-371, 140, -323, 93, 326, 93, 371, 141)
+
+[node name="Polygon2D3" type="Polygon2D" parent="map" unique_id=1167848298]
+position = Vector2(6.834839, 4.2812657)
+scale = Vector2(1.0183486, 1.0312501)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-318.982, -73.00001, -318.982, -84.63637, -420, -137, -427.00003, -125.36364)
+
+[node name="Polygon2D4" type="Polygon2D" parent="map" unique_id=935657167]
+position = Vector2(0, 1)
+color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
+
+[node name="Polygon2D7" type="Polygon2D" parent="map" unique_id=1519664906]
+position = Vector2(6.834839, 68.281265)
+scale = Vector2(1.0183486, 1.0312501)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-318.982, -73.00001, -318.982, -84.63637, -420, -137, -427.00003, -125.36364)
+
+[node name="Polygon2D8" type="Polygon2D" parent="map" unique_id=1211983275]
+position = Vector2(0, 65)
+color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
+
+[node name="Polygon2D9" type="Polygon2D" parent="map" unique_id=1882219114]
+position = Vector2(6.834839, 127.281265)
+scale = Vector2(1.0183486, 1.0312501)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-318.982, -73.00001, -318.982, -84.63637, -420, -137, -427.00003, -125.36364)
+
+[node name="Polygon2D10" type="Polygon2D" parent="map" unique_id=1141046481]
+position = Vector2(0, 124)
+color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
+
+[node name="Polygon2D11" type="Polygon2D" parent="map" unique_id=740373819]
+position = Vector2(6.834839, 184.28127)
+scale = Vector2(1.0183486, 1.0312501)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-318.982, -73.00001, -318.982, -84.63637, -420, -137, -427.00003, -125.36364)
+
+[node name="Polygon2D12" type="Polygon2D" parent="map" unique_id=2051262437]
+position = Vector2(0, 181)
+color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
+
+[node name="Polygon2D5" type="Polygon2D" parent="map" unique_id=1744317459]
+position = Vector2(-8.999992, 4)
+scale = Vector2(-1.018, 1.031)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-318.982, -73.00001, -318.982, -84.63637, -420, -137, -427.00003, -125.36364)
+
+[node name="Polygon2D6" type="Polygon2D" parent="map" unique_id=1657667820]
+position = Vector2(-3, 1)
+scale = Vector2(-1, 1)
+color = Color(0.64705884, 0.42352942, 0.30588236, 1)
+polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
+
+[node name="GeminiGeneratedImage941Mf941Mf941Mf9" type="Sprite2D" parent="." unique_id=1995632556]
+visible = false
+position = Vector2(6.9999332, -0.99999845)
+scale = Vector2(0.54687494, 0.54687494)
+texture = ExtResource("3_0s8j8")
+
+[node name="GeminiGeneratedImageQjje8Cqjje8Cqjje" type="Sprite2D" parent="." unique_id=167374348]
+visible = false
+position = Vector2(6.9166956, -0.7500031)
+scale = Vector2(0.546224, 0.546224)
+texture = ExtResource("2_qvp34")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=228772203]
+ignore_rotation = false
+zoom = Vector2(1.74, 1.74)
+
+[node name="down" type="Node2D" parent="." unique_id=198890604]
+position = Vector2(-310, 268)
+
+[node name="Panel19" type="Panel" parent="down" unique_id=446558004]
+offset_left = 186.0
+offset_top = -150.0
+offset_right = 578.0
+offset_bottom = -91.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bx1rb")
+
+[node name="Panel20" type="Panel" parent="down" unique_id=1699765406]
+offset_left = 76.0
+offset_top = -150.0
+offset_right = 438.0
+offset_bottom = -91.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jenpt")
+
+[node name="Panel21" type="Panel" parent="down" unique_id=1789762511]
+offset_left = 33.0
+offset_top = -92.0
+offset_right = 621.0
+offset_bottom = -77.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ymk1g")
+
+[node name="hole" type="Node2D" parent="down" unique_id=1140358515]
+position = Vector2(-201, 83)
+
+[node name="Panel22" type="Panel" parent="down/hole" unique_id=2140241202]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel23" type="Panel" parent="down/hole" unique_id=1717928271]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole2" type="Node2D" parent="down" unique_id=1747044142]
+position = Vector2(-169, 56)
+
+[node name="Panel22" type="Panel" parent="down/hole2" unique_id=1983906007]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole2" unique_id=1889788712]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole3" type="Node2D" parent="down" unique_id=577557953]
+position = Vector2(-92, 83)
+
+[node name="Panel22" type="Panel" parent="down/hole3" unique_id=2069126252]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole3" unique_id=1007547356]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole8" type="Node2D" parent="down" unique_id=1684069857]
+position = Vector2(115, 83)
+
+[node name="Panel22" type="Panel" parent="down/hole8" unique_id=854916611]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole8" unique_id=1349900341]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole10" type="Node2D" parent="down" unique_id=1582727395]
+position = Vector2(214, 83)
+
+[node name="Panel22" type="Panel" parent="down/hole10" unique_id=1981537781]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole10" unique_id=1977964315]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole4" type="Node2D" parent="down" unique_id=508755631]
+position = Vector2(-78, 56)
+
+[node name="Panel22" type="Panel" parent="down/hole4" unique_id=1175438432]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole4" unique_id=1310973618]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole7" type="Node2D" parent="down" unique_id=2048856213]
+position = Vector2(101, 56)
+
+[node name="Panel22" type="Panel" parent="down/hole7" unique_id=1103341044]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole7" unique_id=1420352775]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole9" type="Node2D" parent="down" unique_id=1699234470]
+position = Vector2(191, 56)
+
+[node name="Panel22" type="Panel" parent="down/hole9" unique_id=937665485]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole9" unique_id=727223996]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole5" type="Node2D" parent="down" unique_id=740080902]
+position = Vector2(12, 83)
+
+[node name="Panel22" type="Panel" parent="down/hole5" unique_id=587191831]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole5" unique_id=1071520737]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="hole6" type="Node2D" parent="down" unique_id=89516618]
+position = Vector2(11, 56)
+
+[node name="Panel22" type="Panel" parent="down/hole6" unique_id=412380809]
+offset_left = 278.0
+offset_top = -199.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jenpt")
+
+[node name="Panel23" type="Panel" parent="down/hole6" unique_id=1168786069]
+offset_left = 278.0
+offset_top = -196.0
+offset_right = 356.0
+offset_bottom = -180.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xdj3n")
+
+[node name="Panel4" type="Panel" parent="down" unique_id=728541678]
+visible = false
+offset_left = -33.0
+offset_top = -78.0
+offset_right = 38.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ceata")
+
+[node name="Panel8" type="Panel" parent="down" unique_id=1570602440]
+offset_left = 176.0
+offset_top = -78.0
+offset_right = 247.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ceata")
+
+[node name="Panel10" type="Panel" parent="down" unique_id=1756347894]
+offset_left = 319.0
+offset_top = -78.0
+offset_right = 399.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ceata")
+
+[node name="Panel15" type="Panel" parent="down" unique_id=679384646]
+offset_left = 550.0
+offset_top = -78.0
+offset_right = 621.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ceata")
+
+[node name="Panel5" type="Panel" parent="down" unique_id=1195850484]
+offset_left = 33.0
+offset_top = -78.0
+offset_right = 108.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ef2en")
+
+[node name="Panel9" type="Panel" parent="down" unique_id=2050068031]
+offset_left = 246.0
+offset_top = -78.0
+offset_right = 320.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ef2en")
+
+[node name="Panel13" type="Panel" parent="down" unique_id=1448666727]
+offset_left = 398.0
+offset_top = -78.0
+offset_right = 475.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ef2en")
+
+[node name="Panel14" type="Panel" parent="down" unique_id=108322315]
+visible = false
+offset_left = 595.0
+offset_top = -78.0
+offset_right = 666.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ef2en")
+
+[node name="Panel6" type="Panel" parent="down" unique_id=619527569]
+offset_left = 106.0
+offset_top = -78.0
+offset_right = 177.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqhny")
+
+[node name="Panel11" type="Panel" parent="down" unique_id=1486181492]
+offset_left = 474.0
+offset_top = -78.0
+offset_right = 551.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqhny")
+
+[node name="Panel12" type="Panel" parent="down" unique_id=910087155]
+visible = false
+offset_left = 665.0
+offset_top = -78.0
+offset_right = 736.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqhny")
+
+[node name="Panel7" type="Panel" parent="down" unique_id=1292283825]
+visible = false
+offset_left = -103.0
+offset_top = -78.0
+offset_right = -32.0
+offset_bottom = 156.0
+layout_direction = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oqhny")

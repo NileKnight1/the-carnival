@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1yanbgqwds81" path="res://scripts/shooter.gd" id="1_gt117"]
 [ext_resource type="PackedScene" uid="uid://b1e7p7ibwdlhh" path="res://scenes/target.tscn" id="2_1e8ai"]
+[ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="2_xxh7r"]
 [ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="4_mger4"]
 [ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="5_ok5ye"]
 [ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="6_ld1l8"]
@@ -61,6 +62,9 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdxto"]
+bg_color = Color(0, 0, 0, 0.57254905)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bekt7"]
 bg_color = Color(0.0049294494, 0.068595685, 0.13477832, 1)
@@ -245,6 +249,13 @@ position = Vector2(10, 82)
 shape = SubResource("RectangleShape2D_vlew8")
 
 [node name="map" type="Node2D" parent="." unique_id=474861679]
+
+[node name="PointLight2D" type="PointLight2D" parent="map" unique_id=1880403126]
+position = Vector2(10.25, 100)
+scale = Vector2(1.0168171, 1.3921568)
+energy = 0.9
+blend_mode = 1
+texture = ExtResource("2_xxh7r")
 
 [node name="Panel4" type="Panel" parent="map" unique_id=640951407]
 visible = false
@@ -607,10 +618,10 @@ texture = ExtResource("6_xxh7r")
 
 [node name="shots" type="Node2D" parent="." unique_id=351580672]
 
-[node name="Node2D3" type="Node2D" parent="." unique_id=295320954]
+[node name="down" type="Node2D" parent="." unique_id=295320954]
 position = Vector2(-310, 255)
 
-[node name="Panel16" type="Panel" parent="Node2D3" unique_id=1130583843]
+[node name="Panel16" type="Panel" parent="down" unique_id=1130583843]
 offset_left = -94.0
 offset_top = -106.0
 offset_right = 708.0
@@ -619,7 +630,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ld1l8")
 
-[node name="Panel4" type="Panel" parent="Node2D3" unique_id=1541359597]
+[node name="Panel4" type="Panel" parent="down" unique_id=1541359597]
 offset_left = -33.0
 offset_top = -78.0
 offset_right = 38.0
@@ -628,7 +639,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xxh7r")
 
-[node name="Panel8" type="Panel" parent="Node2D3" unique_id=1417885782]
+[node name="Panel8" type="Panel" parent="down" unique_id=1417885782]
 offset_left = 176.0
 offset_top = -78.0
 offset_right = 247.0
@@ -637,7 +648,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xxh7r")
 
-[node name="Panel10" type="Panel" parent="Node2D3" unique_id=44244430]
+[node name="Panel10" type="Panel" parent="down" unique_id=44244430]
 offset_left = 315.0
 offset_top = -78.0
 offset_right = 386.0
@@ -646,7 +657,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xxh7r")
 
-[node name="Panel15" type="Panel" parent="Node2D3" unique_id=575661543]
+[node name="Panel15" type="Panel" parent="down" unique_id=575661543]
 offset_left = 525.0
 offset_top = -78.0
 offset_right = 596.0
@@ -655,7 +666,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xxh7r")
 
-[node name="Panel5" type="Panel" parent="Node2D3" unique_id=1758475405]
+[node name="Panel5" type="Panel" parent="down" unique_id=1758475405]
 offset_left = 37.0
 offset_top = -78.0
 offset_right = 108.0
@@ -664,7 +675,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ts0hh")
 
-[node name="Panel9" type="Panel" parent="Node2D3" unique_id=572384502]
+[node name="Panel9" type="Panel" parent="down" unique_id=572384502]
 offset_left = 246.0
 offset_top = -78.0
 offset_right = 317.0
@@ -673,7 +684,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ts0hh")
 
-[node name="Panel13" type="Panel" parent="Node2D3" unique_id=1542535495]
+[node name="Panel13" type="Panel" parent="down" unique_id=1542535495]
 offset_left = 385.0
 offset_top = -78.0
 offset_right = 456.0
@@ -682,7 +693,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ts0hh")
 
-[node name="Panel14" type="Panel" parent="Node2D3" unique_id=663925257]
+[node name="Panel14" type="Panel" parent="down" unique_id=663925257]
 offset_left = 595.0
 offset_top = -78.0
 offset_right = 666.0
@@ -691,7 +702,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ts0hh")
 
-[node name="Panel6" type="Panel" parent="Node2D3" unique_id=730104988]
+[node name="Panel6" type="Panel" parent="down" unique_id=730104988]
 offset_left = 106.0
 offset_top = -78.0
 offset_right = 177.0
@@ -700,7 +711,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qut8p")
 
-[node name="Panel11" type="Panel" parent="Node2D3" unique_id=51640802]
+[node name="Panel11" type="Panel" parent="down" unique_id=51640802]
 offset_left = 455.0
 offset_top = -78.0
 offset_right = 526.0
@@ -709,7 +720,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qut8p")
 
-[node name="Panel12" type="Panel" parent="Node2D3" unique_id=931473651]
+[node name="Panel12" type="Panel" parent="down" unique_id=931473651]
 offset_left = 665.0
 offset_top = -78.0
 offset_right = 736.0
@@ -718,7 +729,7 @@ layout_direction = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qut8p")
 
-[node name="Panel7" type="Panel" parent="Node2D3" unique_id=1641396464]
+[node name="Panel7" type="Panel" parent="down" unique_id=1641396464]
 offset_left = -103.0
 offset_top = -78.0
 offset_right = -32.0
@@ -728,6 +739,13 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qut8p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1347458397]
+
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=453030420]
+visible = false
+offset_right = 1282.0
+offset_bottom = 719.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdxto")
 
 [node name="time" type="Label" parent="CanvasLayer" unique_id=261547070]
 visible = false
