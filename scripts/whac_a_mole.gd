@@ -17,28 +17,33 @@ func play_sound(sound, vol = 0.0):
 
 var current_targets = 0
 
+@onready var hammer = $CanvasLayer/hammer
+
 func _process(delta: float) -> void:
 	var mouse_x = get_global_mouse_position().x
 	var mouse_y = get_global_mouse_position().y
-
+	#print(mouse_x)
+	print(mouse_y)
 	# حركات المسدس
-	#gun.rotation = remap(mouse_y, -45, 110, 5.9, 6.3)
-	#gun.position.x = remap(mouse_x, -320, -15, -50, 396.0)
+	#hammer.rotation = remap(mouse_y, -45, 110, 5.9, 6.3)
+	#hammer.position.x = remap(mouse_x, 73, 1200, -360, 350)
+	hammer.position.x = remap(mouse_x, -367, 367, 13, 1288)
+	hammer.position.y = remap(mouse_y, -207, 207, 35, 750)
+	
+	
 
 func _ready() -> void:
 	#gun.visible = 0
-	#$CanvasLayer/dark.visible = 1
-	#$CanvasLayer/start_menu.visible = 1
-	#$CanvasLayer/score.visible = 0
-	#$CanvasLayer/highest.visible = 1
-	spawn_target()
-	spawn_target()
-	spawn_target()
-	spawn_target()
-	spawn_target()
-	spawn_target()
-	
-	
+	$CanvasLayer/dark.visible = 1
+	$CanvasLayer/start_menu.visible = 1
+	$CanvasLayer/score.visible = 0
+	$CanvasLayer/highest.visible = 1
+	#spawn_target()
+	#spawn_target()
+	#spawn_target()
+	#spawn_target()
+	#spawn_target()
+	#spawn_target()
 	
 	pass
 	

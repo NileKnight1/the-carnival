@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://chjrkhhhs3gli" path="res://scenes/wac_a_mole_target.tscn" id="4_0s8j8"]
 [ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="5_5ov4v"]
 [ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="6_b38g1"]
-[ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="7_x8qbx"]
+[ext_resource type="Texture2D" uid="uid://dhb5uu71nk6tk" path="res://assets/2584987-middle-removebg-preview.png" id="7_b38g1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s8j8"]
 bg_color = Color(0.38410872, 0.31069958, 0.027248407, 1)
@@ -721,7 +721,7 @@ ignore_rotation = false
 zoom = Vector2(1.74, 1.74)
 
 [node name="down" type="Node2D" parent="." unique_id=198890604]
-position = Vector2(-310, 231)
+position = Vector2(-334, 231)
 
 [node name="Panel19" type="Panel" parent="down" unique_id=446558004]
 offset_left = 186.0
@@ -1212,14 +1212,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_tfuj0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dtw7n")
 text = "Leave"
 
-[node name="341994" type="Sprite2D" parent="CanvasLayer" unique_id=1693734761]
-position = Vector2(-125, 718)
-scale = Vector2(0.57760143, 0.5776014)
-texture = ExtResource("7_x8qbx")
+[node name="hammer" type="Sprite2D" parent="CanvasLayer" unique_id=6087050]
+position = Vector2(1288, 750.00006)
+scale = Vector2(0.36234593, 0.3623459)
+texture = ExtResource("7_b38g1")
 
-[node name="smoke" type="GPUParticles2D" parent="CanvasLayer/341994" unique_id=1188650540]
-position = Vector2(268.35114, -393.0046)
-scale = Vector2(1.7312977, 1.7312979)
+[node name="smoke" type="GPUParticles2D" parent="CanvasLayer/hammer" unique_id=1188650540]
+position = Vector2(-1422.537, -193.4328)
+scale = Vector2(1.3432833, 1.3432834)
 emitting = false
 texture = SubResource("GradientTexture2D_vq0k2")
 lifetime = 3.0
@@ -1227,8 +1227,25 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ca1oo")
 
-[node name="light" type="PointLight2D" parent="CanvasLayer/341994" unique_id=1248192912]
+[node name="light" type="PointLight2D" parent="CanvasLayer/hammer" unique_id=1248192912]
 visible = false
-position = Vector2(261.42593, -351.45346)
+position = Vector2(-1427.91, -161.19403)
+scale = Vector2(0.77588236, 0.77588236)
 energy = 13.56
 texture = SubResource("GradientTexture2D_e3qrb")
+
+[node name="Label" type="Label" parent="CanvasLayer/hammer" unique_id=1658067085]
+offset_left = -38.637115
+offset_top = -171.10722
+offset_right = -16.637115
+offset_bottom = -61.107224
+theme_override_font_sizes/font_size = 80
+text = "."
+
+[node name="game_time" type="Timer" parent="." unique_id=1791183328]
+
+[connection signal="pressed" from="CanvasLayer/start_menu/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/start_menu/leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="CanvasLayer/restart_menu/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/restart_menu/leave" to="." method="_on_leave_pressed"]
+[connection signal="timeout" from="game_time" to="." method="_on_game_time_timeout"]

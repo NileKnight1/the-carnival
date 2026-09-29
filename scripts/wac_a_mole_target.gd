@@ -22,9 +22,9 @@ func _process(delta: float) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if check_click(event):
 		game.target_hit()
-		#game.handeled = 1
-		#game.current_targets -= 1
-		#game.targets_list[id] = 0
+		game.handeled = 1
+		game.current_targets -= 1
+		game.targets_list[id] = 0
 		$Area2D/CollisionShape2D.set_deferred("disabled", 1)
 		$hit.visible = 1
 		await get_tree().create_timer(0.05).timeout
