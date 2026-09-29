@@ -1,7 +1,7 @@
 extends Node2D
 
 var sound_start = preload("res://audio/start.mp3")
-var sound_shot = preload("res://audio/dragon-studio-gunshot-504030.mp3")
+var sound_hammer = preload("res://audio/universfield-hammer-steel-impact-454390.mp3")
 var sound_game_over = preload("res://audio/universfield-game-over-deep-male-voice-clip-352695.mp3")
 var sound_pop = preload("res://audio/universfield-bubble-pop-06-351337.mp3")
 
@@ -23,21 +23,33 @@ func _process(delta: float) -> void:
 	var mouse_x = get_global_mouse_position().x
 	var mouse_y = get_global_mouse_position().y
 	#print(mouse_x)
-	print(mouse_y)
+	#print(mouse_y)
 	# حركات المسدس
 	#hammer.rotation = remap(mouse_y, -45, 110, 5.9, 6.3)
 	#hammer.position.x = remap(mouse_x, 73, 1200, -360, 350)
-	hammer.position.x = remap(mouse_x, -367, 367, 13, 1288)
-	hammer.position.y = remap(mouse_y, -207, 207, 35, 750)
-	
+	hammer.position.x = remap(mouse_x, -367, 367, 58, 1332.0)
+	hammer.position.y = remap(mouse_y, -207, 207, -9.0, 705)
 	
 
 func _ready() -> void:
-	#gun.visible = 0
+	hammer.visible = 0
 	$CanvasLayer/dark.visible = 1
 	$CanvasLayer/start_menu.visible = 1
 	$CanvasLayer/score.visible = 0
 	$CanvasLayer/highest.visible = 1
+	
+	var areas = [
+		
+	]
+	
+	
+	for i in $down/holes.get_children():
+		areas.append(i.get_node("hole"))
+		#buttons[i].toggled.connect(_on_bat_colours_toggled.bind(i))
+	
+	for i in areas.size():
+		areas[i].input_event.connect(_on_hole_input_event.bind(i))
+	
 	#spawn_target()
 	#spawn_target()
 	#spawn_target()
@@ -58,7 +70,9 @@ func _on_target_test_input_event(viewport: Node, event: InputEvent, shape_idx: i
 		print()
 
 func start_game():
-	#gun.visible = 1
+	time = 30
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	hammer.visible = 1
 	play_sound(sound_start)
 	$CanvasLayer/dark.visible = 0
 	$CanvasLayer/start_menu.visible = 0
@@ -75,15 +89,18 @@ func start_game():
 
 var game_running = 0
 
+
 func game_over():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	play_sound(sound_game_over)
-	#gun.visible = 0
+	hammer.visible = 0
 	$CanvasLayer/dark.visible = 1
 	$CanvasLayer/restart_menu.visible = 1
 	game_running = 0
 	$game_time.stop()
-	for i in $targets.get_children():
-		i.queue_free()
+	for i in $down/holes.get_children():
+		if i.get_node("mask").get_child_count() > 1:
+			i.get_node("mask").get_child(1).queue_free()
 
 var max_targets = 1
 
@@ -113,7 +130,7 @@ func spawn_target():
 	print(temp)
 	
 	temp.game = self
-	temp.template = 0
+	#temp.template = 0
 	var tempx = temp.position.y
 	
 	var tween = create_tween()
@@ -151,9 +168,12 @@ func update_score():
 	var tween = create_tween()
 	tween.tween_property($CanvasLayer/score, "scale", Vector2(1.05,1.05), 0.1)
 	tween.tween_property($CanvasLayer/score, "scale", Vector2(1,1), 0.1)
-	
+
+var hitting = 0
 func shoot():
-	play_sound(sound_shot)
+	play_sound(sound_hammer)
+	hammer.rotation = deg_to_rad(-47.8)
+	hitting = 1
 	
 	#var temp = gun.get_node("smoke").duplicate()
 	
@@ -165,7 +185,9 @@ func shoot():
 	#await get_tree().create_timer(0.1).timeout
 	#$"CanvasLayer/341994/light".visible = 0
 	
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(0.5).timeout
+	hammer.rotation = 0
+	hitting = 0
 	#temp.queue_free()
 	
 
@@ -234,3 +256,13 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		
 		await get_tree().create_timer(3).timeout
 		$shots.get_child(0).queue_free()
+
+
+func _on_hole_input_event(viewport: Node, event: InputEvent, shape_idx: int, i: int) -> void:
+	if check_click(event) && !hitting:
+		if $down/holes.get_child(i).get_node("mask").get_child_count() > 1:
+			print("presseed", i)
+			$down/holes.get_child(i).get_node("mask").get_child(1).hit()
+		else:
+			miss_hit()
+			print("missed")

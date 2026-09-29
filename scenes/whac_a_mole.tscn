@@ -103,6 +103,9 @@ fill_to = Vector2(0.4764151, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ov4v"]
 texture = SubResource("GradientTexture2D_xdj3n")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b38g1"]
+height = 78.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ceata"]
 bg_color = Color(0.75686276, 0.52156866, 0.25490198, 1)
 border_width_left = 1
@@ -788,6 +791,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 [node name="target" parent="down/holes/hole/mask" unique_id=1318577958 instance=ExtResource("4_0s8j8")]
 position = Vector2(38, 58)
 
+[node name="hole" type="Area2D" parent="down/holes/hole" unique_id=2030397851]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down/holes/hole/hole" unique_id=1688425467]
+position = Vector2(317, -190)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b38g1")
+
 [node name="hole2" type="Node2D" parent="down/holes" unique_id=1067332437]
 position = Vector2(-430, 324)
 
@@ -822,6 +832,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
 [node name="target" parent="down/holes/hole2/mask" unique_id=772656012 instance=ExtResource("4_0s8j8")]
 position = Vector2(38, 58)
+
+[node name="hole" type="Area2D" parent="down/holes/hole2" unique_id=1414208843]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down/holes/hole2/hole" unique_id=1153142488]
+position = Vector2(317, -190)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b38g1")
 
 [node name="hole3" type="Node2D" parent="down/holes" unique_id=506365185]
 position = Vector2(-352, 351)
@@ -858,6 +875,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 [node name="target" parent="down/holes/hole3/mask" unique_id=343075673 instance=ExtResource("4_0s8j8")]
 position = Vector2(38, 58)
 
+[node name="hole" type="Area2D" parent="down/holes/hole3" unique_id=120944339]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down/holes/hole3/hole" unique_id=1290097520]
+position = Vector2(317, -190)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b38g1")
+
 [node name="hole4" type="Node2D" parent="down/holes" unique_id=830650580]
 position = Vector2(-271, 324)
 
@@ -892,6 +916,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
 [node name="target" parent="down/holes/hole4/mask" unique_id=973056310 instance=ExtResource("4_0s8j8")]
 position = Vector2(38, 58)
+
+[node name="hole" type="Area2D" parent="down/holes/hole4" unique_id=1596646233]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down/holes/hole4/hole" unique_id=1302421610]
+position = Vector2(317, -190)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b38g1")
 
 [node name="hole5" type="Node2D" parent="down/holes" unique_id=915359877]
 position = Vector2(-189, 351)
@@ -928,6 +959,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 [node name="target" parent="down/holes/hole5/mask" unique_id=323617778 instance=ExtResource("4_0s8j8")]
 position = Vector2(38, 58)
 
+[node name="hole" type="Area2D" parent="down/holes/hole5" unique_id=1549767371]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down/holes/hole5/hole" unique_id=1582080410]
+position = Vector2(317, -190)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b38g1")
+
 [node name="hole6" type="Node2D" parent="down/holes" unique_id=375035952]
 position = Vector2(-108, 324)
 
@@ -962,6 +1000,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5ov4v")
 
 [node name="target" parent="down/holes/hole6/mask" unique_id=1162432082 instance=ExtResource("4_0s8j8")]
 position = Vector2(38, 58)
+
+[node name="hole" type="Area2D" parent="down/holes/hole6" unique_id=1807717416]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down/holes/hole6/hole" unique_id=58399015]
+position = Vector2(317, -190)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_b38g1")
 
 [node name="targets" type="Node2D" parent="down" unique_id=116605197]
 position = Vector2(280, -232)
@@ -1213,7 +1258,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dtw7n")
 text = "Leave"
 
 [node name="hammer" type="Sprite2D" parent="CanvasLayer" unique_id=6087050]
-position = Vector2(1288, 750.00006)
+position = Vector2(66, 85)
 scale = Vector2(0.36234593, 0.3623459)
 texture = ExtResource("7_b38g1")
 
@@ -1235,10 +1280,10 @@ energy = 13.56
 texture = SubResource("GradientTexture2D_e3qrb")
 
 [node name="Label" type="Label" parent="CanvasLayer/hammer" unique_id=1658067085]
-offset_left = -38.637115
-offset_top = -171.10722
-offset_right = -16.637115
-offset_bottom = -61.107224
+offset_left = -162.82784
+offset_top = -46.916664
+offset_right = -140.82784
+offset_bottom = 63.083336
 theme_override_font_sizes/font_size = 80
 text = "."
 

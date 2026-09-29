@@ -107,6 +107,7 @@ func _ready() -> void:
 
 
 func start_game():
+	time = 30
 	gun.visible = 1
 	play_sound(sound_start)
 	$CanvasLayer/dark.visible = 0

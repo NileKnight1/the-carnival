@@ -21,6 +21,12 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if check_click(event):
+		hit()
+
+var hitting = 0
+func hit():
+	if !hitting:
+		hitting = 1
 		game.target_hit()
 		game.handeled = 1
 		game.current_targets -= 1
