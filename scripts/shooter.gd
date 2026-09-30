@@ -134,6 +134,8 @@ func game_over():
 	$game_time.stop()
 	for i in $targets.get_children():
 		i.queue_free()
+	
+	global.shooter_highest = score
 
 var max_targets = 1
 

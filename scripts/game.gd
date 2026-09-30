@@ -1,5 +1,17 @@
 extends Node2D
 
+var sound_retro_click = preload("res://audio/soundshelfstudio-ui-click-retro-514601.mp3")
+
+func play_sound(sound, vol = 0.0):
+	var temp = AudioStreamPlayer.new()
+	temp.stream = sound
+	temp.volume_db = vol
+	add_child(temp)
+	
+	temp.finished.connect(temp.queue_free)
+	temp.play()
+
+
 var game2_location
 var game3_location
 var game4_location
@@ -7,29 +19,29 @@ var game4_location
 # الي يضيف لعبة يعدل هنا بس
 func assign_games_data():
 	# game 2
-	$map/tent2.visible = 0
+	$map/tent2.visible = 1
 	$map/tent2/info/title.text = ""
 	$map/tent2/info/info2.text = ""
 	$map/tent2/info/info3.text = ""
 	#$map/tent2/info/image.texture = ""
-	game2_location = ""
+	game2_location = "scenes/whac_a_mole.tscn"
 	
 	# game 3
-	$map/tent3.visible = 0
+	$map/tent3.visible = 1
 	$map/tent3/info/title.text = "Game Title"
 	$map/tent3/info/info2.text = "Small desribtion."
 	$map/tent3/info/info3.text = "Highest score/etc"
 	#$map/tent3/info/image.texture = ""
-	game3_location = ""
+	game3_location = "scenes/pattern.tscn"
 	
 	# game 4
-	$map/tent4.visible = 0
-	$map/tent4/info/title.text = "Game Title"
-	$map/tent4/info/info2.text = "Small desribtion."
-	$map/tent4/info/info3.text = "Highest score/etc"
-	#$map/tent4/info/image.texture = ""
-	game4_location = ""
-	
+	#$map/tent4.visible = 0
+	#$map/tent4/info/title.text = "Game Title"
+	#$map/tent4/info/info2.text = "Small desribtion."
+	#$map/tent4/info/info3.text = "Highest score/etc"
+	##$map/tent4/info/image.texture = ""
+	#game4_location = ""
+	#
 
 func allow_move():
 	$player.move = 1
@@ -42,7 +54,11 @@ func _ready() -> void:
 	assign_games_data()
 	$CanvasLayer/black.visible = 1
 	$CanvasLayer/frame.visible = 1
-	final_game()
+	#final_game()
+	if global.patterns_won && global.wac_highest >= 20 && global.shooter_highest >= 20 && !global.ghost_defeated:
+		final_game()
+
+var ghost_fight = 0
 
 var tent2 = 0
 var tent3 = 0
@@ -66,6 +82,8 @@ func _process(delta: float) -> void:
 			hit_bar -= 1
 			if !hit_bar:
 				hit_tween.kill()
+				phase += 1
+				final_game()
 		else:
 			ghost_attack()
 
@@ -373,10 +391,18 @@ func _on_tent4_info_area_body_exited(body: Node2D) -> void:
 var hit_bar = 0
 var hit_tween
 func final_game():
+	ghost_fight = 1
+	disable_move()
 	$CanvasLayer/health.visible = 1
 	health = 3
 	$player/Camera2D.position = Vector2(154, -86)
 	$player.position = Vector2(-298, -223)
+	$map/Panel.visible = 1
+	
+	match phase:
+		1: finale_phase1()
+		2: finale_phase2()
+		3: finale_phase3()
 
 func finale_phase1():
 	$CanvasLayer/hit_bar.visible = 1
@@ -385,6 +411,8 @@ func finale_phase1():
 	hit_tween.tween_property($CanvasLayer/hit_bar/dash, "position:x", 510.0, 1.5)
 	hit_tween.tween_property($CanvasLayer/hit_bar/dash, "position:x", 776.0, 1.5)
 
+func finale_phase2():
+	auto_light()
 
 var health = 3
 func ghost_attack():
@@ -396,6 +424,9 @@ func ghost_attack():
 		hit_bar = 0
 
 
+func check_click(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		return 1
 func _on_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if check_click(event):
 		man_light(0)
@@ -408,3 +439,66 @@ func _on_button_3_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 func _on_button_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if check_click(event):
 		man_light(3)
+
+
+func light(index, wait = 1):
+	play_sound(sound_retro_click)
+	var node = $CanvasLayer/patterns.get_child(index)
+	print('lighted')
+	node.modulate = Color(2,2,2,1.0)
+	await get_tree().create_timer(0.6).timeout
+	node.modulate = Color(1,1,1,1.0)
+	if wait:
+		await get_tree().create_timer(0.6).timeout
+	
+
+var lightened = [
+	
+]
+
+var lighting_count = 5
+func auto_light():
+	pressed = 1
+	for i in range(lighting_count):
+		var temp = randi_range(0,3)
+		print(temp)
+		lightened.append(temp)
+		await light(temp)
+	print(lightened)
+	pressed = 0
+
+var phase = 1
+var pressed = 1
+
+func man_light(index):
+	if pressed: return
+	pressed = 1
+	await light(index, 0)
+	if index == lightened[0]:
+		lightened.remove_at(0)
+		print("correct")
+		if lightened == []:
+			await get_tree().create_timer(0.6).timeout
+			if lighting_count == 5:
+				print("here")
+				phase += 1
+				final_game()
+			else:
+				ghost_attack()
+		pressed = 0
+	else:
+		print("wrong")
+		lightened.clear()
+		auto_light()
+
+func finale_phase3():
+	$CanvasLayer/plushie.visible = 1
+	$CanvasLayer/health.visible = 0
+	
+	allow_move()
+	$map/Panel.visible = 0
+	$player/Camera2D.position = Vector2(0, -86)
+	$player.position = Vector2(-298, -223)
+	ghost_fight = 0
+	$CanvasLayer/dark.visible = 0
+	

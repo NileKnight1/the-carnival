@@ -117,6 +117,7 @@ func win():
 	$CanvasLayer/dark.visible = 1
 	$CanvasLayer/restart_menu.visible = 1
 	game_running = 0
+	global.patterns_won = 1
 	
 
 var game_running = 0

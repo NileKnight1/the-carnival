@@ -101,6 +101,9 @@ func game_over():
 	for i in $down/holes.get_children():
 		if i.get_node("mask").get_child_count() > 1:
 			i.get_node("mask").get_child(1).queue_free()
+	global.wac_highest = score
+
+
 
 var max_targets = 1
 
