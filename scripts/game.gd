@@ -106,8 +106,8 @@ func _on_tent_shooter_body_exited(body: Node2D) -> void:
 
 func _on_tent1_info_area_body_entered(body: Node2D) -> void:
 	if body.name == "player":
-		var tween_frame = create_tween()
-		tween_frame.tween_property($CanvasLayer/frame, "modulate:a", 1, 0.3)
+		#var tween_frame = create_tween()
+		#tween_frame.tween_property($CanvasLayer/frame, "modulate:a", 1, 0.3)
 		
 		
 		var tent = $map/shooter_tent/tent

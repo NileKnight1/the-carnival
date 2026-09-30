@@ -32,6 +32,7 @@ func _ready() -> void:
 	
 
 func start_game():
+	lighting_count = 1
 	print("start")
 	play_sound(sound_start)
 	$CanvasLayer/dark.visible = 0
@@ -116,10 +117,7 @@ func win():
 	$CanvasLayer/dark.visible = 1
 	$CanvasLayer/restart_menu.visible = 1
 	game_running = 0
-	$game_time.stop()
-	for i in $down/holes.get_children():
-		if i.get_node("mask").get_child_count() > 1:
-			i.get_node("mask").get_child(1).queue_free()
+	
 
 var game_running = 0
 func _on_start_pressed() -> void:

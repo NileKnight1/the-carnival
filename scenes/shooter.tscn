@@ -8,6 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="6_ld1l8"]
 [ext_resource type="Texture2D" uid="uid://06qhlq7xhnss" path="res://assets/Gunshot-PNG-Picture.png" id="6_xxh7r"]
 
+[sub_resource type="Gradient" id="Gradient_qut8p"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xxh7r"]
+gradient = SubResource("Gradient_qut8p")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.52991456, 0.99572647)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
 size = Vector2(1307, 743)
 
@@ -242,6 +251,18 @@ corner_radius_bottom_left = 1
 [node name="shooter" type="Node2D" unique_id=1990958596]
 script = ExtResource("1_gt117")
 
+[node name="dark" type="PointLight2D" parent="." unique_id=132965817]
+position = Vector2(0, 96.5)
+scale = Vector2(1, 1.3784313)
+blend_mode = 1
+texture = ExtResource("2_xxh7r")
+
+[node name="light" type="PointLight2D" parent="." unique_id=257442035]
+position = Vector2(0, 58.999996)
+scale = Vector2(18.34375, 10.875001)
+energy = 0.6
+texture = SubResource("GradientTexture2D_xxh7r")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=2081536226]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2055256411]
@@ -249,13 +270,6 @@ position = Vector2(10, 82)
 shape = SubResource("RectangleShape2D_vlew8")
 
 [node name="map" type="Node2D" parent="." unique_id=474861679]
-
-[node name="PointLight2D" type="PointLight2D" parent="map" unique_id=1880403126]
-position = Vector2(10.25, 100)
-scale = Vector2(1.0168171, 1.3921568)
-energy = 0.9
-blend_mode = 1
-texture = ExtResource("2_xxh7r")
 
 [node name="Panel4" type="Panel" parent="map" unique_id=640951407]
 visible = false

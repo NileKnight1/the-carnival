@@ -1,12 +1,22 @@
 [gd_scene format=3 uid="uid://cleerm0m2pfpw"]
 
 [ext_resource type="Script" uid="uid://d4agiw1423434" path="res://scripts/whac_a_mole.gd" id="1_o004m"]
+[ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="2_b38g1"]
 [ext_resource type="Texture2D" uid="uid://c37vjkxmde8t6" path="res://assets/Gemini_Generated_Image_qjje8cqjje8cqjje.png" id="2_qvp34"]
 [ext_resource type="Texture2D" uid="uid://ds0l746vnexum" path="res://assets/Gemini_Generated_Image_941mf941mf941mf9.png" id="3_0s8j8"]
 [ext_resource type="PackedScene" uid="uid://chjrkhhhs3gli" path="res://scenes/wac_a_mole_target.tscn" id="4_0s8j8"]
 [ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="5_5ov4v"]
 [ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="6_b38g1"]
 [ext_resource type="Texture2D" uid="uid://dhb5uu71nk6tk" path="res://assets/2584987-middle-removebg-preview.png" id="7_b38g1"]
+
+[sub_resource type="Gradient" id="Gradient_6c1nw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x8qbx"]
+gradient = SubResource("Gradient_6c1nw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.52991456, 0.99572647)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s8j8"]
 bg_color = Color(0.38410872, 0.31069958, 0.027248407, 1)
@@ -265,6 +275,18 @@ fill_to = Vector2(0.5347826, 0.8652174)
 
 [node name="whac_a_mole" type="Node2D" unique_id=197290000]
 script = ExtResource("1_o004m")
+
+[node name="dark" type="PointLight2D" parent="." unique_id=261677851]
+position = Vector2(0, 96.5)
+scale = Vector2(1, 1.3784313)
+blend_mode = 1
+texture = ExtResource("2_b38g1")
+
+[node name="light" type="PointLight2D" parent="." unique_id=1977669136]
+position = Vector2(0, 58.999996)
+scale = Vector2(12.312501, 7.2994046)
+energy = 0.4
+texture = SubResource("GradientTexture2D_x8qbx")
 
 [node name="map" type="Node2D" parent="." unique_id=212036147]
 
