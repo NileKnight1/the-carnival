@@ -42,6 +42,7 @@ func _ready() -> void:
 	assign_games_data()
 	$CanvasLayer/black.visible = 1
 	$CanvasLayer/frame.visible = 1
+	final_game()
 
 var tent2 = 0
 var tent3 = 0
@@ -58,7 +59,16 @@ func _process(delta: float) -> void:
 			await enter_game(game3_location)
 		if tent4:
 			await enter_game(game4_location)
-	
+	if Input.is_action_just_pressed("jump") && hit_bar:
+		#print("jump")
+		if $CanvasLayer/hit_bar/dash.position.x < 691 && $CanvasLayer/hit_bar/dash.position.x > 653:
+			print("correct")
+			hit_bar -= 1
+			if !hit_bar:
+				hit_tween.kill()
+		else:
+			ghost_attack()
+
 	$map/shooter_tent/info.position.x = remap($player.position.x, 320, 800, 90, -130)
 	$map/tent2/info.position.x = remap($player.position.x, 320, 800, 90, -130)
 	
@@ -359,4 +369,42 @@ func _on_tent4_info_area_body_exited(body: Node2D) -> void:
 		var tween = create_tween()
 		tween.tween_property(info, "scale", Vector2(1.1,1.1), 0.3)
 		tween.tween_property(info, "scale", Vector2(0,0), 0.1)
-		
+
+var hit_bar = 0
+var hit_tween
+func final_game():
+	$CanvasLayer/health.visible = 1
+	health = 3
+	$player/Camera2D.position = Vector2(154, -86)
+	$player.position = Vector2(-298, -223)
+
+func finale_phase1():
+	$CanvasLayer/hit_bar.visible = 1
+	hit_bar = 3
+	hit_tween = create_tween().set_loops()
+	hit_tween.tween_property($CanvasLayer/hit_bar/dash, "position:x", 510.0, 1.5)
+	hit_tween.tween_property($CanvasLayer/hit_bar/dash, "position:x", 776.0, 1.5)
+
+
+var health = 3
+func ghost_attack():
+	print("health--")
+	$CanvasLayer/health.get_child(health-1).get_child(0).visible = 0
+	health-=1
+	if health == 0:
+		hit_tween.kill()
+		hit_bar = 0
+
+
+func _on_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if check_click(event):
+		man_light(0)
+func _on_button_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if check_click(event):
+		man_light(1)
+func _on_button_3_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if check_click(event):
+		man_light(2)
+func _on_button_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if check_click(event):
+		man_light(3)
