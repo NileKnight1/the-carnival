@@ -11,13 +11,22 @@ func play_sound(sound, vol = 0.0):
 	temp.finished.connect(temp.queue_free)
 	temp.play()
 
-
+var game1_location
 var game2_location
 var game3_location
 var game4_location
 
 # الي يضيف لعبة يعدل هنا بس
 func assign_games_data():
+	# game 1
+	$map/tent1.visible = 1
+	$map/tent1/info/title.text = ""
+	$map/tent1/info/info2.text = ""
+	$map/tent1/info/info3.text = ""
+	#$map/tent1/info/image.texture = ""
+	game1_location = "scenes/shooter.tscn"
+	
+	
 	# game 2
 	$map/tent2.visible = 1
 	$map/tent2/info/title.text = ""
@@ -49,9 +58,66 @@ func disable_move():
 	$player.move = 0
 	
 
+#
+#var shooter_highest = 0
+#var wac_highest = 0
+#var patterns_won = 0
+#var ghost_defeated = 0
+#
+#var shooters_prize = 0
+#var wac_prize = 0
+#var patterns_prize = 0
+#
+
+
 func _ready() -> void:
+	var key = $CanvasLayer/rewards/key
+	var add_heart = $CanvasLayer/rewards/heart
+	
+	key.modulate.a = 0
+	
+	if global.chat1_done:
+		$map/stranger.visible = 0
+	
 	$CanvasLayer/subtitles.visible = 0
-	$CanvasLayer/subtitles/subtitle.text = "w"
+	$CanvasLayer/subtitles/subtitle.text = ""
+	
+	if global.shooter_highest > 20 && !global.shooters_prize:
+	#if 1:
+		disable_move()
+		await get_tree().create_timer(0.6).timeout
+		global.shooters_prize = 1
+		key.visible = 1
+		var temp = key.position.y
+		key.position.y -= 50
+		var tween = create_tween().set_parallel(true)
+		tween.tween_property(key, "position:y", key.position.y+50, 0.6)
+		tween.tween_property(key, "modulate:a", 1, 0.6)
+		allow_move()
+		
+		await get_tree().create_timer(3.0).timeout
+		tween = create_tween().set_parallel(true)
+		tween.tween_property(key, "position:y", key.position.y-50, 1)
+		tween.tween_property(key, "modulate:a", 0, 1)
+	
+	if global.shooter_highest > 20 && !global.shooters_prize:
+	#if 1:
+		disable_move()
+		await get_tree().create_timer(0.6).timeout
+		global.shooters_prize = 1
+		add_heart.visible = 1
+		var temp = add_heart.position.y
+		add_heart.position.y -= 50
+		var tween = create_tween().set_parallel(true)
+		tween.tween_property(add_heart, "position:y", add_heart.position.y+50, 0.6)
+		tween.tween_property(add_heart, "modulate:a", 1, 0.6)
+		allow_move()
+		
+		await get_tree().create_timer(3.0).timeout
+		tween = create_tween().set_parallel(true)
+		tween.tween_property(add_heart, "position:y", add_heart.position.y-50, 1)
+		tween.tween_property(add_heart, "modulate:a", 0, 1)
+	
 	allow_move()
 	assign_games_data()
 	$CanvasLayer/black.visible = 1
@@ -66,10 +132,9 @@ var tent2 = 0
 var tent3 = 0
 var tent4 = 0
 
-var can_play = 0
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Interact") && can_play:
+	if Input.is_action_just_pressed("Interact") && global.can_play:
 		if tent_shooter:
 			await enter_game("res://scenes/shooter.tscn")
 		if tent2:
@@ -92,7 +157,7 @@ func _process(delta: float) -> void:
 		else:
 			ghost_attack()
 
-	$map/shooter_tent/info.position.x = remap($player.position.x, 320, 800, 90, -130)
+	$map/tent1/info.position.x = remap($player.position.x, 320, 800, 90, -130)
 	$map/tent2/info.position.x = remap($player.position.x, 320, 800, 90, -130)
 	
 	#print($player.position)
@@ -117,10 +182,10 @@ var pulse3: Tween
 #############################################
 
 func _on_tent_shooter_body_entered(body: Node2D) -> void:
-	if body.name == "player" && can_play:
+	if body.name == "player" && global.can_play:
 		print("tent")
 		tent_shooter = 1
-		var e = $map/shooter_tent/e
+		var e = $map/tent1/e
 		var og_scale = e.scale.x
 		var tw_scale = e.scale.x + 0.04
 		e.visible = 1
@@ -132,19 +197,19 @@ func _on_tent_shooter_body_entered(body: Node2D) -> void:
 func _on_tent_shooter_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		tent_shooter = 0
-		$map/shooter_tent/e.visible = 0 
+		$map/tent1/e.visible = 0 
 		if pulse:
 			pulse.kill()
-		$map/shooter_tent/e.scale = Vector2(0.195, 0.195)
+		$map/tent1/e.scale = Vector2(0.195, 0.195)
 
 func _on_tent1_info_area_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && global.can_play:
 		#var tween_frame = create_tween()
 		#tween_frame.tween_property($CanvasLayer/frame, "modulate:a", 1, 0.3)
 		
 		
-		var tent = $map/shooter_tent/tent
-		var tent_up = $map/shooter_tent/tent_up
+		var tent = $map/tent1/tent
+		var tent_up = $map/tent1/tent_up
 		var og_scale = tent.scale.x
 		var tw_scale = tent.scale.x + 0.002
 		
@@ -158,24 +223,24 @@ func _on_tent1_info_area_body_entered(body: Node2D) -> void:
 		pulse3.tween_property(tent_up, "scale", Vector2(og_scale, og_scale), 0.3)
 		
 		
-		var info = $map/shooter_tent/info
+		var info = $map/tent1/info
 		info.visible = 1
 		info.scale = Vector2(0,0)
 		var tween = create_tween()
 		tween.tween_property(info, "scale", Vector2(1.1,1.1), 0.3)
 		tween.tween_property(info, "scale", Vector2(1,1), 0.1)
 func _on_tent1_info_area_body_exited(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" :
 		var tween_frame = create_tween()
 		tween_frame.tween_property($CanvasLayer/frame, "modulate:a", 0, 0.3)
 		
 		
-		$map/shooter_tent/tent.scale = Vector2(0.184, 0.184)
-		$map/shooter_tent/tent_up.scale = Vector2(0.184, 0.184)
-		pulse2.kill()
-		pulse3.kill()
+		$map/tent1/tent.scale = Vector2(0.184, 0.184)
+		$map/tent1/tent_up.scale = Vector2(0.184, 0.184)
+		if pulse2: pulse2.kill()
+		if pulse3: pulse3.kill()
 		
-		var info = $map/shooter_tent/info
+		var info = $map/tent1/info
 		var tween = create_tween()
 		tween.tween_property(info, "scale", Vector2(1.1,1.1), 0.3)
 		tween.tween_property(info, "scale", Vector2(0,0), 0.1)
@@ -186,7 +251,7 @@ func _on_tent1_info_area_body_exited(body: Node2D) -> void:
 #############################################
 
 func _on_tent2_body_entered(body: Node2D) -> void:
-	if body.name == "player" && can_play:
+	if body.name == "player" && global.can_play:
 		if !$map/tent2.visible: return
 		print("tent")
 		tent2 = 1
@@ -209,7 +274,7 @@ func _on_tent2_body_exited(body: Node2D) -> void:
 		$map/tent2/e.scale = Vector2(0.195, 0.195)
 
 func _on_tent2_info_area_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && global.can_play:
 		if !$map/tent2.visible: return
 		var tween_frame = create_tween()
 		tween_frame.tween_property($CanvasLayer/frame, "modulate:a", 1, 0.3)
@@ -242,8 +307,8 @@ func _on_tent2_info_area_body_exited(body: Node2D) -> void:
 		
 		$map/tent2/tent.scale = Vector2(0.184, 0.184)
 		$map/tent2/tent_up.scale = Vector2(0.184, 0.184)
-		pulse2.kill()
-		pulse3.kill()
+		if pulse2: pulse2.kill()
+		if pulse3: pulse3.kill()
 		
 		var info = $map/tent2/info
 		var tween = create_tween()
@@ -258,7 +323,7 @@ func _on_tent2_info_area_body_exited(body: Node2D) -> void:
 
 
 func _on_tent3_body_entered(body: Node2D) -> void:
-	if body.name == "player" && can_play:
+	if body.name == "player" && global.can_play:
 		if !$map/tent3.visible: return
 		print("tent")
 		tent3 = 1
@@ -281,7 +346,7 @@ func _on_tent3_body_exited(body: Node2D) -> void:
 		$map/tent3/e.scale = Vector2(0.195, 0.195)
 
 func _on_tent3_info_area_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && global.can_play:
 		if !$map/tent3.visible: return
 		var tween_frame = create_tween()
 		tween_frame.tween_property($CanvasLayer/frame, "modulate:a", 1, 0.3)
@@ -314,8 +379,8 @@ func _on_tent3_info_area_body_exited(body: Node2D) -> void:
 		
 		$map/tent3/tent.scale = Vector2(0.184, 0.184)
 		$map/tent3/tent_up.scale = Vector2(0.184, 0.184)
-		pulse2.kill()
-		pulse3.kill()
+		if pulse2: pulse2.kill()
+		if pulse3: pulse3.kill()
 		
 		var info = $map/tent3/info
 		var tween = create_tween()
@@ -329,7 +394,7 @@ func _on_tent3_info_area_body_exited(body: Node2D) -> void:
 
 
 func _on_tent4_body_entered(body: Node2D) -> void:
-	if body.name == "player" && can_play:
+	if body.name == "player" && global.can_play:
 		if !$map/tent4.visible: return
 		print("tent")
 		tent4 = 1
@@ -352,7 +417,7 @@ func _on_tent4_body_exited(body: Node2D) -> void:
 		$map/tent4/e.scale = Vector2(0.195, 0.195)
 
 func _on_tent4_info_area_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && global.can_play:
 		if !$map/tent4.visible: return
 		var tween_frame = create_tween()
 		tween_frame.tween_property($CanvasLayer/frame, "modulate:a", 1, 0.3)
@@ -385,8 +450,8 @@ func _on_tent4_info_area_body_exited(body: Node2D) -> void:
 		
 		$map/tent4/tent.scale = Vector2(0.184, 0.184)
 		$map/tent4/tent_up.scale = Vector2(0.184, 0.184)
-		pulse2.kill()
-		pulse3.kill()
+		if pulse2: pulse2.kill()
+		if pulse3: pulse3.kill()
 		
 		var info = $map/tent4/info
 		var tween = create_tween()
@@ -399,7 +464,7 @@ func final_game():
 	ghost_fight = 1
 	disable_move()
 	$CanvasLayer/health.visible = 1
-	health = 3
+	health = global.health
 	$player/Camera2D.position = Vector2(154, -86)
 	$player.position = Vector2(-298, -223)
 	$map/Panel.visible = 1
@@ -419,10 +484,10 @@ func finale_phase1():
 func finale_phase2():
 	auto_light()
 
-var health = 3
+var health = global.health
 func ghost_attack():
 	print("health--")
-	$CanvasLayer/health.get_child(health-1).get_child(0).visible = 0
+	$CanvasLayer/health.get_child(health-1).visible = 0
 	health-=1
 	if health == 0:
 		hit_tween.kill()
@@ -510,15 +575,25 @@ func finale_phase3():
 func _on_stranger_left_body_entered(body: Node2D) -> void:
 	if body == $player:
 		print("x")
-		if !chat1_done:
+		if !global.chat1_done:
 			stranger_chat1()
-			chat1_done = 1
+			global.can_play = 1
+			global.chat1_done = 1
 
 func _on_stranger_left_body_exited(body: Node2D) -> void:
 	if body == $player:
 		#print("xx")
 		#var tween = create_tween()
 		#tween.tween_property($map/Panel2, "position:y", )
+		$map/stranger.visible = 0
+
+func _on_stranger_right_body_entered(body: Node2D) -> void:
+	if body == $player:
+		if !global.chat1_done:
+			stranger_chat1()
+			global.chat1_done = 1
+func _on_stranger_right_body_exited(body: Node2D) -> void:
+	if body == $player:
 		$map/stranger.visible = 0
 
 
@@ -537,7 +612,6 @@ func stranger_chat1():
 var chat_i = 0
 var chatting = 0
 var cur_chat
-
 
 var chat_tween
 

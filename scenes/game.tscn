@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="8_gee14"]
 [ext_resource type="FontFile" uid="uid://tkwx1fq4f8bh" path="res://assets/Baloo2-Regular.ttf" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://2f0obm57ddlo" path="res://assets/40-407073_scary-teddy-bear-png-png-download-creepy-teddy-removebg-preview.png" id="10_vtaks"]
+[ext_resource type="Texture2D" uid="uid://5r6ao3cyaoey" path="res://assets/pngtree-golden-ornate-key-clipart-illustration-free-png-image_16893530-removebg-preview.png" id="11_kvpfn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
 bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
@@ -100,7 +101,7 @@ bg_color = Color(0.26953125, 0, 0, 1)
 bg_color = Color(0.040165443, 0.27058825, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vtaks"]
-radius = 130.18832
+radius = 116.03879
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 
@@ -153,24 +154,15 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvpfn"]
 bg_color = Color(0.63671875, 0.26861572, 0.26861572, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
-corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
-bg_color = Color(0.68359375, 0.68359375, 0.68359375, 1)
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvuet"]
@@ -311,18 +303,18 @@ offset_bottom = -713.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
 
-[node name="shooter_tent" type="Node2D" parent="map" unique_id=1798465129]
+[node name="tent1" type="Node2D" parent="map" unique_id=1798465129]
 
-[node name="outline" type="Polygon2D" parent="map/shooter_tent" unique_id=264854460]
+[node name="outline" type="Polygon2D" parent="map/tent1" unique_id=264854460]
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(393, 64, 389, 54, 392, 41, 398, 32, 405, 18, 408, 5, 410, -8, 410, -21, 410, -34, 410, -51, 411, -82, 412, -95, 412, -121, 411, -138, 402, -154, 401, -160, 401, -161, 409, -174, 413, -173, 425, -173, 460, -182, 470, -189, 484, -199, 495, -205, 501, -208, 524, -221, 531, -227, 540, -233, 561, -252, 568, -258, 578, -272, 581, -275, 586, -267, 592, -260, 600, -248, 607, -237, 614, -232, 622, -226, 637, -220, 652, -212, 663, -205, 675, -197, 682, -193, 689, -189, 709, -181, 723, -177, 731, -174, 743, -172, 756, -165, 760, -160, 760, -146, 748, -130, 746, -114, 745, -100, 745, -81, 748, -64, 748, -48, 751, -24, 754, -10, 756, 6, 757, 15, 758, 26, 761, 34, 766, 42, 770, 53, 767, 66, 757, 66, 736, 66, 726, 66, 702, 67, 693, 67, 680, 67, 664, 67, 646, 67, 631, 67)
 
-[node name="tent" type="Sprite2D" parent="map/shooter_tent" unique_id=22749175]
+[node name="tent" type="Sprite2D" parent="map/tent1" unique_id=22749175]
 position = Vector2(577.00006, -116.24997)
 scale = Vector2(0.18383332, 0.18383332)
 texture = ExtResource("2_lnu2h")
 
-[node name="tent_up" type="Sprite2D" parent="map/shooter_tent" unique_id=243822460]
+[node name="tent_up" type="Sprite2D" parent="map/tent1" unique_id=243822460]
 z_index = 1
 position = Vector2(575, -199.00002)
 scale = Vector2(0.18383332, 0.18383332)
@@ -330,31 +322,31 @@ texture = ExtResource("2_lnu2h")
 region_enabled = true
 region_rect = Rect2(-8.354492, 359.53436, 3000, 1388.1599)
 
-[node name="boundaries" type="StaticBody2D" parent="map/shooter_tent" unique_id=1804635632]
+[node name="boundaries" type="StaticBody2D" parent="map/tent1" unique_id=1804635632]
 light_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/boundaries" unique_id=1239048305]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/tent1/boundaries" unique_id=1239048305]
 position = Vector2(414, -128)
 shape = SubResource("SegmentShape2D_iywne")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="map/shooter_tent/boundaries" unique_id=1642846100]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="map/tent1/boundaries" unique_id=1642846100]
 position = Vector2(443, -93)
 shape = SubResource("SegmentShape2D_p57ef")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="map/shooter_tent/boundaries" unique_id=952012433]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="map/tent1/boundaries" unique_id=952012433]
 position = Vector2(728, -93)
 shape = SubResource("SegmentShape2D_lbhrr")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/shooter_tent/boundaries" unique_id=724746846]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/tent1/boundaries" unique_id=724746846]
 position = Vector2(421, 45)
 shape = SubResource("SegmentShape2D_vlew8")
 
-[node name="info" type="Node2D" parent="map/shooter_tent" unique_id=1751422141]
+[node name="info" type="Node2D" parent="map/tent1" unique_id=1751422141]
 visible = false
 z_index = 2
 position = Vector2(-131, -483)
 
-[node name="Panel" type="Panel" parent="map/shooter_tent/info" unique_id=1171898651]
+[node name="Panel" type="Panel" parent="map/tent1/info" unique_id=1171898651]
 clip_children = 2
 light_mask = 0
 offset_left = 506.7179
@@ -364,7 +356,7 @@ offset_bottom = 402.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
 
-[node name="Panel2" type="Panel" parent="map/shooter_tent/info/Panel" unique_id=1221994358]
+[node name="Panel2" type="Panel" parent="map/tent1/info/Panel" unique_id=1221994358]
 light_mask = 0
 layout_mode = 0
 offset_left = -14.7178955
@@ -374,7 +366,7 @@ offset_bottom = 156.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_u5sy4")
 
-[node name="title" type="Label" parent="map/shooter_tent/info" unique_id=315719677]
+[node name="title" type="Label" parent="map/tent1/info" unique_id=315719677]
 light_mask = 0
 offset_left = 540.0
 offset_top = 266.0
@@ -386,7 +378,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="info2" type="Label" parent="map/shooter_tent/info" unique_id=1521837626]
+[node name="info2" type="Label" parent="map/tent1/info" unique_id=1521837626]
 light_mask = 0
 offset_left = 530.0
 offset_top = 292.0
@@ -398,7 +390,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="info3" type="Label" parent="map/shooter_tent/info" unique_id=706835790]
+[node name="info3" type="Label" parent="map/tent1/info" unique_id=706835790]
 light_mask = 0
 offset_left = 517.0
 offset_top = 324.0
@@ -409,39 +401,39 @@ label_settings = SubResource("LabelSettings_gee14")
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="341994" type="Sprite2D" parent="map/shooter_tent/info" unique_id=601310776]
+[node name="341994" type="Sprite2D" parent="map/tent1/info" unique_id=601310776]
 light_mask = 0
 position = Vector2(528, 283.1552)
 scale = Vector2(0.039902948, 0.03461196)
 texture = ExtResource("4_u5sy4")
 
-[node name="info_area" type="Area2D" parent="map/shooter_tent" unique_id=1267499306]
+[node name="info_area" type="Area2D" parent="map/tent1" unique_id=1267499306]
 visible = false
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/shooter_tent/info_area" unique_id=3568702]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/tent1/info_area" unique_id=3568702]
 position = Vector2(573, -3)
 shape = SubResource("RectangleShape2D_p57ef")
 
-[node name="game_enter" type="Area2D" parent="map/shooter_tent" unique_id=347426594]
+[node name="game_enter" type="Area2D" parent="map/tent1" unique_id=347426594]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/shooter_tent/game_enter" unique_id=685017690]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/tent1/game_enter" unique_id=685017690]
 position = Vector2(577.5, 15)
 shape = SubResource("RectangleShape2D_lnu2h")
 
-[node name="e" type="Sprite2D" parent="map/shooter_tent" unique_id=2076556768]
+[node name="e" type="Sprite2D" parent="map/tent1" unique_id=2076556768]
 visible = false
 light_mask = 0
 position = Vector2(577, -37)
 scale = Vector2(0.19531249, 0.19531249)
 texture = ExtResource("4_p57ef")
 
-[node name="info_right" type="Node2D" parent="map/shooter_tent" unique_id=208840005]
+[node name="info_right" type="Node2D" parent="map/tent1" unique_id=208840005]
 visible = false
 z_index = 2
 position = Vector2(247, -457)
 
-[node name="Panel" type="Panel" parent="map/shooter_tent/info_right" unique_id=1964613904]
+[node name="Panel" type="Panel" parent="map/tent1/info_right" unique_id=1964613904]
 offset_left = 506.7179
 offset_top = 263.0
 offset_right = 686.0
@@ -449,7 +441,7 @@ offset_bottom = 402.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
 
-[node name="title" type="Label" parent="map/shooter_tent/info_right" unique_id=86557591]
+[node name="title" type="Label" parent="map/tent1/info_right" unique_id=86557591]
 offset_left = 515.0
 offset_top = 264.0
 offset_right = 681.0
@@ -460,7 +452,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="info2" type="Label" parent="map/shooter_tent/info_right" unique_id=1653018014]
+[node name="info2" type="Label" parent="map/tent1/info_right" unique_id=1653018014]
 offset_left = 531.0
 offset_top = 297.0
 offset_right = 665.0
@@ -471,12 +463,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="info_left" type="Node2D" parent="map/shooter_tent" unique_id=1884120604]
+[node name="info_left" type="Node2D" parent="map/tent1" unique_id=1884120604]
 visible = false
 z_index = 2
 position = Vector2(-289, -457)
 
-[node name="Panel" type="Panel" parent="map/shooter_tent/info_left" unique_id=996997244]
+[node name="Panel" type="Panel" parent="map/tent1/info_left" unique_id=996997244]
 offset_left = 506.7179
 offset_top = 263.0
 offset_right = 686.0
@@ -484,7 +476,7 @@ offset_bottom = 402.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
 
-[node name="title" type="Label" parent="map/shooter_tent/info_left" unique_id=1191054851]
+[node name="title" type="Label" parent="map/tent1/info_left" unique_id=1191054851]
 offset_left = 515.0
 offset_top = 264.0
 offset_right = 681.0
@@ -495,7 +487,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="info2" type="Label" parent="map/shooter_tent/info_left" unique_id=1664179506]
+[node name="info2" type="Label" parent="map/tent1/info_left" unique_id=1664179506]
 offset_left = 531.0
 offset_top = 297.0
 offset_right = 665.0
@@ -764,7 +756,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_trtic")
 [node name="left" type="Area2D" parent="map/stranger_area" unique_id=2047427654]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/stranger_area/left" unique_id=667096715]
-position = Vector2(-337, -673)
+position = Vector2(-363, -646)
+shape = SubResource("CircleShape2D_vtaks")
+
+[node name="right" type="Area2D" parent="map/stranger_area" unique_id=1095316361]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/stranger_area/right" unique_id=2066741990]
+position = Vector2(15, -653)
 shape = SubResource("CircleShape2D_vtaks")
 
 [node name="boundary" type="Node2D" parent="." unique_id=1981267331]
@@ -907,49 +905,26 @@ horizontal_alignment = 1
 visible = false
 
 [node name="heart" type="Panel" parent="CanvasLayer/health" unique_id=439115732]
-offset_left = 27.0
-offset_top = 28.0
-offset_right = 100.0
-offset_bottom = 101.0
+offset_left = 56.0
+offset_top = 44.0
+offset_right = 129.0
+offset_bottom = 117.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kvpfn")
-
-[node name="health" type="Panel" parent="CanvasLayer/health/heart" unique_id=1296855481]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 69.0
-offset_bottom = 69.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_dinhu")
 
 [node name="heart2" type="Panel" parent="CanvasLayer/health" unique_id=1772995961]
-offset_left = 106.0
-offset_top = 28.0
-offset_right = 179.0
-offset_bottom = 101.0
+offset_left = 165.0
+offset_top = 44.0
+offset_right = 238.0
+offset_bottom = 117.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kvpfn")
-
-[node name="health" type="Panel" parent="CanvasLayer/health/heart2" unique_id=496703847]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 69.0
-offset_bottom = 69.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_dinhu")
 
 [node name="heart3" type="Panel" parent="CanvasLayer/health" unique_id=559640471]
-offset_left = 186.0
-offset_top = 28.0
-offset_right = 259.0
-offset_bottom = 101.0
+visible = false
+offset_left = 279.0
+offset_top = 44.0
+offset_right = 352.0
+offset_bottom = 117.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kvpfn")
-
-[node name="health" type="Panel" parent="CanvasLayer/health/heart3" unique_id=1344178536]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 69.0
-offset_bottom = 69.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_dinhu")
 
 [node name="patterns" type="Node2D" parent="CanvasLayer" unique_id=480464376]
 visible = false
@@ -1019,10 +994,38 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(40, 40)
 shape = SubResource("RectangleShape2D_trtic")
 
-[connection signal="body_entered" from="map/shooter_tent/info_area" to="." method="_on_tent1_info_area_body_entered"]
-[connection signal="body_exited" from="map/shooter_tent/info_area" to="." method="_on_tent1_info_area_body_exited"]
-[connection signal="body_entered" from="map/shooter_tent/game_enter" to="." method="_on_tent_shooter_body_entered"]
-[connection signal="body_exited" from="map/shooter_tent/game_enter" to="." method="_on_tent_shooter_body_exited"]
+[node name="rewards" type="Node2D" parent="CanvasLayer" unique_id=209522083]
+
+[node name="key" type="Sprite2D" parent="CanvasLayer/rewards" unique_id=20765533]
+visible = false
+position = Vector2(636, 314)
+scale = Vector2(0.5480002, 0.5480002)
+texture = ExtResource("11_kvpfn")
+
+[node name="heart" type="Node2D" parent="CanvasLayer/rewards" unique_id=1262388708]
+visible = false
+
+[node name="heart3" type="Panel" parent="CanvasLayer/rewards/heart" unique_id=1777296447]
+offset_left = 637.0
+offset_top = 189.0
+offset_right = 710.0
+offset_bottom = 262.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kvpfn")
+
+[node name="Label" type="Label" parent="CanvasLayer/rewards/heart" unique_id=1377860252]
+offset_left = 594.0
+offset_top = 197.0
+offset_right = 634.0
+offset_bottom = 253.0
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("3_iywne")
+theme_override_font_sizes/font_size = 35
+text = "+1"
+
+[connection signal="body_entered" from="map/tent1/info_area" to="." method="_on_tent1_info_area_body_entered"]
+[connection signal="body_exited" from="map/tent1/info_area" to="." method="_on_tent1_info_area_body_exited"]
+[connection signal="body_entered" from="map/tent1/game_enter" to="." method="_on_tent_shooter_body_entered"]
+[connection signal="body_exited" from="map/tent1/game_enter" to="." method="_on_tent_shooter_body_exited"]
 [connection signal="body_entered" from="map/tent2/info_area" to="." method="_on_tent2_info_area_body_entered"]
 [connection signal="body_exited" from="map/tent2/info_area" to="." method="_on_tent2_info_area_body_exited"]
 [connection signal="body_entered" from="map/tent2/game_enter" to="." method="_on_tent2_body_entered"]
@@ -1033,6 +1036,8 @@ shape = SubResource("RectangleShape2D_trtic")
 [connection signal="body_exited" from="map/tent3/game_enter" to="." method="_on_tent3_body_exited"]
 [connection signal="body_entered" from="map/stranger_area/left" to="." method="_on_stranger_left_body_entered"]
 [connection signal="body_exited" from="map/stranger_area/left" to="." method="_on_stranger_left_body_exited"]
+[connection signal="body_entered" from="map/stranger_area/right" to="." method="_on_stranger_right_body_entered"]
+[connection signal="body_exited" from="map/stranger_area/right" to="." method="_on_stranger_right_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]
