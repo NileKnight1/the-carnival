@@ -96,6 +96,12 @@ size = Vector2(225, 204)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
 bg_color = Color(0.26953125, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trtic"]
+bg_color = Color(0.040165443, 0.27058825, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtaks"]
+radius = 130.18832
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 
 [sub_resource type="Gradient" id="Gradient_w8fan"]
@@ -121,6 +127,9 @@ fill_from = Vector2(0.510101, 0.4949495)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0tnpc"]
 texture = SubResource("GradientTexture2D_vtaks")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bekt7"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlew8"]
 bg_color = Color(0.28125, 0.11315918, 0.11315918, 1)
@@ -742,6 +751,22 @@ offset_bottom = -188.6
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gee14")
 
+[node name="stranger" type="Panel" parent="map" unique_id=989356581]
+offset_left = -209.0
+offset_top = -785.0
+offset_right = -145.0
+offset_bottom = -634.6
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_trtic")
+
+[node name="stranger_area" type="Node2D" parent="map" unique_id=556169898]
+
+[node name="left" type="Area2D" parent="map/stranger_area" unique_id=2047427654]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/stranger_area/left" unique_id=667096715]
+position = Vector2(-337, -673)
+shape = SubResource("CircleShape2D_vtaks")
+
 [node name="boundary" type="Node2D" parent="." unique_id=1981267331]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="boundary" unique_id=992686110]
@@ -783,7 +808,7 @@ texture = ExtResource("4_lbhrr")
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." unique_id=200327598 instance=ExtResource("2_yqjtg")]
-position = Vector2(28, -223)
+position = Vector2(-392, -361)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1472360180]
 position = Vector2(0, -86)
@@ -792,7 +817,6 @@ zoom = Vector2(1.24, 1.24)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=826999532]
 
 [node name="dark" type="PointLight2D" parent="CanvasLayer" unique_id=1621008179]
-visible = false
 position = Vector2(639.5, 360.00003)
 scale = Vector2(1.0541427, 1.4235295)
 blend_mode = 1
@@ -805,12 +829,11 @@ energy = 0.77
 texture = SubResource("GradientTexture2D_0tnpc")
 
 [node name="black" type="Panel" parent="CanvasLayer" unique_id=1028510935]
-visible = false
 modulate = Color(1, 1, 1, 0)
-offset_left = -5.0
-offset_top = -6.0
-offset_right = 1291.0
-offset_bottom = 732.0
+offset_left = 155.0
+offset_top = 518.0
+offset_right = 1451.0
+offset_bottom = 1256.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
 
@@ -822,6 +845,23 @@ offset_right = 1291.0
 offset_bottom = 732.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_0tnpc")
+
+[node name="subtitles" type="Node2D" parent="CanvasLayer" unique_id=987882993]
+
+[node name="bg" type="Panel" parent="CanvasLayer/subtitles" unique_id=896083735]
+offset_top = 547.0
+offset_right = 1282.0
+offset_bottom = 724.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bekt7")
+
+[node name="subtitle" type="Label" parent="CanvasLayer/subtitles" unique_id=1012068360]
+offset_left = 56.0
+offset_top = 586.0
+offset_right = 1228.0
+offset_bottom = 690.0
+theme_override_fonts/font = ExtResource("9_0tnpc")
+theme_override_font_sizes/font_size = 32
+text = "This place looks weird."
 
 [node name="plushie" type="Sprite2D" parent="CanvasLayer" unique_id=835095435]
 visible = false
@@ -991,6 +1031,8 @@ shape = SubResource("RectangleShape2D_trtic")
 [connection signal="body_exited" from="map/tent3/info_area" to="." method="_on_tent3_info_area_body_exited"]
 [connection signal="body_entered" from="map/tent3/game_enter" to="." method="_on_tent3_body_entered"]
 [connection signal="body_exited" from="map/tent3/game_enter" to="." method="_on_tent3_body_exited"]
+[connection signal="body_entered" from="map/stranger_area/left" to="." method="_on_stranger_left_body_entered"]
+[connection signal="body_exited" from="map/stranger_area/left" to="." method="_on_stranger_left_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]

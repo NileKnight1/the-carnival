@@ -50,6 +50,8 @@ func disable_move():
 	
 
 func _ready() -> void:
+	$CanvasLayer/subtitles.visible = 0
+	$CanvasLayer/subtitles/subtitle.text = "w"
 	allow_move()
 	assign_games_data()
 	$CanvasLayer/black.visible = 1
@@ -64,9 +66,10 @@ var tent2 = 0
 var tent3 = 0
 var tent4 = 0
 
+var can_play = 0
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Interact"):
+	if Input.is_action_just_pressed("Interact") && can_play:
 		if tent_shooter:
 			await enter_game("res://scenes/shooter.tscn")
 		if tent2:
@@ -75,6 +78,8 @@ func _process(delta: float) -> void:
 			await enter_game(game3_location)
 		if tent4:
 			await enter_game(game4_location)
+	if Input.is_action_just_pressed("Interact") && chatting:
+		show_chat(cur_chat)
 	if Input.is_action_just_pressed("jump") && hit_bar:
 		#print("jump")
 		if $CanvasLayer/hit_bar/dash.position.x < 691 && $CanvasLayer/hit_bar/dash.position.x > 653:
@@ -112,7 +117,7 @@ var pulse3: Tween
 #############################################
 
 func _on_tent_shooter_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && can_play:
 		print("tent")
 		tent_shooter = 1
 		var e = $map/shooter_tent/e
@@ -181,7 +186,7 @@ func _on_tent1_info_area_body_exited(body: Node2D) -> void:
 #############################################
 
 func _on_tent2_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && can_play:
 		if !$map/tent2.visible: return
 		print("tent")
 		tent2 = 1
@@ -253,7 +258,7 @@ func _on_tent2_info_area_body_exited(body: Node2D) -> void:
 
 
 func _on_tent3_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && can_play:
 		if !$map/tent3.visible: return
 		print("tent")
 		tent3 = 1
@@ -324,7 +329,7 @@ func _on_tent3_info_area_body_exited(body: Node2D) -> void:
 
 
 func _on_tent4_body_entered(body: Node2D) -> void:
-	if body.name == "player":
+	if body.name == "player" && can_play:
 		if !$map/tent4.visible: return
 		print("tent")
 		tent4 = 1
@@ -501,4 +506,61 @@ func finale_phase3():
 	$player.position = Vector2(-298, -223)
 	ghost_fight = 0
 	$CanvasLayer/dark.visible = 0
+
+func _on_stranger_left_body_entered(body: Node2D) -> void:
+	if body == $player:
+		print("x")
+		if !chat1_done:
+			stranger_chat1()
+			chat1_done = 1
+
+func _on_stranger_left_body_exited(body: Node2D) -> void:
+	if body == $player:
+		#print("xx")
+		#var tween = create_tween()
+		#tween.tween_property($map/Panel2, "position:y", )
+		$map/stranger.visible = 0
+
+
+var chat1 = [
+		"You've made a big mistake coming here.",
+		"No one can escape this place, The Ghost doesn't allow this, unless you beat his games.",
+		"That's the only way to escape.",
+	]
+
+func stranger_chat1():
+	disable_move()
+	chatting = 1
+	show_chat(chat1)
+
+
+var chat_i = 0
+var chatting = 0
+var cur_chat
+
+
+var chat_tween
+
+var chat1_done
+
+func show_chat(chat):
+	var sub = $CanvasLayer/subtitles/subtitle
+	if chat_i == chat.size():
+		chatting = 0
+		chat_i = 0
+		sub.text = ""
+		$CanvasLayer/subtitles.visible = 0
+		allow_move()
+		return
 	
+	$CanvasLayer/subtitles.visible = 1
+	cur_chat = chat
+	sub.text = chat[chat_i]
+	#var str = "sdasdasdasd"
+	#print(str.length())
+	if chat_tween: chat_tween.kill()
+	sub.visible_ratio = 0
+	chat_tween = create_tween()
+	chat_tween.tween_property(sub, "visible_ratio", 1.0, chat[chat_i].length()/15)
+	
+	chat_i += 1
