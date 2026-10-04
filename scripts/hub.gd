@@ -167,6 +167,7 @@ func _process(delta: float) -> void:
 		show_chat(cur_chat)
 	
 	temp_func()
+	
 
 	$map/tent1/info.position.x = remap($player.position.x, 320, 800, 90, -130)
 	$map/tent2/info.position.x = remap($player.position.x, 320, 800, 90, -130)
@@ -608,37 +609,6 @@ func show_chat(chat):
 	
 	chat_i += 1
 
-func temp_func():
-	if Input.is_action_just_pressed("Interact"):
-		if wheel_area:
-			if $player.move:
-				disable_move()
-				$player.visible = 0
-				$player/camera.enabled = 0
-				$map/wheel/camera.enabled = 1
-			else:
-				allow_move()
-				$player.visible = 1
-				$player/camera.enabled = 1
-				$map/wheel/camera.enabled = 0
-				
-		if arcade_device1_area:
-			if $player.move:
-				$map/arcade_device1/screen/player.move = 1
-				disable_move()
-				$player.visible = 0
-				$player/camera.enabled = 0
-				$map/arcade_device1/camera.enabled = 1
-			else:
-				$map/arcade_device1/screen/player.move = 0
-				allow_move()
-				$player.visible = 1
-				$player/camera.enabled = 1
-				$map/arcade_device1/camera.enabled = 0
-				
-				
-
-
 
 var wheel_area = 0
 func _on_wheel_area_body_entered(body: Node2D) -> void:
@@ -676,6 +646,49 @@ func _on_spin_wheel_pressed() -> void:
 	elif temp <= 3960:
 		print(2)
 
+func temp_func():
+	if Input.is_action_just_pressed("Interact"):
+		if wheel_area:
+			if $player.move:
+				disable_move()
+				$player.visible = 0
+				$player/camera.enabled = 0
+				$map/wheel/camera.enabled = 1
+			else:
+				allow_move()
+				$player.visible = 1
+				$player/camera.enabled = 1
+				$map/wheel/camera.enabled = 0
+				
+		if arcade_device1_area:
+			if $player.move:
+				arcade_game1_run()
+				disable_move()
+				$player.visible = 0
+				$player/camera.enabled = 0
+				$map/arcade_device1/camera.enabled = 1
+			else:
+				arcade_game1_running = 0
+				$map/arcade_device1/screen/player.move = 0
+				allow_move()
+				$player.visible = 1
+				$player/camera.enabled = 1
+				$map/arcade_device1/camera.enabled = 0
+
+func arcade_game1_run():
+	arcade1_score = 0
+	$map/arcade_device1/screen/highest.text = "Highest: " + str(global.arcade1_highest)
+	$map/arcade_device1/screen/score.text = "Score: " + str(arcade1_score) 
+	
+	$map/arcade_device1/screen/aracde1_restart.visible = 0
+	for i in $map/arcade_device1/screen/obstacles.get_children():
+		i.queue_free()
+	arcade_game1_running = 1
+	$map/arcade_device1/screen/player.move = 1
+	arcade_game1_spawn()
+	arcade_game1_timer()
+	
+
 var arcade_device1_area = 0
 func _on_arcade_device_1_area_body_entered(body: Node2D) -> void:
 	if body == $player:
@@ -683,3 +696,44 @@ func _on_arcade_device_1_area_body_entered(body: Node2D) -> void:
 func _on_arcade_device_1_area_body_exited(body: Node2D) -> void:
 	if body == $player:
 		arcade_device1_area = 0
+
+var arcade1_score = 0
+
+func arcade_game1_timer():
+	if !arcade_game1_running: return
+	await get_tree().create_timer(0.001).timeout
+	#print($map/arcade_device1/screen/obstacles.get_child_count())
+	for i in $map/arcade_device1/screen/obstacles.get_children():
+		#print(i)
+		#print(i.position.x)
+		i.position.x -= 0.3 + (arcade1_score * 0.01)
+		if i.position.x < 0:
+			i.queue_free()
+			arcade_game1_spawn()
+			arcade1_score += 1
+			global.arcade1_highest = max(global.arcade1_highest,arcade1_score)
+			$map/arcade_device1/screen/highest.text = "Highest: " + str(global.arcade1_highest)
+			$map/arcade_device1/screen/score.text = "Score: " + str(arcade1_score) 
+			
+			 
+	arcade_game1_timer()
+
+func arcade_game1_spawn():
+	#print('spawn')
+	var temp = $map/arcade_device1/screen/ref.duplicate()
+	temp.visible = 1
+	temp.position = Vector2(46.0, 28.0)
+	temp.get_child(0).game = self
+	$map/arcade_device1/screen/obstacles.add_child(temp)
+	#print($map/arcade_device1/screen/obstacles)
+
+var arcade_game1_running = 0
+func arcade_game1_death():
+	print("x")
+	arcade_game1_running = 0
+	$map/arcade_device1/screen/player.move = 0
+	$map/arcade_device1/screen/aracde1_restart.visible = 1
+
+
+func _on_aracde_1_restart_pressed() -> void:
+	arcade_game1_run()

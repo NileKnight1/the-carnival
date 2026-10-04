@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="4_3q32m"]
 [ext_resource type="Texture2D" uid="uid://c1f2xqvo7x227" path="res://assets/17942545.png" id="5_8hrlh"]
 [ext_resource type="Texture2D" uid="uid://bfogsdy216thc" path="res://assets/5ea42abe-5b72-4ea3-b9c7-cbc84d4528f0.png" id="6_5ox4q"]
+[ext_resource type="Script" uid="uid://bwg5jbnvgnq6h" path="res://scripts/arcade_game1_obstacle.gd" id="6_8hrlh"]
 [ext_resource type="Texture2D" uid="uid://kanfwohthlb8" path="res://assets/e19112b0-b68f-4225-9930-33cabeb7e5c2.png" id="7_mw5nc"]
 [ext_resource type="Script" uid="uid://lxcxbac17lgv" path="res://scripts/arcade_player.gd" id="7_phvbg"]
+[ext_resource type="FontFile" uid="uid://u8iq8u6rhxj4" path="res://assets/ARCADECLASSIC.TTF" id="8_3q32m"]
 [ext_resource type="PackedScene" uid="uid://c86wgokjbwikq" path="res://scenes/player.tscn" id="8_7t3s2"]
 [ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="9_7n2o6"]
 [ext_resource type="Script" uid="uid://vvxm160a716g" path="res://scripts/player2.gd" id="9_glsmu"]
@@ -244,6 +246,17 @@ border_color = Color(0, 0, 0, 1)
 bg_color = Color(0.28125, 0.28125, 0.28125, 1)
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rcoo"]
+bg_color = Color(0, 0.007598039, 0.12156863, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjmck"]
+bg_color = Color(0.30078125, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jhjc"]
+size = Vector2(2, 2)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_glsmu"]
 a = Vector2(-16, -7)
 b = Vector2(32, -7)
@@ -255,6 +268,10 @@ b = Vector2(19, -7)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8hrlh"]
 a = Vector2(-29, -7)
 b = Vector2(19, -7)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptut4"]
+font = ExtResource("8_3q32m")
+font_size = 36
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bekt7"]
 size = Vector2(138, 219)
@@ -1247,6 +1264,36 @@ offset_right = 1064.0
 offset_bottom = 1368.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bb8k7")
 
+[node name="bg3" type="Panel" parent="map/arcade_device1/screen" unique_id=1659074471]
+offset_left = 1016.00006
+offset_top = 1362.0
+offset_right = 1064.0
+offset_bottom = 1368.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rcoo")
+
+[node name="obstacles" type="Panel" parent="map/arcade_device1/screen" unique_id=868890202]
+clip_children = 1
+offset_left = 1016.00006
+offset_top = 1332.0
+offset_right = 1064.0
+offset_bottom = 1368.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bb8k7")
+
+[node name="ref" type="Panel" parent="map/arcade_device1/screen" unique_id=809452162]
+visible = false
+offset_left = 1062.0
+offset_top = 1360.0
+offset_right = 1064.0
+offset_bottom = 1362.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jjmck")
+
+[node name="ref_area" type="Area2D" parent="map/arcade_device1/screen/ref" unique_id=1503372367]
+script = ExtResource("6_8hrlh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/arcade_device1/screen/ref/ref_area" unique_id=1396754860]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8jhjc")
+
 [node name="player" parent="map/arcade_device1/screen" unique_id=200327598 instance=ExtResource("8_7t3s2")]
 position = Vector2(1021, 1359.0001)
 scale = Vector2(0.075835496, 0.075835496)
@@ -1255,7 +1302,7 @@ script = ExtResource("7_phvbg")
 [node name="StaticBody2D" type="StaticBody2D" parent="map/arcade_device1/screen" unique_id=1206128482]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/arcade_device1/screen/StaticBody2D" unique_id=1504884993]
-position = Vector2(1032, 1370)
+position = Vector2(1032, 1369)
 shape = SubResource("SegmentShape2D_glsmu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/arcade_device1/screen/StaticBody2D" unique_id=1287269473]
@@ -1273,12 +1320,42 @@ position = Vector2(1035, 1324)
 rotation = -3.1415927
 shape = SubResource("SegmentShape2D_8hrlh")
 
+[node name="highest" type="Label" parent="map/arcade_device1/screen" unique_id=593652054]
+offset_left = 1018.00006
+offset_top = 1332.0001
+offset_right = 1189.0
+offset_bottom = 1381.0001
+scale = Vector2(0.067972004, 0.067972004)
+text = "Highest: 0"
+label_settings = SubResource("LabelSettings_ptut4")
+
+[node name="score" type="Label" parent="map/arcade_device1/screen" unique_id=373493812]
+offset_left = 1018.00006
+offset_top = 1334.0
+offset_right = 1189.0
+offset_bottom = 1383.0
+scale = Vector2(0.067972004, 0.067972004)
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_ptut4")
+
+[node name="aracde1_restart" type="Button" parent="map/arcade_device1/screen" unique_id=1266545526]
+visible = false
+offset_left = 1032.0001
+offset_top = 1343.0001
+offset_right = 1179.0001
+offset_bottom = 1389.0001
+scale = Vector2(0.11849718, 0.11849718)
+theme_override_fonts/font = ExtResource("8_3q32m")
+theme_override_font_sizes/font_size = 36
+text = "Restart"
+
 [node name="camera" type="Camera2D" parent="map/arcade_device1" unique_id=1054902541]
 position = Vector2(1040, 1357)
 enabled = false
-zoom = Vector2(6.265, 6.265)
+zoom = Vector2(8.99, 8.99)
 
 [node name="arcade_device1_area" type="Area2D" parent="map/arcade_device1" unique_id=1304067581]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/arcade_device1/arcade_device1_area" unique_id=1781288349]
 position = Vector2(1039, 1397.5)
@@ -1333,7 +1410,7 @@ texture = ExtResource("7_mw5nc")
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." unique_id=1650756719 instance=ExtResource("8_7t3s2")]
-position = Vector2(904, 1475)
+position = Vector2(979, 1475)
 script = ExtResource("9_glsmu")
 
 [node name="camera" type="Camera2D" parent="player" unique_id=1472360180]
@@ -1584,6 +1661,8 @@ texture = ExtResource("11_qrwm6")
 [connection signal="body_entered" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_entered"]
 [connection signal="body_exited" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_exited"]
 [connection signal="pressed" from="map/wheel/spin_wheel" to="." method="_on_spin_wheel_pressed"]
+[connection signal="body_entered" from="map/arcade_device1/screen/ref/ref_area" to="map/arcade_device1/screen/ref/ref_area" method="_on_body_entered"]
+[connection signal="pressed" from="map/arcade_device1/screen/aracde1_restart" to="." method="_on_aracde_1_restart_pressed"]
 [connection signal="body_entered" from="map/arcade_device1/arcade_device1_area" to="." method="_on_arcade_device_1_area_body_entered"]
 [connection signal="body_exited" from="map/arcade_device1/arcade_device1_area" to="." method="_on_arcade_device_1_area_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
