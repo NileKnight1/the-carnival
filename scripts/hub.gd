@@ -70,6 +70,7 @@ func disable_move():
 
 
 func _ready() -> void:
+	
 	var key = $CanvasLayer/rewards/key
 	var add_heart = $CanvasLayer/rewards/heart
 	var plushie = $CanvasLayer/rewards/plushie
@@ -621,6 +622,20 @@ func temp_func():
 				$player/camera.enabled = 1
 				$map/wheel/camera.enabled = 0
 				
+		if arcade_device1_area:
+			if $player.move:
+				$map/arcade_device1/screen/player.move = 1
+				disable_move()
+				$player.visible = 0
+				$player/camera.enabled = 0
+				$map/arcade_device1/camera.enabled = 1
+			else:
+				$map/arcade_device1/screen/player.move = 0
+				allow_move()
+				$player.visible = 1
+				$player/camera.enabled = 1
+				$map/arcade_device1/camera.enabled = 0
+				
 				
 
 
@@ -632,7 +647,8 @@ func _on_wheel_area_body_entered(body: Node2D) -> void:
 func _on_wheel_area_body_exited(body: Node2D) -> void:
 	if body == $player:
 		wheel_area = 0
-		
+
+
 
 func _on_spin_wheel_pressed() -> void:
 	var temp = randi_range(3600, 3960)
@@ -659,3 +675,11 @@ func _on_spin_wheel_pressed() -> void:
 		print(3)
 	elif temp <= 3960:
 		print(2)
+
+var arcade_device1_area = 0
+func _on_arcade_device_1_area_body_entered(body: Node2D) -> void:
+	if body == $player:
+		arcade_device1_area = 1
+func _on_arcade_device_1_area_body_exited(body: Node2D) -> void:
+	if body == $player:
+		arcade_device1_area = 0

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1f2xqvo7x227" path="res://assets/17942545.png" id="5_8hrlh"]
 [ext_resource type="Texture2D" uid="uid://bfogsdy216thc" path="res://assets/5ea42abe-5b72-4ea3-b9c7-cbc84d4528f0.png" id="6_5ox4q"]
 [ext_resource type="Texture2D" uid="uid://kanfwohthlb8" path="res://assets/e19112b0-b68f-4225-9930-33cabeb7e5c2.png" id="7_mw5nc"]
+[ext_resource type="Script" uid="uid://lxcxbac17lgv" path="res://scripts/arcade_player.gd" id="7_phvbg"]
 [ext_resource type="PackedScene" uid="uid://c86wgokjbwikq" path="res://scenes/player.tscn" id="8_7t3s2"]
 [ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="9_7n2o6"]
 [ext_resource type="Script" uid="uid://vvxm160a716g" path="res://scripts/player2.gd" id="9_glsmu"]
@@ -198,6 +199,65 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
 size = Vector2(295, 156)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n2o6"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmir4"]
+bg_color = Color(0.1875, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trb2f"]
+bg_color = Color(0.1882353, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtbv5"]
+bg_color = Color(0.07058824, 0, 0, 1)
+skew = Vector2(-0.425, 0)
+border_width_left = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrwm6"]
+bg_color = Color(0.0703125, 0, 0, 1)
+skew = Vector2(0.425, 0)
+border_width_right = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vypl"]
+bg_color = Color(0.07058824, 0, 0, 1)
+skew = Vector2(0.375, 0)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fm13a"]
+bg_color = Color(0.07058824, 0, 0, 1)
+skew = Vector2(-0.375, 0)
+border_width_right = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb8k7"]
+bg_color = Color(0.28125, 0.28125, 0.28125, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_glsmu"]
+a = Vector2(-16, -7)
+b = Vector2(32, -7)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3q32m"]
+a = Vector2(-16, -7)
+b = Vector2(19, -7)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8hrlh"]
+a = Vector2(-29, -7)
+b = Vector2(19, -7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bekt7"]
+size = Vector2(138, 219)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 distance = 49.0
@@ -937,16 +997,16 @@ position = Vector2(161, -140.99998)
 scale = Vector2(4.187501, 5.0546865)
 texture = SubResource("GradientTexture2D_kvpfn")
 
-[node name="Node2D" type="Node2D" parent="map" unique_id=1205866583]
+[node name="gate" type="Node2D" parent="map" unique_id=1205866583]
 
-[node name="Panel" type="Panel" parent="map/Node2D" unique_id=1332076490]
+[node name="Panel" type="Panel" parent="map/gate" unique_id=1332076490]
 offset_left = -690.0
 offset_top = 1004.0
 offset_right = -505.0
 offset_bottom = 1467.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8jhjc")
 
-[node name="Panel2" type="Panel" parent="map/Node2D" unique_id=105446333]
+[node name="Panel2" type="Panel" parent="map/gate" unique_id=105446333]
 z_index = 1
 offset_left = -790.0
 offset_top = 1177.0
@@ -1116,6 +1176,114 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "Spin"
 
+[node name="arcade_device1" type="Node2D" parent="map" unique_id=1457719558]
+
+[node name="Panel4" type="Panel" parent="map/arcade_device1" unique_id=807363825]
+offset_left = 1003.0
+offset_top = 1385.0
+offset_right = 1077.0
+offset_bottom = 1459.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7n2o6")
+
+[node name="Panel7" type="Panel" parent="map/arcade_device1" unique_id=1688606838]
+offset_left = 1007.0
+offset_top = 1325.0
+offset_right = 1073.0
+offset_bottom = 1375.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7n2o6")
+
+[node name="main" type="Node2D" parent="map/arcade_device1" unique_id=1095986468]
+
+[node name="Panel12" type="Panel" parent="map/arcade_device1/main" unique_id=878298624]
+offset_left = 1007.0
+offset_top = 1389.0
+offset_right = 1073.0
+offset_bottom = 1455.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tmir4")
+
+[node name="Panel10" type="Panel" parent="map/arcade_device1/main" unique_id=1913109251]
+offset_left = 1004.0
+offset_top = 1291.0
+offset_right = 1075.0
+offset_bottom = 1319.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_trb2f")
+
+[node name="sec" type="Node2D" parent="map/arcade_device1" unique_id=1418128301]
+
+[node name="Panel8" type="Panel" parent="map/arcade_device1/sec" unique_id=831012685]
+offset_left = 1006.0
+offset_top = 1319.0
+offset_right = 1046.0
+offset_bottom = 1326.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rtbv5")
+
+[node name="Panel9" type="Panel" parent="map/arcade_device1/sec" unique_id=219577266]
+offset_left = 1025.0
+offset_top = 1319.0
+offset_right = 1074.0
+offset_bottom = 1326.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qrwm6")
+
+[node name="Panel5" type="Panel" parent="map/arcade_device1/sec" unique_id=40979058]
+offset_left = 1005.0
+offset_top = 1374.0
+offset_right = 1058.0
+offset_bottom = 1386.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0vypl")
+
+[node name="Panel6" type="Panel" parent="map/arcade_device1/sec" unique_id=942738410]
+offset_left = 1014.0
+offset_top = 1374.0
+offset_right = 1075.0
+offset_bottom = 1386.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fm13a")
+
+[node name="screen" type="Node2D" parent="map/arcade_device1" unique_id=1883681045]
+
+[node name="bg" type="Panel" parent="map/arcade_device1/screen" unique_id=1356582395]
+offset_left = 1016.00006
+offset_top = 1332.0
+offset_right = 1064.0
+offset_bottom = 1368.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bb8k7")
+
+[node name="player" parent="map/arcade_device1/screen" unique_id=200327598 instance=ExtResource("8_7t3s2")]
+position = Vector2(1021, 1359.0001)
+scale = Vector2(0.075835496, 0.075835496)
+script = ExtResource("7_phvbg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map/arcade_device1/screen" unique_id=1206128482]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/arcade_device1/screen/StaticBody2D" unique_id=1504884993]
+position = Vector2(1032, 1370)
+shape = SubResource("SegmentShape2D_glsmu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/arcade_device1/screen/StaticBody2D" unique_id=1287269473]
+position = Vector2(1023, 1349)
+rotation = -1.5707964
+shape = SubResource("SegmentShape2D_3q32m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="map/arcade_device1/screen/StaticBody2D" unique_id=1774425]
+position = Vector2(1071, 1349)
+rotation = -1.5707964
+shape = SubResource("SegmentShape2D_3q32m")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="map/arcade_device1/screen/StaticBody2D" unique_id=753194973]
+position = Vector2(1035, 1324)
+rotation = -3.1415927
+shape = SubResource("SegmentShape2D_8hrlh")
+
+[node name="camera" type="Camera2D" parent="map/arcade_device1" unique_id=1054902541]
+position = Vector2(1040, 1357)
+enabled = false
+zoom = Vector2(6.265, 6.265)
+
+[node name="arcade_device1_area" type="Area2D" parent="map/arcade_device1" unique_id=1304067581]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/arcade_device1/arcade_device1_area" unique_id=1781288349]
+position = Vector2(1039, 1397.5)
+shape = SubResource("RectangleShape2D_bekt7")
+
 [node name="5Ea42Abe5b724Ea3B9c7Cbc84d4528f0" type="Sprite2D" parent="." unique_id=1400678654]
 position = Vector2(-459.99997, -5179)
 scale = Vector2(10.536673, 10.536673)
@@ -1164,8 +1332,8 @@ scale = Vector2(2.2826478, 2.2826476)
 texture = ExtResource("7_mw5nc")
 metadata/_edit_lock_ = true
 
-[node name="player" parent="." unique_id=200327598 instance=ExtResource("8_7t3s2")]
-position = Vector2(-212, 1475)
+[node name="player" parent="." unique_id=1650756719 instance=ExtResource("8_7t3s2")]
+position = Vector2(904, 1475)
 script = ExtResource("9_glsmu")
 
 [node name="camera" type="Camera2D" parent="player" unique_id=1472360180]
@@ -1416,6 +1584,8 @@ texture = ExtResource("11_qrwm6")
 [connection signal="body_entered" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_entered"]
 [connection signal="body_exited" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_exited"]
 [connection signal="pressed" from="map/wheel/spin_wheel" to="." method="_on_spin_wheel_pressed"]
+[connection signal="body_entered" from="map/arcade_device1/arcade_device1_area" to="." method="_on_arcade_device_1_area_body_entered"]
+[connection signal="body_exited" from="map/arcade_device1/arcade_device1_area" to="." method="_on_arcade_device_1_area_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]

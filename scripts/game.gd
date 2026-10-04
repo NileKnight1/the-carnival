@@ -70,6 +70,8 @@ func disable_move():
 
 
 func _ready() -> void:
+	
+	
 	var key = $CanvasLayer/rewards/key
 	var add_heart = $CanvasLayer/rewards/heart
 	var plushie = $CanvasLayer/rewards/plushie
