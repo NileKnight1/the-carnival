@@ -1,103 +1,32 @@
-[gd_scene format=3 uid="uid://dewguiwa820s"]
+[gd_scene format=3 uid="uid://cu532btueh36y"]
 
-[ext_resource type="Script" uid="uid://bd3ikemwc357b" path="res://scripts/game.gd" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://dub5y41ums3rt" path="res://assets/—Pngtree—vibrant circus carnival tent design_19166998.png" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://c86wgokjbwikq" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="3_iywne"]
-[ext_resource type="Texture2D" uid="uid://kanfwohthlb8" path="res://assets/e19112b0-b68f-4225-9930-33cabeb7e5c2.png" id="4_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://c1f2xqvo7x227" path="res://assets/17942545.png" id="4_p57ef"]
-[ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="4_u5sy4"]
-[ext_resource type="Texture2D" uid="uid://bfogsdy216thc" path="res://assets/5ea42abe-5b72-4ea3-b9c7-cbc84d4528f0.png" id="6_dinhu"]
-[ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="8_gee14"]
-[ext_resource type="FontFile" uid="uid://tkwx1fq4f8bh" path="res://assets/Baloo2-Regular.ttf" id="9_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://2f0obm57ddlo" path="res://assets/40-407073_scary-teddy-bear-png-png-download-creepy-teddy-removebg-preview.png" id="10_vtaks"]
-[ext_resource type="Texture2D" uid="uid://5r6ao3cyaoey" path="res://assets/pngtree-golden-ornate-key-clipart-illustration-free-png-image_16893530-removebg-preview.png" id="11_kvpfn"]
+[ext_resource type="Script" uid="uid://dfiytgkdvxpme" path="res://scripts/hub.gd" id="1_s6eg2"]
+[ext_resource type="Texture2D" uid="uid://dub5y41ums3rt" path="res://assets/—Pngtree—vibrant circus carnival tent design_19166998.png" id="2_glsmu"]
+[ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="3_phvbg"]
+[ext_resource type="Texture2D" uid="uid://jmv775kfy7ax" path="res://assets/341994.png" id="4_3q32m"]
+[ext_resource type="Texture2D" uid="uid://c1f2xqvo7x227" path="res://assets/17942545.png" id="5_8hrlh"]
+[ext_resource type="Texture2D" uid="uid://bfogsdy216thc" path="res://assets/5ea42abe-5b72-4ea3-b9c7-cbc84d4528f0.png" id="6_5ox4q"]
+[ext_resource type="Texture2D" uid="uid://kanfwohthlb8" path="res://assets/e19112b0-b68f-4225-9930-33cabeb7e5c2.png" id="7_mw5nc"]
+[ext_resource type="PackedScene" uid="uid://c86wgokjbwikq" path="res://scenes/player.tscn" id="8_7t3s2"]
+[ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="9_7n2o6"]
+[ext_resource type="Script" uid="uid://vvxm160a716g" path="res://scripts/player2.gd" id="9_glsmu"]
+[ext_resource type="FontFile" uid="uid://tkwx1fq4f8bh" path="res://assets/Baloo2-Regular.ttf" id="10_rtbv5"]
+[ext_resource type="Texture2D" uid="uid://2f0obm57ddlo" path="res://assets/40-407073_scary-teddy-bear-png-png-download-creepy-teddy-removebg-preview.png" id="11_qrwm6"]
+[ext_resource type="Texture2D" uid="uid://5r6ao3cyaoey" path="res://assets/pngtree-golden-ornate-key-clipart-illustration-free-png-image_16893530-removebg-preview.png" id="12_0vypl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
-bg_color = Color(0.5372549, 0.54509807, 0.21960784, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_264po"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glsmu"]
+bg_color = Color(0.033285968, 0.021057129, 0.078125, 1)
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnb83"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37s47"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt5mj"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-border_width_left = 10
-border_width_right = 10
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl11u"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-border_width_left = 10
-border_width_right = 10
-border_width_bottom = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phvbg"]
+bg_color = Color(0.20409384, 0.20703125, 0.07925415, 1)
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1j6l"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
+bg_color = Color(0.3828125, 0.28800353, 0.1585083, 1)
 border_width_left = 10
 border_width_right = 10
 border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kice"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-border_width_left = 10
-border_width_right = 10
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5newe"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhx41"]
-bg_color = Color(0.7529412, 0.5921569, 0.37254903, 1)
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Curve2D" id="Curve2D_vlew8"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -92, 2333, 0, 0, 0, 0, 804, 2115, 0, 0, 0, 0, 1305, 1955, 0, 0, 0, 0, 2106, 1675, 0, 0, 0, 0, 2700, 1474, 0, 0, 0, 0, 2805, 1685, 0, 0, 0, 0, 2198, 1902, 0, 0, 0, 0, 1268, 2208, 0, 0, 0, 0, -110, 2564, 0, 0, 0, 0, -92, 2333)
-}
-point_count = 10
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_iywne"]
-a = Vector2(7, 30)
-b = Vector2(290, 31)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_p57ef"]
-a = Vector2(-20, -5)
-b = Vector2(-38, 142)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_lbhrr"]
-a = Vector2(-7, -38)
-b = Vector2(28, 157)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_vlew8"]
-a = Vector2(-13, 0)
-b = Vector2(307, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
 bg_color = Color(0.0038999962, 0.064848304, 0.13, 0.8980392)
@@ -127,7 +56,7 @@ fill_to = Vector2(0.53535354, 1)
 texture = SubResource("GradientTexture2D_gee14")
 
 [sub_resource type="LabelSettings" id="LabelSettings_u5sy4"]
-font = ExtResource("3_iywne")
+font = ExtResource("3_phvbg")
 font_size = 20
 font_color = Color(1, 0.9764706, 0.6039216, 1)
 outline_size = 5
@@ -135,7 +64,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_iywne"]
 line_spacing = -9.75
-font = ExtResource("3_iywne")
+font = ExtResource("3_phvbg")
 font_size = 13
 font_color = Color(1, 0.9764706, 0.6039216, 1)
 outline_size = 5
@@ -143,7 +72,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gee14"]
 line_spacing = -9.75
-font = ExtResource("3_iywne")
+font = ExtResource("3_phvbg")
 font_size = 13
 font_color = Color(1, 0.9753418, 0.60546875, 1)
 outline_size = 5
@@ -165,6 +94,22 @@ height = 128
 fill = 1
 fill_from = Vector2(0.47435898, 0.52991456)
 fill_to = Vector2(0.51282054, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iywne"]
+a = Vector2(7, 30)
+b = Vector2(290, 31)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_p57ef"]
+a = Vector2(-20, -5)
+b = Vector2(-38, 142)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lbhrr"]
+a = Vector2(-7, -38)
+b = Vector2(28, 157)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vlew8"]
+a = Vector2(-13, 0)
+b = Vector2(307, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
 bg_color = Color(0.26953125, 0, 0, 1)
@@ -195,7 +140,50 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jhjc"]
+bg_color = Color(0.10546875, 0.057153873, 0.01689148, 1)
+skew = Vector2(0, -0.455)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 704
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3q32m"]
+bg_color = Color(0.10546875, 0.057153873, 0.01689148, 1)
+skew = Vector2(0, 0.335)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 716
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hrlh"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ox4q"]
+bg_color = Color(0.16015625, 0.16015625, 0.16015625, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+corner_detail = 20
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
+size = Vector2(295, 156)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
+distance = 49.0
 
 [sub_resource type="Gradient" id="Gradient_w8fan"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -292,298 +280,42 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[node name="game" type="Node2D" unique_id=963411909]
-script = ExtResource("1_uwrxv")
+[node name="hub" type="Node2D" unique_id=963411909]
+script = ExtResource("1_s6eg2")
 
 [node name="map" type="Node2D" parent="." unique_id=1982507535]
 
-[node name="bg" type="Node2D" parent="map" unique_id=1372148183]
+[node name="bg" type="Node2D" parent="map" unique_id=903977379]
 
-[node name="Panel4" type="Panel" parent="map/bg" unique_id=605233497]
-offset_left = -6060.0
-offset_top = -1467.0
-offset_right = 5854.0
-offset_bottom = 3080.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lbhrr")
-
-[node name="Panel2" type="Panel" parent="map/bg" unique_id=1515097581]
-offset_left = -542.0
-offset_top = -511.0
-offset_right = 259.0
-offset_bottom = 15.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel3" type="Panel" parent="map/bg" unique_id=218507712]
-offset_left = 377.0
-offset_top = -97.0
-offset_right = 779.0
-offset_bottom = 150.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel7" type="Panel" parent="map/bg" unique_id=1561677085]
-offset_left = -1071.0
-offset_top = -97.0
-offset_right = -669.0
-offset_bottom = 150.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel5" type="Panel" parent="map/bg" unique_id=1046237835]
-offset_left = 377.0
-offset_top = -525.0
-offset_right = 779.0
-offset_bottom = -278.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel6" type="Panel" parent="map/bg" unique_id=1807011219]
-offset_left = -1064.0
-offset_top = -542.0
-offset_right = -662.0
-offset_bottom = -295.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel12" type="Panel" parent="map/bg" unique_id=1702145694]
-offset_left = -1297.0
-offset_top = 255.0
-offset_right = -235.0
-offset_bottom = 489.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel13" type="Panel" parent="map/bg" unique_id=2145828329]
-offset_left = -1.0
-offset_top = 252.0
-offset_right = 998.0
-offset_bottom = 486.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel11" type="Panel" parent="map/bg" unique_id=1995044088]
-offset_left = 897.0
-offset_top = -921.0
-offset_right = 1137.0
-offset_bottom = 486.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel14" type="Panel" parent="map/bg" unique_id=974991067]
-offset_left = -1443.0
-offset_top = -912.0
-offset_right = -1203.0
-offset_bottom = 486.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel8" type="Panel" parent="map/bg" unique_id=1257959435]
-offset_left = -1292.0
-offset_top = -913.0
-offset_right = -228.0
-offset_bottom = -706.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel9" type="Panel" parent="map/bg" unique_id=43606412]
-offset_left = -8.0
-offset_top = -920.0
-offset_right = 1065.0
-offset_bottom = -713.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Panel15" type="Panel" parent="map/bg" unique_id=1835956992]
-offset_left = 6046.0
-offset_top = -1162.0
-offset_right = 10620.455
-offset_bottom = 10664.315
-rotation = 1.5707964
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqjtg")
-
-[node name="Node2D" type="Node2D" parent="map/bg" unique_id=594991899]
-
-[node name="Panel16" type="Panel" parent="map/bg/Node2D" unique_id=1898165328]
-offset_left = -337.0
-offset_top = 609.0
-offset_right = -187.0
-offset_bottom = 3089.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_264po")
-
-[node name="Panel33" type="Panel" parent="map/bg/Node2D" unique_id=1171291848]
-offset_left = 2613.0732
-offset_top = 609.0001
-offset_right = 2763.0732
-offset_bottom = 3419.456
-rotation = 1.5707964
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qnb83")
-
-[node name="Panel29" type="Panel" parent="map/bg/Node2D" unique_id=419430235]
-offset_left = 2613.0
-offset_top = 1609.8638
-offset_right = 2763.0
-offset_bottom = 2470.4856
+[node name="Panel25" type="Panel" parent="map/bg" unique_id=2111607840]
+offset_left = 2251.9844
+offset_top = 1383.9487
+offset_right = 6886.495
+offset_bottom = 1958.6249
 rotation = 3.1415927
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_37s47")
+theme_override_styles/panel = SubResource("StyleBoxFlat_glsmu")
 
-[node name="Panel22" type="Panel" parent="map/bg/Node2D" unique_id=310516412]
-offset_left = 2473.439
-offset_top = 1004.9999
-offset_right = 2623.439
-offset_bottom = 3675.8218
-rotation = 1.5707964
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bt5mj")
-
-[node name="Panel34" type="Panel" parent="map/bg/Node2D" unique_id=852655066]
-offset_left = -327.0
-offset_top = 609.0001
-offset_right = -177.0
-offset_bottom = 3420.37
-rotation = 1.5707964
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pl11u")
-
-[node name="Panel30" type="Panel" parent="map/bg/Node2D" unique_id=692581161]
-offset_left = -2988.0
-offset_top = 1609.8638
-offset_right = -2838.0
-offset_bottom = 2470.5947
+[node name="Panel26" type="Panel" parent="map/bg" unique_id=108207327]
+offset_left = 2251.9844
+offset_top = 1794.0001
+offset_right = 6593.402
+offset_bottom = 2214.4976
 rotation = 3.1415927
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_37s47")
+theme_override_styles/panel = SubResource("StyleBoxFlat_phvbg")
 
-[node name="Panel23" type="Panel" parent="map/bg/Node2D" unique_id=235813819]
-offset_left = -327.0
-offset_top = 1004.9999
-offset_right = -177.0
-offset_bottom = 3675.8218
-rotation = 1.5707964
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bt5mj")
-
-[node name="Panel18" type="Panel" parent="map/bg/Node2D" unique_id=745878883]
-offset_left = 2472.8782
+[node name="Panel18" type="Panel" parent="map/bg" unique_id=745878883]
+offset_left = 2172.116
 offset_top = 1459.9999
-offset_right = 2622.8782
-offset_bottom = 4129.9126
+offset_right = 2322.116
+offset_bottom = 4611.044
 rotation = 1.5707964
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e1j6l")
-
-[node name="Panel19" type="Panel" parent="map/bg/Node2D" unique_id=45334872]
-offset_left = -326.53012
-offset_top = 1459.9999
-offset_right = -176.53012
-offset_bottom = 4131.9263
-rotation = 1.5707964
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_e1j6l")
-
-[node name="Panel21" type="Panel" parent="map/bg/Node2D" unique_id=1221973065]
-offset_left = 390.0
-offset_top = 1469.8312
-offset_right = 540.0
-offset_bottom = 1795.0717
-rotation = 3.1415927
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1kice")
-
-[node name="Panel25" type="Panel" parent="map/bg/Node2D" unique_id=520129009]
-offset_left = 1012.0
-offset_top = 1469.8312
-offset_right = 1162.0
-offset_bottom = 1795.0717
-rotation = 3.1415927
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1kice")
-
-[node name="Panel28" type="Panel" parent="map/bg/Node2D" unique_id=400832390]
-offset_left = 1991.0
-offset_top = 1469.8312
-offset_right = 2141.0
-offset_bottom = 1795.0717
-rotation = 3.1415927
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1kice")
-
-[node name="Panel24" type="Panel" parent="map/bg/Node2D" unique_id=402956990]
-offset_left = 3329.3208
-offset_top = 1414.0
-offset_right = 3479.3208
-offset_bottom = 1634.176
-rotation = -4.712389
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5newe")
-
-[node name="Panel27" type="Panel" parent="map/bg/Node2D" unique_id=1860851100]
-offset_left = 3329.3208
-offset_top = 789.0
-offset_right = 3479.3208
-offset_bottom = 1009.176
-rotation = -4.712389
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5newe")
-
-[node name="Panel26" type="Panel" parent="map/bg/Node2D" unique_id=691398590]
-offset_left = 5866.967
-offset_top = 752.5096
-offset_right = 6016.967
-offset_bottom = 1642.6523
-rotation = -4.712389
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5newe")
-
-[node name="Panel36" type="Panel" parent="map/bg/Node2D" unique_id=820549686]
-offset_left = -2411.0
-offset_top = 1469.8312
-offset_right = -2261.0
-offset_bottom = 2190.862
-rotation = 3.1415927
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1kice")
-
-[node name="Panel37" type="Panel" parent="map/bg/Node2D" unique_id=95331644]
-offset_left = -2411.0
-offset_top = 1145.0297
-offset_right = -2261.0
-offset_bottom = 1274.4963
-rotation = 3.1415927
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bhx41")
-
-[node name="Panel38" type="Panel" parent="map/bg/Node2D" unique_id=61232590]
-offset_left = -1789.0
-offset_top = 1469.8312
-offset_right = -1639.0
-offset_bottom = 2190.862
-rotation = 3.1415927
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1kice")
-
-[node name="Panel39" type="Panel" parent="map/bg/Node2D" unique_id=7729007]
-offset_left = -1789.0
-offset_top = 1145.0297
-offset_right = -1639.0
-offset_bottom = 1274.4963
-rotation = 3.1415927
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bhx41")
-
-[node name="Path2D" type="Path2D" parent="map/bg/Node2D" unique_id=829577921]
-visible = false
-curve = SubResource("Curve2D_vlew8")
-
-[node name="Node2D2" type="Node2D" parent="map/bg" unique_id=831629006]
 
 [node name="tent1" type="Node2D" parent="map" unique_id=1798465129]
-position = Vector2(53, 1333)
+position = Vector2(48, 1389)
 
 [node name="outline" type="Polygon2D" parent="map/tent1" unique_id=264854460]
 color = Color(1, 1, 1, 0)
@@ -592,34 +324,15 @@ polygon = PackedVector2Array(393, 64, 389, 54, 392, 41, 398, 32, 405, 18, 408, 5
 [node name="tent" type="Sprite2D" parent="map/tent1" unique_id=22749175]
 position = Vector2(577.00006, -116.24997)
 scale = Vector2(0.18383332, 0.18383332)
-texture = ExtResource("2_lnu2h")
+texture = ExtResource("2_glsmu")
 
 [node name="tent_up" type="Sprite2D" parent="map/tent1" unique_id=243822460]
 z_index = 1
 position = Vector2(575, -199.00002)
 scale = Vector2(0.18383332, 0.18383332)
-texture = ExtResource("2_lnu2h")
+texture = ExtResource("2_glsmu")
 region_enabled = true
 region_rect = Rect2(-8.354492, 359.53436, 3000, 1388.1599)
-
-[node name="boundaries" type="StaticBody2D" parent="map/tent1" unique_id=1804635632]
-light_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/tent1/boundaries" unique_id=1239048305]
-position = Vector2(414, -128)
-shape = SubResource("SegmentShape2D_iywne")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="map/tent1/boundaries" unique_id=1642846100]
-position = Vector2(443, -93)
-shape = SubResource("SegmentShape2D_p57ef")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="map/tent1/boundaries" unique_id=952012433]
-position = Vector2(728, -93)
-shape = SubResource("SegmentShape2D_lbhrr")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/tent1/boundaries" unique_id=724746846]
-position = Vector2(421, 45)
-shape = SubResource("SegmentShape2D_vlew8")
 
 [node name="info" type="Node2D" parent="map/tent1" unique_id=1751422141]
 visible = false
@@ -685,7 +398,7 @@ autowrap_mode = 2
 light_mask = 0
 position = Vector2(528, 283.1552)
 scale = Vector2(0.039902948, 0.03461196)
-texture = ExtResource("4_u5sy4")
+texture = ExtResource("4_3q32m")
 
 [node name="info_area" type="Area2D" parent="map/tent1" unique_id=1267499306]
 visible = false
@@ -706,7 +419,7 @@ visible = false
 light_mask = 0
 position = Vector2(577, -37)
 scale = Vector2(0.19531249, 0.19531249)
-texture = ExtResource("4_p57ef")
+texture = ExtResource("5_8hrlh")
 
 [node name="info_right" type="Node2D" parent="map/tent1" unique_id=208840005]
 visible = false
@@ -794,13 +507,13 @@ polygon = PackedVector2Array(393, 64, 389, 54, 392, 41, 398, 32, 405, 18, 408, 5
 [node name="tent" type="Sprite2D" parent="map/tent2" unique_id=907289786]
 position = Vector2(577.00006, -116.24997)
 scale = Vector2(0.18383332, 0.18383332)
-texture = ExtResource("2_lnu2h")
+texture = ExtResource("2_glsmu")
 
 [node name="tent_up" type="Sprite2D" parent="map/tent2" unique_id=335010850]
 z_index = 1
 position = Vector2(575, -199.00002)
 scale = Vector2(0.18383332, 0.18383332)
-texture = ExtResource("2_lnu2h")
+texture = ExtResource("2_glsmu")
 region_enabled = true
 region_rect = Rect2(-8.354492, 359.53436, 3000, 1388.1599)
 
@@ -880,7 +593,7 @@ autowrap_mode = 2
 [node name="image" type="Sprite2D" parent="map/tent2/info" unique_id=58698390]
 position = Vector2(528, 283.1552)
 scale = Vector2(0.039902948, 0.03461196)
-texture = ExtResource("4_u5sy4")
+texture = ExtResource("4_3q32m")
 
 [node name="info_area" type="Area2D" parent="map/tent2" unique_id=860149477]
 visible = false
@@ -900,7 +613,7 @@ shape = SubResource("RectangleShape2D_lnu2h")
 visible = false
 position = Vector2(577, -37)
 scale = Vector2(0.19531249, 0.19531249)
-texture = ExtResource("4_p57ef")
+texture = ExtResource("5_8hrlh")
 
 [node name="PointLight2D" type="PointLight2D" parent="map/tent2" unique_id=946085461]
 position = Vector2(582, -43.000008)
@@ -918,13 +631,13 @@ polygon = PackedVector2Array(393, 64, 389, 54, 392, 41, 398, 32, 405, 18, 408, 5
 [node name="tent" type="Sprite2D" parent="map/tent3" unique_id=169174885]
 position = Vector2(577.00006, -116.24997)
 scale = Vector2(0.18383332, 0.18383332)
-texture = ExtResource("2_lnu2h")
+texture = ExtResource("2_glsmu")
 
 [node name="tent_up" type="Sprite2D" parent="map/tent3" unique_id=2081187813]
 z_index = 1
 position = Vector2(575, -199.00002)
 scale = Vector2(0.18383332, 0.18383332)
-texture = ExtResource("2_lnu2h")
+texture = ExtResource("2_glsmu")
 region_enabled = true
 region_rect = Rect2(-8.354492, 359.53436, 3000, 1388.1599)
 
@@ -1004,7 +717,7 @@ autowrap_mode = 2
 [node name="image" type="Sprite2D" parent="map/tent3/info" unique_id=1519160039]
 position = Vector2(528, 283.1552)
 scale = Vector2(0.039902948, 0.03461196)
-texture = ExtResource("4_u5sy4")
+texture = ExtResource("4_3q32m")
 
 [node name="info_area" type="Area2D" parent="map/tent3" unique_id=481155470]
 visible = false
@@ -1024,7 +737,7 @@ shape = SubResource("RectangleShape2D_lnu2h")
 visible = false
 position = Vector2(577, -37)
 scale = Vector2(0.19531249, 0.19531249)
-texture = ExtResource("4_p57ef")
+texture = ExtResource("5_8hrlh")
 
 [node name="PointLight2D" type="PointLight2D" parent="map/tent3" unique_id=35817593]
 position = Vector2(582, -43.000008)
@@ -1042,13 +755,13 @@ polygon = PackedVector2Array(393, 64, 389, 54, 392, 41, 398, 32, 405, 18, 408, 5
 [node name="tent" type="Sprite2D" parent="map/tentx" unique_id=76224673]
 position = Vector2(577.00006, -116.24997)
 scale = Vector2(0.18383332, 0.18383332)
-texture = ExtResource("2_lnu2h")
+texture = ExtResource("2_glsmu")
 
 [node name="tent_up" type="Sprite2D" parent="map/tentx" unique_id=300826004]
 z_index = 1
 position = Vector2(575, -199.00002)
 scale = Vector2(0.18383332, 0.18383332)
-texture = ExtResource("2_lnu2h")
+texture = ExtResource("2_glsmu")
 region_enabled = true
 region_rect = Rect2(-8.354492, 359.53436, 3000, 1388.1599)
 
@@ -1128,7 +841,7 @@ autowrap_mode = 2
 [node name="image" type="Sprite2D" parent="map/tentx/info" unique_id=1038231187]
 position = Vector2(528, 283.1552)
 scale = Vector2(0.039902948, 0.03461196)
-texture = ExtResource("4_u5sy4")
+texture = ExtResource("4_3q32m")
 
 [node name="info_area" type="Area2D" parent="map/tentx" unique_id=1514515766]
 visible = false
@@ -1148,7 +861,7 @@ shape = SubResource("RectangleShape2D_lnu2h")
 visible = false
 position = Vector2(577, -37)
 scale = Vector2(0.19531249, 0.19531249)
-texture = ExtResource("4_p57ef")
+texture = ExtResource("5_8hrlh")
 
 [node name="Panel" type="Panel" parent="map" unique_id=688141809]
 visible = false
@@ -1207,10 +920,65 @@ position = Vector2(161, -140.99998)
 scale = Vector2(4.187501, 5.0546865)
 texture = SubResource("GradientTexture2D_kvpfn")
 
+[node name="Node2D" type="Node2D" parent="map" unique_id=1205866583]
+
+[node name="Panel" type="Panel" parent="map/Node2D" unique_id=1332076490]
+offset_left = -690.0
+offset_top = 1004.0
+offset_right = -505.0
+offset_bottom = 1467.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8jhjc")
+
+[node name="Panel2" type="Panel" parent="map/Node2D" unique_id=105446333]
+z_index = 1
+offset_left = -790.0
+offset_top = 1177.0
+offset_right = -605.0
+offset_bottom = 1718.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3q32m")
+
+[node name="wheel" type="Node2D" parent="map" unique_id=83679327]
+position = Vector2(-6, 1306)
+
+[node name="Panel3" type="Panel" parent="map/wheel" unique_id=52566920]
+offset_left = -46.0
+offset_top = 49.0
+offset_right = -36.0
+offset_bottom = 157.0
+rotation = 0.121995494
+theme_override_styles/panel = SubResource("StyleBoxFlat_8hrlh")
+
+[node name="Panel4" type="Panel" parent="map/wheel" unique_id=763864152]
+offset_left = 36.999992
+offset_top = 49.0
+offset_right = 46.999992
+offset_bottom = 161.51636
+rotation = -0.12217305
+theme_override_styles/panel = SubResource("StyleBoxFlat_8hrlh")
+
+[node name="Panel2" type="Panel" parent="map/wheel" unique_id=1073020877]
+offset_left = -109.0
+offset_top = -104.0
+offset_right = 110.0
+offset_bottom = 115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ox4q")
+
+[node name="wheel_area" type="Area2D" parent="map/wheel" unique_id=798175442]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/wheel/wheel_area" unique_id=1339407588]
+position = Vector2(2.5, 126)
+shape = SubResource("RectangleShape2D_vlew8")
+
+[node name="camera" type="Camera2D" parent="map/wheel" unique_id=2071724795]
+enabled = false
+zoom = Vector2(2.565, 2.565)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
 [node name="5Ea42Abe5b724Ea3B9c7Cbc84d4528f0" type="Sprite2D" parent="." unique_id=1400678654]
-position = Vector2(-365, -3815)
+position = Vector2(-459.99997, -5179)
 scale = Vector2(10.536673, 10.536673)
-texture = ExtResource("6_dinhu")
+texture = ExtResource("6_5ox4q")
 
 [node name="boundary" type="Node2D" parent="." unique_id=1981267331]
 
@@ -1236,42 +1004,45 @@ shape = SubResource("WorldBoundaryShape2D_vlew8")
 disabled = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="boundary/StaticBody2D" unique_id=188381831]
-position = Vector2(1043, 452)
+position = Vector2(608, 1549)
 rotation = -6.2831855
 shape = SubResource("WorldBoundaryShape2D_vlew8")
-disabled = true
 
 [node name="E19112b0B68f4225993033Cabeb7e5c2" type="Sprite2D" parent="." unique_id=837693169]
 visible = false
 modulate = Color(1, 1, 1, 0.35686275)
 position = Vector2(-122, -171)
 scale = Vector2(2.2826478, 2.2826476)
-texture = ExtResource("4_lbhrr")
+texture = ExtResource("7_mw5nc")
 metadata/_edit_lock_ = true
 
 [node name="E19112b0B68f4225993033Cabeb7e5c3" type="Sprite2D" parent="." unique_id=1611405358]
 visible = false
 position = Vector2(-122, -171)
 scale = Vector2(2.2826478, 2.2826476)
-texture = ExtResource("4_lbhrr")
+texture = ExtResource("7_mw5nc")
 metadata/_edit_lock_ = true
 
-[node name="player" parent="." unique_id=200327598 instance=ExtResource("2_yqjtg")]
-position = Vector2(611, 1524)
+[node name="player" parent="." unique_id=200327598 instance=ExtResource("8_7t3s2")]
+position = Vector2(-212, 1475)
+script = ExtResource("9_glsmu")
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1472360180]
+[node name="camera" type="Camera2D" parent="player" unique_id=1472360180]
 position = Vector2(0, -86)
 rotation = -0.002590619
 zoom = Vector2(1.615, 1.615)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=826999532]
 
 [node name="dark" type="PointLight2D" parent="CanvasLayer" unique_id=1621008179]
+visible = false
 position = Vector2(639.5, 360.00003)
 scale = Vector2(1.0541427, 1.4235295)
 energy = 0.98
 blend_mode = 1
-texture = ExtResource("8_gee14")
+texture = ExtResource("9_7n2o6")
 
 [node name="light" type="PointLight2D" parent="CanvasLayer" unique_id=1106262108]
 position = Vector2(641.5, 361)
@@ -1310,7 +1081,7 @@ offset_left = 56.0
 offset_top = 586.0
 offset_right = 1228.0
 offset_bottom = 690.0
-theme_override_fonts/font = ExtResource("9_0tnpc")
+theme_override_fonts/font = ExtResource("10_rtbv5")
 theme_override_font_sizes/font_size = 32
 text = "This place looks weird."
 
@@ -1318,7 +1089,7 @@ text = "This place looks weird."
 visible = false
 position = Vector2(560, 403)
 scale = Vector2(0.27123144, 0.2712314)
-texture = ExtResource("10_vtaks")
+texture = ExtResource("11_qrwm6")
 
 [node name="hit_bar" type="Node2D" parent="CanvasLayer" unique_id=501386606]
 visible = false
@@ -1349,7 +1120,7 @@ offset_left = 510.0
 offset_top = 69.0
 offset_right = 777.0
 offset_bottom = 95.0
-theme_override_fonts/font = ExtResource("9_0tnpc")
+theme_override_fonts/font = ExtResource("10_rtbv5")
 theme_override_font_sizes/font_size = 21
 text = "Press 'Space' on marker to hit!"
 horizontal_alignment = 1
@@ -1453,7 +1224,7 @@ shape = SubResource("RectangleShape2D_trtic")
 visible = false
 position = Vector2(636, 314)
 scale = Vector2(0.5480002, 0.5480002)
-texture = ExtResource("11_kvpfn")
+texture = ExtResource("12_0vypl")
 
 [node name="heart" type="Node2D" parent="CanvasLayer/rewards" unique_id=1262388708]
 visible = false
@@ -1471,7 +1242,7 @@ offset_top = 197.0
 offset_right = 634.0
 offset_bottom = 253.0
 theme_override_constants/outline_size = 11
-theme_override_fonts/font = ExtResource("3_iywne")
+theme_override_fonts/font = ExtResource("3_phvbg")
 theme_override_font_sizes/font_size = 35
 text = "+1"
 
@@ -1479,7 +1250,7 @@ text = "+1"
 visible = false
 position = Vector2(632.00006, 316.00003)
 scale = Vector2(0.5963376, 0.59633756)
-texture = ExtResource("10_vtaks")
+texture = ExtResource("11_qrwm6")
 
 [connection signal="body_entered" from="map/tent1/info_area" to="." method="_on_tent1_info_area_body_entered"]
 [connection signal="body_exited" from="map/tent1/info_area" to="." method="_on_tent1_info_area_body_exited"]
@@ -1501,6 +1272,8 @@ texture = ExtResource("10_vtaks")
 [connection signal="body_exited" from="map/stranger_area/left" to="." method="_on_stranger_left_body_exited"]
 [connection signal="body_entered" from="map/stranger_area/right" to="." method="_on_stranger_right_body_entered"]
 [connection signal="body_exited" from="map/stranger_area/right" to="." method="_on_stranger_right_body_exited"]
+[connection signal="body_entered" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_entered"]
+[connection signal="body_exited" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]
