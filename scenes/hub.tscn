@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c86wgokjbwikq" path="res://scenes/player.tscn" id="8_7t3s2"]
 [ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="9_7n2o6"]
 [ext_resource type="Script" uid="uid://vvxm160a716g" path="res://scripts/player2.gd" id="9_glsmu"]
+[ext_resource type="Texture2D" uid="uid://gycinilq3kog" path="res://assets/pngtree-purple-curtain-with-rod-glossy-texture-drawn-back-png-image_13782447 (1).png" id="10_5ox4q"]
 [ext_resource type="FontFile" uid="uid://tkwx1fq4f8bh" path="res://assets/Baloo2-Regular.ttf" id="10_rtbv5"]
 [ext_resource type="Texture2D" uid="uid://2f0obm57ddlo" path="res://assets/40-407073_scary-teddy-bear-png-png-download-creepy-teddy-removebg-preview.png" id="11_qrwm6"]
 [ext_resource type="Texture2D" uid="uid://5r6ao3cyaoey" path="res://assets/pngtree-golden-ornate-key-clipart-illustration-free-png-image_16893530-removebg-preview.png" id="12_0vypl"]
@@ -275,6 +276,43 @@ font_size = 36
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bekt7"]
 size = Vector2(138, 219)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7boss"]
+bg_color = Color(0.7607843, 0.23137255, 0.23137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.9490196, 0.9019608, 0.7882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad1he"]
+bg_color = Color(0.102996826, 0.2776836, 0.29296875, 1)
+border_color = Color(0.7607843, 0.23137255, 0.23137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njkjy"]
+bg_color = Color(0.2901961, 0.19607843, 0.1254902, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5mx8"]
+bg_color = Color(0.2901961, 0.078431375, 0.1254902, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0pb7"]
+bg_color = Color(0.47843137, 0.12156863, 0.16862746, 1)
+skew = Vector2(0, -0.83)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a0ok"]
+bg_color = Color(0.47843137, 0.12156863, 0.16862746, 1)
+skew = Vector2(0, 0.83)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpsrd"]
+bg_color = Color(0.47843137, 0.12156863, 0.16862746, 1)
+skew = Vector2(0, -0.83)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ox4q"]
+size = Vector2(154, 250)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 distance = 49.0
@@ -1361,6 +1399,86 @@ visible = false
 position = Vector2(1039, 1397.5)
 shape = SubResource("RectangleShape2D_bekt7")
 
+[node name="photo_booth" type="Node2D" parent="map" unique_id=1356132383]
+
+[node name="Panel12" type="Panel" parent="map/photo_booth" unique_id=338065857]
+offset_left = 1184.0
+offset_top = 1259.0
+offset_right = 1373.0
+offset_bottom = 1461.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7boss")
+
+[node name="Panel17" type="Panel" parent="map/photo_booth" unique_id=1111521261]
+offset_left = 1214.0
+offset_top = 1286.0
+offset_right = 1343.0
+offset_bottom = 1444.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ad1he")
+
+[node name="Panel18" type="Panel" parent="map/photo_booth" unique_id=665498044]
+offset_left = 1347.2195
+offset_top = 1441.1621
+offset_right = 1367.0574
+offset_bottom = 1577.9268
+rotation = 1.5707964
+theme_override_styles/panel = SubResource("StyleBoxFlat_njkjy")
+
+[node name="Panel19" type="Panel" parent="map/photo_booth" unique_id=1427220257]
+offset_left = 1347.2195
+offset_top = 1279.0
+offset_right = 1367.0574
+offset_bottom = 1415.7645
+rotation = 1.5707964
+theme_override_styles/panel = SubResource("StyleBoxFlat_i5mx8")
+
+[node name="Panel13" type="Panel" parent="map/photo_booth" unique_id=1629964523]
+offset_left = 1323.0
+offset_top = 1323.0
+offset_right = 1347.0
+offset_bottom = 1451.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m0pb7")
+
+[node name="Panel14" type="Panel" parent="map/photo_booth" unique_id=1731294181]
+offset_left = 1323.0
+offset_top = 1289.0
+offset_right = 1347.0
+offset_bottom = 1430.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8a0ok")
+
+[node name="Panel15" type="Panel" parent="map/photo_booth" unique_id=725453634]
+offset_left = 1210.0
+offset_top = 1289.0
+offset_right = 1234.0
+offset_bottom = 1426.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gpsrd")
+
+[node name="Panel16" type="Panel" parent="map/photo_booth" unique_id=619774129]
+offset_left = 1210.0
+offset_top = 1319.0
+offset_right = 1234.0
+offset_bottom = 1451.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8a0ok")
+
+[node name="curtain" type="TextureRect" parent="map/photo_booth" unique_id=979436512]
+offset_left = 1207.0
+offset_top = 1277.0
+offset_right = 1475.0
+offset_bottom = 1612.881
+scale = Vector2(0.5361111, 0.5597223)
+texture = ExtResource("10_5ox4q")
+expand_mode = 1
+
+[node name="photo_booth_area" type="Area2D" parent="map/photo_booth" unique_id=1735198340]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/photo_booth/photo_booth_area" unique_id=17108874]
+position = Vector2(1280, 1398)
+shape = SubResource("RectangleShape2D_5ox4q")
+
+[node name="camera" type="Camera2D" parent="map/photo_booth" unique_id=1621656270]
+position = Vector2(1282, 1359)
+enabled = false
+zoom = Vector2(2.825, 2.825)
+
 [node name="5Ea42Abe5b724Ea3B9c7Cbc84d4528f0" type="Sprite2D" parent="." unique_id=1400678654]
 position = Vector2(-459.99997, -5179)
 scale = Vector2(10.536673, 10.536673)
@@ -1410,7 +1528,7 @@ texture = ExtResource("7_mw5nc")
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." unique_id=1650756719 instance=ExtResource("8_7t3s2")]
-position = Vector2(979, 1475)
+position = Vector2(1276, 1425)
 script = ExtResource("9_glsmu")
 
 [node name="camera" type="Camera2D" parent="player" unique_id=1472360180]
@@ -1665,6 +1783,8 @@ texture = ExtResource("11_qrwm6")
 [connection signal="pressed" from="map/arcade_device1/screen/aracde1_restart" to="." method="_on_aracde_1_restart_pressed"]
 [connection signal="body_entered" from="map/arcade_device1/arcade_device1_area" to="." method="_on_arcade_device_1_area_body_entered"]
 [connection signal="body_exited" from="map/arcade_device1/arcade_device1_area" to="." method="_on_arcade_device_1_area_body_exited"]
+[connection signal="body_entered" from="map/photo_booth/photo_booth_area" to="." method="_on_photo_booth_area_body_entered"]
+[connection signal="body_exited" from="map/photo_booth/photo_booth_area" to="." method="_on_photo_booth_area_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]

@@ -646,35 +646,6 @@ func _on_spin_wheel_pressed() -> void:
 	elif temp <= 3960:
 		print(2)
 
-func temp_func():
-	if Input.is_action_just_pressed("Interact"):
-		if wheel_area:
-			if $player.move:
-				disable_move()
-				$player.visible = 0
-				$player/camera.enabled = 0
-				$map/wheel/camera.enabled = 1
-			else:
-				allow_move()
-				$player.visible = 1
-				$player/camera.enabled = 1
-				$map/wheel/camera.enabled = 0
-				
-		if arcade_device1_area:
-			if $player.move:
-				arcade_game1_run()
-				disable_move()
-				$player.visible = 0
-				$player/camera.enabled = 0
-				$map/arcade_device1/camera.enabled = 1
-			else:
-				arcade_game1_running = 0
-				$map/arcade_device1/screen/player.move = 0
-				allow_move()
-				$player.visible = 1
-				$player/camera.enabled = 1
-				$map/arcade_device1/camera.enabled = 0
-
 func arcade_game1_run():
 	arcade1_score = 0
 	$map/arcade_device1/screen/highest.text = "Highest: " + str(global.arcade1_highest)
@@ -737,3 +708,67 @@ func arcade_game1_death():
 
 func _on_aracde_1_restart_pressed() -> void:
 	arcade_game1_run()
+
+var photo_booth_area = 0
+func _on_photo_booth_area_body_entered(body: Node2D) -> void:
+	if body == $player:
+		photo_booth_area = 1
+		print('x')
+func _on_photo_booth_area_body_exited(body: Node2D) -> void:
+	if body == $player:
+		photo_booth_area = 0
+
+
+func temp_func():
+	if Input.is_action_just_pressed("Interact"):
+		if wheel_area:
+			if $player.move:
+				disable_move()
+				$player.visible = 0
+				$player/camera.enabled = 0
+				$map/wheel/camera.enabled = 1
+			else:
+				allow_move()
+				$player.visible = 1
+				$player/camera.enabled = 1
+				$map/wheel/camera.enabled = 0
+		
+		if arcade_device1_area:
+			if $player.move:
+				arcade_game1_run()
+				disable_move()
+				$player.visible = 0
+				$player/camera.enabled = 0
+				$map/arcade_device1/camera.enabled = 1
+			else:
+				arcade_game1_running = 0
+				$map/arcade_device1/screen/player.move = 0
+				allow_move()
+				$player.visible = 1
+				$player/camera.enabled = 1
+				$map/arcade_device1/camera.enabled = 0
+		
+		if photo_booth_area:
+			print("hre")
+			if $player.move:
+				$player.gravity = 0
+				disable_move()
+				$player/camera.enabled = 0
+				$map/photo_booth/camera.enabled = 1
+				var tween = create_tween()
+				tween.tween_property($map/photo_booth/curtain, "size:x", 50, 1).from(268)
+				#await get_tree().create_timer(0.8).timeout
+				$player.position = Vector2(1276.0, 1425.0)
+				$map/photo_booth/curtain.z_index = 1
+			else:
+				$player.gravity = 1
+				allow_move()
+				var tween = create_tween()
+				tween.tween_property($map/photo_booth/curtain, "size:x", 268, 1).from(50)
+				$map/photo_booth/curtain.z_index = 0
+				
+				$player.visible = 1
+				$player/camera.enabled = 1
+				$map/photo_booth/camera.enabled = 0
+				
+		
