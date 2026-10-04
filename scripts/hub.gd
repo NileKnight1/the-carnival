@@ -69,7 +69,35 @@ func disable_move():
 #
 
 
+const ZOMBIE_LAYER_BIT := 2
+const PHOTO_SIZE := Vector2i(1280, 720)
+@onready var booth: Node2D = $map/photo_booth
+@onready var zombie: CanvasItem = $map/photo_booth/zombie
+var photo_vp: SubViewport
+var photo_cam: Camera2D
+func _set_layer_recursive(node: Node, layer: int) -> void:
+	if node is CanvasItem:
+		node.visibility_layer = layer
+	for child in node.get_children():
+		_set_layer_recursive(child, layer)
+
 func _ready() -> void:
+	zombie.visible = true
+	_set_layer_recursive(zombie, ZOMBIE_LAYER_BIT)
+	get_viewport().canvas_cull_mask = 0xFFFFFFFF & ~ZOMBIE_LAYER_BIT
+	photo_vp = SubViewport.new()
+	photo_vp.world_2d = get_viewport().world_2d
+	photo_vp.size = PHOTO_SIZE
+	photo_vp.canvas_cull_mask = 0xFFFFFFFF
+	photo_vp.transparent_bg = false
+	photo_vp.render_target_update_mode = SubViewport.UPDATE_DISABLED
+	add_child(photo_vp)
+	photo_cam = Camera2D.new()
+	photo_vp.add_child(photo_cam)
+	photo_cam.enabled = true
+	photo_cam.make_current()
+
+	
 	
 	var key = $CanvasLayer/rewards/key
 	var add_heart = $CanvasLayer/rewards/heart
@@ -772,3 +800,20 @@ func temp_func():
 				$map/photo_booth/camera.enabled = 0
 				
 		
+@onready var frame_cam: Camera2D =  $map/photo_booth/camera  # the camera in your screenshot
+func _on_capture_pressed() -> void:
+	photo_cam.global_position = frame_cam.global_position
+	photo_cam.zoom = frame_cam.zoom
+	photo_cam.force_update_scroll()
+
+	photo_vp.render_target_update_mode = SubViewport.UPDATE_ONCE
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+
+	var img: Image = photo_vp.get_texture().get_image()
+
+	var dt := Time.get_datetime_dict_from_system()
+	var timestamp := "%04d%02d%02d_%02%02d%02d" % [
+		dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second
+	]
+	img.save_png("user://photo_%s.png" % timestamp)
