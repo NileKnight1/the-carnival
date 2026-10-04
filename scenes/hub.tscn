@@ -166,6 +166,15 @@ corner_detail = 20
 bg_color = Color(0, 0, 0, 1)
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7t3s2"]
+bg_color = Color(0.16015625, 0.16015625, 0.16015625, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+corner_detail = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ox4q"]
 bg_color = Color(0.16015625, 0.16015625, 0.16015625, 1)
 border_width_left = 5
@@ -178,6 +187,14 @@ corner_radius_top_right = 200
 corner_radius_bottom_right = 200
 corner_radius_bottom_left = 200
 corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncv88"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mw5nc"]
+bg_color = Color(0.1875, 0, 0, 1)
+skew = Vector2(0, 1.5)
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
 size = Vector2(295, 156)
@@ -956,14 +973,133 @@ offset_bottom = 161.51636
 rotation = -0.12217305
 theme_override_styles/panel = SubResource("StyleBoxFlat_8hrlh")
 
-[node name="Panel2" type="Panel" parent="map/wheel" unique_id=1073020877]
-offset_left = -109.0
-offset_top = -104.0
-offset_right = 110.0
-offset_bottom = 115.0
+[node name="spin2" type="Panel" parent="map/wheel" unique_id=493742018]
+visible = false
+offset_left = -117.0
+offset_top = -130.0
+offset_right = 108.0
+offset_bottom = 95.0
+pivot_offset = Vector2(112.5, 112.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7t3s2")
+
+[node name="spin" type="Panel" parent="map/wheel" unique_id=1073020877]
+offset_left = -117.0
+offset_top = -130.0
+offset_right = 108.0
+offset_bottom = 95.0
+pivot_offset = Vector2(112.5, 112.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_5ox4q")
 
+[node name="line5" type="Panel" parent="map/wheel/spin" unique_id=2048448538]
+layout_mode = 0
+offset_left = 111.0
+offset_right = 114.0
+offset_bottom = 225.0
+rotation = 3.1415927
+pivot_offset = Vector2(1.5, 112.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ncv88")
+
+[node name="line6" type="Panel" parent="map/wheel/spin" unique_id=1799096923]
+layout_mode = 0
+offset_left = 111.0
+offset_right = 114.0
+offset_bottom = 225.0
+rotation = 3.926991
+pivot_offset = Vector2(1.5, 112.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ncv88")
+
+[node name="line7" type="Panel" parent="map/wheel/spin" unique_id=469439542]
+layout_mode = 0
+offset_left = 111.0
+offset_right = 114.0
+offset_bottom = 225.0
+rotation = 4.712389
+pivot_offset = Vector2(1.5, 112.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ncv88")
+
+[node name="line8" type="Panel" parent="map/wheel/spin" unique_id=716203474]
+layout_mode = 0
+offset_left = 111.0
+offset_right = 114.0
+offset_bottom = 225.0
+rotation = 5.4977875
+pivot_offset = Vector2(1.5, 112.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ncv88")
+
+[node name="Label" type="Label" parent="map/wheel/spin" unique_id=670568038]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 31.0
+offset_right = 111.0
+offset_bottom = 54.0
+text = "1"
+
+[node name="Label2" type="Label" parent="map/wheel/spin" unique_id=1991475581]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 32.0
+offset_right = 170.0
+offset_bottom = 55.0
+text = "2"
+
+[node name="Label3" type="Label" parent="map/wheel/spin" unique_id=1313834167]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 70.0
+offset_right = 200.0
+offset_bottom = 93.0
+text = "3"
+
+[node name="Label4" type="Label" parent="map/wheel/spin" unique_id=1514582351]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 125.0
+offset_right = 214.0
+offset_bottom = 148.0
+text = "4"
+
+[node name="Label5" type="Label" parent="map/wheel/spin" unique_id=907554437]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 160.0
+offset_right = 172.0
+offset_bottom = 183.0
+text = "5"
+
+[node name="Label6" type="Label" parent="map/wheel/spin" unique_id=813203081]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 165.0
+offset_right = 121.0
+offset_bottom = 188.0
+text = "6"
+
+[node name="Label7" type="Label" parent="map/wheel/spin" unique_id=1135839542]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 123.0
+offset_right = 69.0
+offset_bottom = 146.0
+text = "7"
+
+[node name="Label8" type="Label" parent="map/wheel/spin" unique_id=2073534678]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 68.0
+offset_right = 69.0
+offset_bottom = 91.0
+text = "8"
+
+[node name="Panel5" type="Panel" parent="map/wheel" unique_id=254788644]
+offset_left = -10.999997
+offset_top = -120.0
+offset_right = -0.99999714
+offset_bottom = -102.28418
+rotation = -0.2617994
+theme_override_styles/panel = SubResource("StyleBoxFlat_mw5nc")
+
 [node name="wheel_area" type="Area2D" parent="map/wheel" unique_id=798175442]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/wheel/wheel_area" unique_id=1339407588]
 position = Vector2(2.5, 126)
@@ -974,6 +1110,11 @@ enabled = false
 zoom = Vector2(2.565, 2.565)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="spin_wheel" type="Button" parent="map/wheel" unique_id=1599754864]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Spin"
 
 [node name="5Ea42Abe5b724Ea3B9c7Cbc84d4528f0" type="Sprite2D" parent="." unique_id=1400678654]
 position = Vector2(-459.99997, -5179)
@@ -1274,6 +1415,7 @@ texture = ExtResource("11_qrwm6")
 [connection signal="body_exited" from="map/stranger_area/right" to="." method="_on_stranger_right_body_exited"]
 [connection signal="body_entered" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_entered"]
 [connection signal="body_exited" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_exited"]
+[connection signal="pressed" from="map/wheel/spin_wheel" to="." method="_on_spin_wheel_pressed"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]

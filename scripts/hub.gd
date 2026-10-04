@@ -632,3 +632,30 @@ func _on_wheel_area_body_entered(body: Node2D) -> void:
 func _on_wheel_area_body_exited(body: Node2D) -> void:
 	if body == $player:
 		wheel_area = 0
+		
+
+func _on_spin_wheel_pressed() -> void:
+	var temp = randi_range(3600, 3960)
+	print(temp)
+	#temp *= 10
+	var tween = create_tween()
+	tween.tween_property($map/wheel/spin, "rotation_degrees", temp, 4).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).from(0)
+	await get_tree().create_timer(5).timeout
+	print(temp)
+	#temp /= 10
+	if temp < 3645:
+		print(1)
+	elif temp <= 3690:
+		print(8)
+	elif temp <= 3735:
+		print(7)
+	elif temp <= 3780:
+		print(6)
+	elif temp <= 3825:
+		print(5)
+	elif temp <= 3870:
+		print(4)
+	elif temp <= 3915:
+		print(3)
+	elif temp <= 3960:
+		print(2)
