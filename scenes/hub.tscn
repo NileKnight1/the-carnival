@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c31121ff2ip8i" path="res://assets/neck-zombie-image-zombie-apocalypse-12.png" id="11_mw5nc"]
 [ext_resource type="Texture2D" uid="uid://2f0obm57ddlo" path="res://assets/40-407073_scary-teddy-bear-png-png-download-creepy-teddy-removebg-preview.png" id="11_qrwm6"]
 [ext_resource type="Texture2D" uid="uid://5r6ao3cyaoey" path="res://assets/pngtree-golden-ornate-key-clipart-illustration-free-png-image_16893530-removebg-preview.png" id="12_0vypl"]
+[ext_resource type="Texture2D" uid="uid://b785wos1bd3pp" path="res://assets/strength-tester-test-your-strength-amusement-game-power-strong-entertainment-festival_1284-42608.png" id="12_7t3s2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glsmu"]
 bg_color = Color(0.033285968, 0.021057129, 0.078125, 1)
@@ -314,6 +315,140 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ox4q"]
 size = Vector2(154, 250)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35pj0"]
+bg_color = Color(1, 0.3882353, 0, 1)
+skew = Vector2(0.265, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo8y0"]
+bg_color = Color(1, 0.3882353, 0, 1)
+skew = Vector2(-0.265, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppem6"]
+bg_color = Color(1, 0.3882353, 0, 1)
+border_width_left = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foalm"]
+bg_color = Color(1, 0.3882353, 0, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svbvo"]
+bg_color = Color(0.8784314, 0.23137255, 0.11764706, 1)
+skew = Vector2(0.28, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq2aq"]
+bg_color = Color(0.8784314, 0.23137255, 0.11764706, 1)
+skew = Vector2(-0.28, 0)
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6dpi"]
+bg_color = Color(0.89411765, 0.19607843, 0, 1)
+skew = Vector2(0.055, 0)
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqook"]
+bg_color = Color(0.89411765, 0.19607843, 0, 1)
+skew = Vector2(-0.055, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wox7"]
+bg_color = Color(1, 0.7019608, 0, 1)
+skew = Vector2(0.555, 0)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjjy6"]
+bg_color = Color(1, 0.7019608, 0, 1)
+skew = Vector2(-0.555, 0)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0t6p"]
+bg_color = Color(1, 0.85882354, 0.003921569, 1)
+skew = Vector2(0.645, 0)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maglh"]
+bg_color = Color(1, 0.85882354, 0.003921569, 1)
+skew = Vector2(-0.645, 0)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tai7l"]
+bg_color = Color(0.89411765, 0.19607843, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k11g"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_r7sff"]
+offsets = PackedFloat32Array(0, 0.3423913, 0.61413044, 1)
+colors = PackedColorArray(0.1953125, 1, 0, 1, 0.5685279, 0.66762906, 0, 1, 1, 0.4453125, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vlew8"]
+gradient = SubResource("Gradient_r7sff")
+width = 182
+height = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqvh2"]
+bg_color = Color(1, 0.85882354, 0.003921569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 distance = 49.0
@@ -1497,6 +1632,153 @@ texture = ExtResource("11_mw5nc")
 
 [node name="SubViewport" type="SubViewport" parent="map/photo_booth" unique_id=630040641]
 
+[node name="hammer_test" type="Node2D" parent="map" unique_id=670531306]
+
+[node name="StrengthTesterTestYourStrengthAmusementGamePowerStrongEntertainmentFestival128442609" type="Sprite2D" parent="map/hammer_test" unique_id=1748663691]
+visible = false
+position = Vector2(1704.0001, 1329)
+scale = Vector2(0.46663234, 0.46663228)
+texture = ExtResource("12_7t3s2")
+metadata/_edit_lock_ = true
+
+[node name="sprite" type="Node2D" parent="map/hammer_test" unique_id=384637562]
+
+[node name="Panel17" type="Panel" parent="map/hammer_test/sprite" unique_id=1869767746]
+offset_left = 1652.0
+offset_top = 1421.0
+offset_right = 1664.0
+offset_bottom = 1450.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_35pj0")
+
+[node name="Panel18" type="Panel" parent="map/hammer_test/sprite" unique_id=1681471262]
+offset_left = 1745.0
+offset_top = 1421.0
+offset_right = 1757.0
+offset_bottom = 1450.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vo8y0")
+
+[node name="Panel19" type="Panel" parent="map/hammer_test/sprite" unique_id=2117296892]
+offset_left = 1648.0
+offset_top = 1449.0
+offset_right = 1664.0
+offset_bottom = 1461.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ppem6")
+
+[node name="Panel20" type="Panel" parent="map/hammer_test/sprite" unique_id=430767153]
+offset_left = 1745.0
+offset_top = 1449.0
+offset_right = 1761.0
+offset_bottom = 1461.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_foalm")
+
+[node name="Panel12" type="Panel" parent="map/hammer_test/sprite" unique_id=915793161]
+offset_left = 1652.0
+offset_top = 1430.0
+offset_right = 1736.0
+offset_bottom = 1461.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_svbvo")
+
+[node name="Panel13" type="Panel" parent="map/hammer_test/sprite" unique_id=90128006]
+offset_left = 1669.0
+offset_top = 1430.0
+offset_right = 1757.0
+offset_bottom = 1461.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pq2aq")
+
+[node name="Panel14" type="Panel" parent="map/hammer_test/sprite" unique_id=2146532518]
+offset_left = 1673.0
+offset_top = 1421.0
+offset_right = 1753.0
+offset_bottom = 1431.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o6dpi")
+
+[node name="Panel15" type="Panel" parent="map/hammer_test/sprite" unique_id=510037361]
+offset_left = 1656.0
+offset_top = 1421.0
+offset_right = 1734.0
+offset_bottom = 1431.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_eqook")
+
+[node name="Panel21" type="Panel" parent="map/hammer_test/sprite" unique_id=1829666119]
+offset_left = 1683.0
+offset_top = 1419.0
+offset_right = 1719.0
+offset_bottom = 1429.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0wox7")
+
+[node name="Panel23" type="Panel" parent="map/hammer_test/sprite" unique_id=1558734845]
+offset_left = 1688.0
+offset_top = 1419.0
+offset_right = 1724.0
+offset_bottom = 1429.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjjy6")
+
+[node name="Panel22" type="Panel" parent="map/hammer_test/sprite" unique_id=588102930]
+offset_left = 1685.0
+offset_top = 1421.0
+offset_right = 1717.0
+offset_bottom = 1427.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0t6p")
+
+[node name="Panel24" type="Panel" parent="map/hammer_test/sprite" unique_id=526801496]
+offset_left = 1690.0
+offset_top = 1421.0
+offset_right = 1722.0
+offset_bottom = 1427.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_maglh")
+
+[node name="Panel16" type="Panel" parent="map/hammer_test/sprite" unique_id=2022610485]
+offset_left = 1691.0
+offset_top = 1236.0
+offset_right = 1716.0
+offset_bottom = 1425.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tai7l")
+
+[node name="line2" type="Panel" parent="map/hammer_test/sprite" unique_id=1410776509]
+offset_left = 1700.0
+offset_top = 1244.0
+offset_right = 1707.0
+offset_bottom = 1425.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5k11g")
+
+[node name="prog" type="TextureProgressBar" parent="map/hammer_test/sprite" unique_id=1521851496]
+offset_left = 1702.0
+offset_top = 1424.0
+offset_right = 1884.0
+offset_bottom = 1427.0
+rotation = -1.5707964
+max_value = 1000.0
+texture_progress = SubResource("GradientTexture2D_vlew8")
+
+[node name="Panel25" type="Panel" parent="map/hammer_test/sprite" unique_id=1392863434]
+offset_left = 1688.0
+offset_top = 1212.0
+offset_right = 1720.0
+offset_bottom = 1244.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aqvh2")
+
+[node name="hammer_hit" type="Button" parent="map/hammer_test" unique_id=975982035]
+offset_left = 1734.0
+offset_top = 1325.0
+offset_right = 1776.0
+offset_bottom = 1356.0
+text = "Hit"
+
+[node name="StrengthTesterTestYourStrengthAmusementGamePowerStrongEntertainmentFestival128442608" type="Sprite2D" parent="." unique_id=812105229]
+visible = false
+modulate = Color(1, 1, 1, 0.49411765)
+position = Vector2(1704.0001, 1329)
+scale = Vector2(0.46663234, 0.46663228)
+texture = ExtResource("12_7t3s2")
+metadata/_edit_lock_ = true
+
+[node name="StrengthTesterTestYourStrengthAmusementGamePowerStrongEntertainmentFestival128442610" type="Sprite2D" parent="." unique_id=2131596981]
+visible = false
+position = Vector2(1704, 1329)
+scale = Vector2(0.4666323, 0.46663228)
+texture = ExtResource("12_7t3s2")
+metadata/_edit_lock_ = true
+
 [node name="5Ea42Abe5b724Ea3B9c7Cbc84d4528f0" type="Sprite2D" parent="." unique_id=1400678654]
 position = Vector2(-459.99997, -5179)
 scale = Vector2(10.536673, 10.536673)
@@ -1546,7 +1828,7 @@ texture = ExtResource("7_mw5nc")
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." unique_id=1650756719 instance=ExtResource("8_7t3s2")]
-position = Vector2(1276, 1425)
+position = Vector2(1631, 1425)
 script = ExtResource("9_glsmu")
 
 [node name="camera" type="Camera2D" parent="player" unique_id=1472360180]
@@ -1804,6 +2086,7 @@ texture = ExtResource("11_qrwm6")
 [connection signal="body_entered" from="map/photo_booth/photo_booth_area" to="." method="_on_photo_booth_area_body_entered"]
 [connection signal="body_exited" from="map/photo_booth/photo_booth_area" to="." method="_on_photo_booth_area_body_exited"]
 [connection signal="pressed" from="map/photo_booth/capture" to="." method="_on_capture_pressed"]
+[connection signal="pressed" from="map/hammer_test/hammer_hit" to="." method="_on_hammer_hit_pressed"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]

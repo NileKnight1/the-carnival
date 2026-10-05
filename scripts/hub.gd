@@ -800,12 +800,13 @@ func temp_func():
 				$map/photo_booth/camera.enabled = 0
 				
 		
-@onready var frame_cam: Camera2D =  $map/photo_booth/camera  # the camera in your screenshot
+@onready var frame_cam: Camera2D =  $map/photo_booth/camera
 func _on_capture_pressed() -> void:
 	photo_cam.global_position = frame_cam.global_position
 	photo_cam.zoom = frame_cam.zoom
 	photo_cam.force_update_scroll()
-
+	#photo_cam.force_update_scroll()
+	
 	photo_vp.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
@@ -813,7 +814,23 @@ func _on_capture_pressed() -> void:
 	var img: Image = photo_vp.get_texture().get_image()
 
 	var dt := Time.get_datetime_dict_from_system()
-	var timestamp := "%04d%02d%02d_%02%02d%02d" % [
+	var timestamp := "%04d%02d%02d_%02d%02d%02d" % [
 		dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second
 	]
-	img.save_png("user://photo_%s.png" % timestamp)
+	img.save_png("user://carnival_photo_%s.png" % timestamp)
+
+func _on_hammer_hit_pressed() -> void:
+	var temp = 500
+	
+	var tween =  create_tween()
+	tween.tween_property($map/hammer_test/sprite/prog, "value", temp, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).from(0)
+	
+	
+
+
+
+
+
+
+
+#
