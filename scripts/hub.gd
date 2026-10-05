@@ -887,15 +887,39 @@ func temp_func():
 				hammer_hit_init()
 				disable_move()
 				$player.visible = 0
-				#$player/camera.enabled = 0
-				#$map/wheel/camera.enabled = 1
+				$player/camera.enabled = 0
+				$map/hammer_test/camera.enabled = 1
 			else:
 				allow_move()
 				$player.visible = 1
 				$player/camera.enabled = 1
-				#$map/wheel/camera.enabled = 0
+				$map/hammer_test/camera.enabled = 0
+		
+		if vending_machine1_area:
+			if $player.move:
+				disable_move()
+				$player.visible = 0
+				$player/camera.enabled = 0
+				$map/vending_machine1/camera.enabled = 1
+			else:
+				allow_move()
+				$player.visible = 1
+				$player/camera.enabled = 1
+				$map/vending_machine1/camera.enabled = 0
 		
 
+var vending_machine1_area = 0
+func _on_vending_machine_area_1_body_entered(body: Node2D) -> void:
+	if body == $player:
+		vending_machine1_area = 1
+func _on_vending_machine_area_1_body_exited(body: Node2D) -> void:
+	if body == $player:
+		vending_machine1_area = 0
 
+func _on_vending_machine_1_buy_pressed() -> void:
+	$map/vending_machine1/open.visible = 1
+	await get_tree().create_timer(0.5).timeout
+	$map/vending_machine1/open.visible = 0
+	
 
 #

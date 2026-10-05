@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://2f0obm57ddlo" path="res://assets/40-407073_scary-teddy-bear-png-png-download-creepy-teddy-removebg-preview.png" id="11_qrwm6"]
 [ext_resource type="Texture2D" uid="uid://5r6ao3cyaoey" path="res://assets/pngtree-golden-ornate-key-clipart-illustration-free-png-image_16893530-removebg-preview.png" id="12_0vypl"]
 [ext_resource type="Texture2D" uid="uid://b785wos1bd3pp" path="res://assets/strength-tester-test-your-strength-amusement-game-power-strong-entertainment-festival_1284-42608.png" id="12_7t3s2"]
+[ext_resource type="Texture2D" uid="uid://tq7s7ey1e6pw" path="res://assets/c2bad5c11c2d97f5ba33165cc59f7b61.jpg" id="14_7n2o6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glsmu"]
 bg_color = Color(0.033285968, 0.021057129, 0.078125, 1)
@@ -492,6 +493,29 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncv88"]
 size = Vector2(134, 250)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfghi"]
+bg_color = Color(0.105882354, 0.101960786, 0.1254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwlcx"]
+bg_color = Color(0.08627451, 0.08235294, 0.105882354, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdxto"]
+size = Vector2(132, 259)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 distance = 49.0
@@ -1858,6 +1882,64 @@ text = "Hit"
 position = Vector2(1703, 1397)
 shape = SubResource("RectangleShape2D_ncv88")
 
+[node name="camera" type="Camera2D" parent="map/hammer_test" unique_id=364105523]
+position = Vector2(1702, 1324)
+enabled = false
+zoom = Vector2(2.575, 2.575)
+
+[node name="vending_machine1" type="Node2D" parent="map" unique_id=1595869764]
+
+[node name="Panel12" type="Panel" parent="map/vending_machine1" unique_id=1573822508]
+offset_left = 1905.0
+offset_top = 1267.0
+offset_right = 2019.0
+offset_bottom = 1458.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bfghi")
+
+[node name="C2Bad5c11c2d97f5Ba33165Cc59f7b61" type="Sprite2D" parent="map/vending_machine1" unique_id=1267584441]
+position = Vector2(1961.5, 1364.3197)
+scale = Vector2(0.14266329, 0.14266331)
+texture = ExtResource("14_7n2o6")
+region_enabled = true
+region_rect = Rect2(0, 23.440948, 730.84, 1280.9966)
+
+[node name="open" type="Node2D" parent="map/vending_machine1" unique_id=1754982812]
+visible = false
+
+[node name="Panel13" type="Panel" parent="map/vending_machine1/open" unique_id=251995938]
+offset_left = 1923.0
+offset_top = 1415.0
+offset_right = 1987.0
+offset_bottom = 1437.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qwlcx")
+
+[node name="opening" type="Sprite2D" parent="map/vending_machine1/open" unique_id=1037061721]
+position = Vector2(1961.0001, 1423)
+scale = Vector2(0.14560544, 0.14266331)
+skew = -0.84124875
+texture = ExtResource("14_7n2o6")
+region_enabled = true
+region_rect = Rect2(95.00011, 1011, 454.05225, 166)
+
+[node name="vending_machine_area1" type="Area2D" parent="map/vending_machine1" unique_id=130161137]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/vending_machine1/vending_machine_area1" unique_id=375878563]
+position = Vector2(1959, 1393.5)
+shape = SubResource("RectangleShape2D_hdxto")
+
+[node name="vending_machine1_buy" type="Button" parent="map/vending_machine1" unique_id=205513142]
+offset_left = 1995.0
+offset_top = 1334.0
+offset_right = 2037.0
+offset_bottom = 1365.0
+text = "Buy"
+
+[node name="camera" type="Camera2D" parent="map/vending_machine1" unique_id=845962145]
+position = Vector2(1961, 1336)
+enabled = false
+zoom = Vector2(2.335, 2.335)
+
 [node name="StrengthTesterTestYourStrengthAmusementGamePowerStrongEntertainmentFestival128442608" type="Sprite2D" parent="." unique_id=812105229]
 visible = false
 modulate = Color(1, 1, 1, 0.49411765)
@@ -2183,6 +2265,9 @@ texture = ExtResource("11_qrwm6")
 [connection signal="pressed" from="map/hammer_test/hammer_hit" to="." method="_on_hammer_hit_pressed"]
 [connection signal="body_entered" from="map/hammer_test/hammer_hit_area" to="." method="_on_hammer_hit_area_body_entered"]
 [connection signal="body_exited" from="map/hammer_test/hammer_hit_area" to="." method="_on_hammer_hit_area_body_exited"]
+[connection signal="body_entered" from="map/vending_machine1/vending_machine_area1" to="." method="_on_vending_machine_area_1_body_entered"]
+[connection signal="body_exited" from="map/vending_machine1/vending_machine_area1" to="." method="_on_vending_machine_area_1_body_exited"]
+[connection signal="pressed" from="map/vending_machine1/vending_machine1_buy" to="." method="_on_vending_machine_1_buy_pressed"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]
