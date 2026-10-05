@@ -450,6 +450,49 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
+[sub_resource type="Gradient" id="Gradient_7t3s2"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 0.6)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1, 1, 0.90666664, 0.90666664, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7n2o6"]
+gradient = SubResource("Gradient_7t3s2")
+width = 50
+height = 4
+
+[sub_resource type="Gradient" id="Gradient_rtbv5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8jhjc"]
+gradient = SubResource("Gradient_rtbv5")
+width = 50
+height = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mjgg"]
+bg_color = Color(0.28125, 0.11315918, 0.11315918, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7sff"]
+bg_color = Color(0.63671875, 0.26861572, 0.26861572, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lof16"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncv88"]
+size = Vector2(134, 250)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 distance = 49.0
 
@@ -1757,12 +1800,63 @@ offset_right = 1720.0
 offset_bottom = 1244.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aqvh2")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="map/hammer_test/sprite" unique_id=202075403]
+visible = false
+offset_left = 1678.0
+offset_top = 1442.0
+offset_right = 1728.0
+offset_bottom = 1446.0
+value = 1.0
+texture_under = SubResource("GradientTexture2D_7n2o6")
+texture_progress = SubResource("GradientTexture2D_8jhjc")
+texture_progress_offset = Vector2(28.55, 0)
+
+[node name="hit_bar" type="Node2D" parent="map/hammer_test/sprite" unique_id=1787756693]
+position = Vector2(1695, 1448)
+
+[node name="Panel" type="Panel" parent="map/hammer_test/sprite/hit_bar" unique_id=1064021195]
+offset_left = -33.0
+offset_top = -5.0
+offset_right = 52.590904
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8mjgg")
+
+[node name="zone" type="Panel" parent="map/hammer_test/sprite/hit_bar" unique_id=1121974523]
+offset_left = 11.0
+offset_top = -5.0
+offset_right = 22.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_r7sff")
+
+[node name="dash" type="Panel" parent="map/hammer_test/sprite/hit_bar" unique_id=1803834096]
+offset_left = 22.0
+offset_top = -5.0
+offset_right = 23.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lof16")
+
+[node name="Label" type="Label" parent="map/hammer_test/sprite/hit_bar" unique_id=585042431]
+offset_left = -23.0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 11.0
+theme_override_fonts/font = ExtResource("10_rtbv5")
+theme_override_font_sizes/font_size = 5
+text = "Press 'Space' on marker to hit!"
+horizontal_alignment = 1
+
 [node name="hammer_hit" type="Button" parent="map/hammer_test" unique_id=975982035]
 offset_left = 1734.0
 offset_top = 1325.0
 offset_right = 1776.0
 offset_bottom = 1356.0
 text = "Hit"
+
+[node name="hammer_hit_area" type="Area2D" parent="map/hammer_test" unique_id=418064349]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/hammer_test/hammer_hit_area" unique_id=485689134]
+position = Vector2(1703, 1397)
+shape = SubResource("RectangleShape2D_ncv88")
 
 [node name="StrengthTesterTestYourStrengthAmusementGamePowerStrongEntertainmentFestival128442608" type="Sprite2D" parent="." unique_id=812105229]
 visible = false
@@ -2087,6 +2181,8 @@ texture = ExtResource("11_qrwm6")
 [connection signal="body_exited" from="map/photo_booth/photo_booth_area" to="." method="_on_photo_booth_area_body_exited"]
 [connection signal="pressed" from="map/photo_booth/capture" to="." method="_on_capture_pressed"]
 [connection signal="pressed" from="map/hammer_test/hammer_hit" to="." method="_on_hammer_hit_pressed"]
+[connection signal="body_entered" from="map/hammer_test/hammer_hit_area" to="." method="_on_hammer_hit_area_body_entered"]
+[connection signal="body_exited" from="map/hammer_test/hammer_hit_area" to="." method="_on_hammer_hit_area_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]

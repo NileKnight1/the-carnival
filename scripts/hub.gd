@@ -194,6 +194,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact") && chatting:
 		show_chat(cur_chat)
 	
+	hammer_hit_game()
+	
 	temp_func()
 	
 
@@ -747,6 +749,87 @@ func _on_photo_booth_area_body_exited(body: Node2D) -> void:
 		photo_booth_area = 0
 
 
+
+@onready var frame_cam: Camera2D =  $map/photo_booth/camera
+func _on_capture_pressed() -> void:
+	photo_cam.global_position = frame_cam.global_position
+	photo_cam.zoom = frame_cam.zoom
+	photo_cam.force_update_scroll()
+	#photo_cam.force_update_scroll()
+	
+	photo_vp.render_target_update_mode = SubViewport.UPDATE_ONCE
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+
+	var img: Image = photo_vp.get_texture().get_image()
+
+	var dt := Time.get_datetime_dict_from_system()
+	var timestamp := "%04d%02d%02d_%02d%02d%02d" % [
+		dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second
+	]
+	img.save_png("user://carnival_photo_%s.png" % timestamp)
+
+
+
+func _on_hammer_hit_pressed() -> void:
+	var temp
+	var dash_pos = $map/hammer_test/sprite/hit_bar/dash.position.x
+	var zone = $map/hammer_test/sprite/hit_bar/zone.position.x
+	#print(dash_pos)
+	#print(zone)
+	# max distance 72
+	# min distance 0
+	print(zone - dash_pos)
+	print(dash_pos - zone-11)
+	print(max(zone - dash_pos, dash_pos - zone-11))
+	hit_bar = 0
+	
+	temp =  (100 - max(zone - dash_pos, dash_pos - zone-11))/100*1000 
+	temp = min (1000, temp)
+	
+	print(temp)
+	#
+	#if dash_pos >= zone && dash_pos <= zone+11:
+		#print("correct")
+		#hit_bar = 0
+		
+		#var tween = create_tween()
+		#tween.tween_property($map/hammer_test/sprite/hit_bar, "rotation", deg_to_rad(5), 0.1)
+		#tween.tween_property($map/hammer_test/sprite/hit_bar, "rotation", deg_to_rad(-5), 0.1)
+		#tween.tween_property($map/hammer_test/sprite/hit_bar, "rotation", deg_to_rad(5), 0.1)
+		#tween.tween_property($map/hammer_test/sprite/hit_bar, "rotation", deg_to_rad(-5), 0.1)
+		#tween.tween_property($map/hammer_test/sprite/hit_bar, "rotation", deg_to_rad(0), 0.1)
+	if hit_tween: hit_tween.kill()
+	
+	var tween =  create_tween()
+	tween.tween_property($map/hammer_test/sprite/prog, "value", temp, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).from(0)
+	
+
+func hammer_hit_init():
+	$map/hammer_test/sprite/hit_bar/zone.position.x = randi_range(-32.0, 40.0)
+	$map/hammer_test/sprite/hit_bar.visible = 1
+	hit_bar = 3
+	hit_tween = create_tween().set_loops()
+	hit_tween.tween_property($map/hammer_test/sprite/hit_bar/dash, "position:x", 51, 1.5).from(-32)
+	hit_tween.tween_property($map/hammer_test/sprite/hit_bar/dash, "position:x", -32.0, 1.5).from(51)
+
+
+var hit_bar = 0
+var hit_tween
+
+func hammer_hit_game():
+	pass
+
+
+func _on_hammer_hit_area_body_entered(body: Node2D) -> void:
+	if body == $player:
+		hammer_hit_area = 1
+func _on_hammer_hit_area_body_exited(body: Node2D) -> void:
+	if body == $player:
+		hammer_hit_area = 0
+
+
+var hammer_hit_area = 0
 func temp_func():
 	if Input.is_action_just_pressed("Interact"):
 		if wheel_area:
@@ -798,38 +881,20 @@ func temp_func():
 				$player.visible = 1
 				$player/camera.enabled = 1
 				$map/photo_booth/camera.enabled = 0
-				
 		
-@onready var frame_cam: Camera2D =  $map/photo_booth/camera
-func _on_capture_pressed() -> void:
-	photo_cam.global_position = frame_cam.global_position
-	photo_cam.zoom = frame_cam.zoom
-	photo_cam.force_update_scroll()
-	#photo_cam.force_update_scroll()
-	
-	photo_vp.render_target_update_mode = SubViewport.UPDATE_ONCE
-	await get_tree().process_frame
-	await RenderingServer.frame_post_draw
-
-	var img: Image = photo_vp.get_texture().get_image()
-
-	var dt := Time.get_datetime_dict_from_system()
-	var timestamp := "%04d%02d%02d_%02d%02d%02d" % [
-		dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second
-	]
-	img.save_png("user://carnival_photo_%s.png" % timestamp)
-
-func _on_hammer_hit_pressed() -> void:
-	var temp = 500
-	
-	var tween =  create_tween()
-	tween.tween_property($map/hammer_test/sprite/prog, "value", temp, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).from(0)
-	
-	
-
-
-
-
+		if hammer_hit_area:
+			if $player.move:
+				hammer_hit_init()
+				disable_move()
+				$player.visible = 0
+				#$player/camera.enabled = 0
+				#$map/wheel/camera.enabled = 1
+			else:
+				allow_move()
+				$player.visible = 1
+				$player/camera.enabled = 1
+				#$map/wheel/camera.enabled = 0
+		
 
 
 
