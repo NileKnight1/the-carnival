@@ -81,7 +81,7 @@ func _set_layer_recursive(node: Node, layer: int) -> void:
 	for child in node.get_children():
 		_set_layer_recursive(child, layer)
 
-func _ready() -> void:
+func booth_zombie_filter():
 	zombie.visible = true
 	_set_layer_recursive(zombie, ZOMBIE_LAYER_BIT)
 	get_viewport().canvas_cull_mask = 0xFFFFFFFF & ~ZOMBIE_LAYER_BIT
@@ -98,6 +98,10 @@ func _ready() -> void:
 	photo_cam.make_current()
 
 	
+
+func _ready() -> void:
+	#msg("hello")
+	get_tree().call_group("e_buttons", "hide")
 	
 	var key = $CanvasLayer/rewards/key
 	var add_heart = $CanvasLayer/rewards/heart
@@ -183,6 +187,8 @@ var tent4 = 0
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact") && global.can_play:
+		get_tree().call_group("e_buttons", "hide")
+		
 		if tent_shooter:
 			await enter_game("res://scenes/shooter.tscn")
 		if tent2:
@@ -644,9 +650,11 @@ var wheel_area = 0
 func _on_wheel_area_body_entered(body: Node2D) -> void:
 	if body == $player:
 		wheel_area = 1
+		show_e($map/wheel/e)
 func _on_wheel_area_body_exited(body: Node2D) -> void:
 	if body == $player:
 		wheel_area = 0
+		hide_e($map/wheel/e)
 
 
 
@@ -661,20 +669,48 @@ func _on_spin_wheel_pressed() -> void:
 	#temp /= 10
 	if temp < 3645:
 		print(1)
+		#spin()
+		msg("Go play the shooter game!")
 	elif temp <= 3690:
 		print(8)
+		msg("You won a free ticket!")
 	elif temp <= 3735:
 		print(7)
+		msg("Go test your strength!")
 	elif temp <= 3780:
 		print(6)
+		msg("Go play the patterns game!")
 	elif temp <= 3825:
 		print(5)
+		msg("Go try the claw game!")
 	elif temp <= 3870:
 		print(4)
+		msg("Eh try again!")
 	elif temp <= 3915:
 		print(3)
+		msg("Go play the hammer game!")
 	elif temp <= 3960:
 		print(2)
+		msg("Use the booth and take a photo!")
+
+func msg(msg):
+	var temp = $CanvasLayer/msg.duplicate()
+	temp.text = msg
+	var pos_y = temp.position.y
+	$CanvasLayer.add_child(temp)
+	
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property(temp, "position:y", pos_y-50, 2)
+	tween.tween_property(temp, "modulate:a", 1, 0.7)
+	
+	
+	
+	await get_tree().create_timer(3).timeout
+	tween = create_tween()
+	tween.tween_property(temp, "modulate:a", 0, 0.7)
+	await get_tree().create_timer(1).timeout
+	
+	temp.queue_free()
 
 func arcade_game1_run():
 	arcade1_score = 0
@@ -694,9 +730,12 @@ var arcade_device1_area = 0
 func _on_arcade_device_1_area_body_entered(body: Node2D) -> void:
 	if body == $player:
 		arcade_device1_area = 1
+		show_e($map/arcade_device1/e)
 func _on_arcade_device_1_area_body_exited(body: Node2D) -> void:
 	if body == $player:
 		arcade_device1_area = 0
+		hide_e($map/arcade_device1/e)
+		
 
 var arcade1_score = 0
 
@@ -744,9 +783,13 @@ func _on_photo_booth_area_body_entered(body: Node2D) -> void:
 	if body == $player:
 		photo_booth_area = 1
 		print('x')
+		show_e($map/photo_booth/e)
+		
 func _on_photo_booth_area_body_exited(body: Node2D) -> void:
 	if body == $player:
 		photo_booth_area = 0
+		hide_e($map/photo_booth/e)
+		
 
 
 
@@ -824,10 +867,13 @@ func hammer_hit_game():
 func _on_hammer_hit_area_body_entered(body: Node2D) -> void:
 	if body == $player:
 		hammer_hit_area = 1
+		show_e($map/hammer_test/e)
+		
 func _on_hammer_hit_area_body_exited(body: Node2D) -> void:
 	if body == $player:
 		hammer_hit_area = 0
-
+		hide_e($map/hammer_test/e)
+		
 
 var hammer_hit_area = 0
 func temp_func():
@@ -918,21 +964,53 @@ func temp_func():
 				$player.visible = 1
 				$player/camera.enabled = 1
 				$map/claw_machine/camera.enabled = 0
-				
 
 var claw_machine1_area = 0
 var vending_machine1_area = 0
 func _on_vending_machine_area_1_body_entered(body: Node2D) -> void:
 	if body == $player:
 		vending_machine1_area = 1
+		show_e($map/vending_machine1/e)
+		
 func _on_vending_machine_area_1_body_exited(body: Node2D) -> void:
 	if body == $player:
 		vending_machine1_area = 0
+		hide_e($map/vending_machine1/e)
+		
 
 func _on_vending_machine_1_buy_pressed() -> void:
 	$map/vending_machine1/open.visible = 1
 	await get_tree().create_timer(0.5).timeout
 	$map/vending_machine1/open.visible = 0
-	
+
+var pulsex
+var og_scalex
+var tw_scalex
+
+func show_e(node):
+	var e = node
+	og_scalex = e.scale.x
+	tw_scalex = e.scale.x + 0.04
+	e.visible = 1
+	pulsex = create_tween().set_loops()
+	pulsex.tween_property(e, "scale", Vector2(tw_scalex, tw_scalex), 0.3).from(Vector2(og_scalex, og_scalex))
+	pulsex.tween_property(e, "scale", Vector2(og_scalex, og_scalex), 0.3).from(Vector2(tw_scalex, tw_scalex))
+
+func hide_e(node):
+	node.visible = 0
+	if pulsex: pulsex.kill()
+	node.scale = Vector2(og_scalex, tw_scalex)
+
 
 #
+
+var gate_msg = 0
+func _on_gate_area_body_entered(body: Node2D) -> void:
+	if body == $player:
+		gate_msg = 0
+func _on_entering_body_entered(body: Node2D) -> void:
+	if body == $player:
+		gate_msg = 0
+func _on_leaving_body_entered(body: Node2D) -> void:
+	if body == $player:
+		
