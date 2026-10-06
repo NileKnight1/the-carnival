@@ -4,6 +4,8 @@ extends Node2D
 var sound_retro_click = preload("res://audio/soundshelfstudio-ui-click-retro-514601.mp3")
 
 func _ready() -> void:
+	get_tree().call_group("init_hide", "hide")
+	
 	$CanvasLayer/patterns.visible = 0
 	$CanvasLayer/health.visible = 0
 	$CanvasLayer/hit_bar.visible = 0
@@ -17,9 +19,9 @@ func _process(delta: float) -> void:
 		if dash_pos >= zone && dash_pos <= zone+37:
 			print("correct")
 			hit_bar -= 1
+			$CanvasLayer/hit_bar/score.text = str(3-hit_bar) + "/3"
 			
 			$CanvasLayer/hit_bar/zone.position.x = randi_range(-130, 100)
-			
 			
 			if !hit_bar:
 				hit_tween.kill()
@@ -27,11 +29,11 @@ func _process(delta: float) -> void:
 				final_game()
 			
 			var tween = create_tween()
-			tween.tween_property($CanvasLayer/hit_bar, "rotation", deg_to_rad(5), 0.1)
-			tween.tween_property($CanvasLayer/hit_bar, "rotation", deg_to_rad(-5), 0.1)
-			tween.tween_property($CanvasLayer/hit_bar, "rotation", deg_to_rad(5), 0.1)
-			tween.tween_property($CanvasLayer/hit_bar, "rotation", deg_to_rad(-5), 0.1)
-			tween.tween_property($CanvasLayer/hit_bar, "rotation", deg_to_rad(0), 0.1)
+			tween.tween_property($CanvasLayer/hit_bar/score, "rotation", deg_to_rad(5), 0.1)
+			tween.tween_property($CanvasLayer/hit_bar/score, "rotation", deg_to_rad(-5), 0.1)
+			tween.tween_property($CanvasLayer/hit_bar/score, "rotation", deg_to_rad(5), 0.1)
+			tween.tween_property($CanvasLayer/hit_bar/score, "rotation", deg_to_rad(-5), 0.1)
+			tween.tween_property($CanvasLayer/hit_bar/score, "rotation", deg_to_rad(0), 0.1)
 			
 			
 		else:
@@ -55,6 +57,8 @@ func final_game():
 	$CanvasLayer/health.visible = 1
 	health = global.health
 	#$map/Panel.visible = 1
+	for i in range(health):
+		$CanvasLayer/health.get_child(i).visible = 1
 	
 	match phase:
 		1: finale_phase1()
@@ -62,12 +66,14 @@ func final_game():
 		3: finale_phase3()
 
 func finale_phase1():
+	hit_bar = 3
+	$CanvasLayer/hit_bar/score.text = str(3-hit_bar) + "/3"
+	print(hit_bar)
 	$CanvasLayer/hit_bar/zone.position.x = randi_range(-130, 100)
 	$CanvasLayer/hit_bar.visible = 1
-	hit_bar = 3
 	hit_tween = create_tween().set_loops()
-	hit_tween.tween_property($CanvasLayer/hit_bar/dash, "position:x", 136.0, 1.5)
-	hit_tween.tween_property($CanvasLayer/hit_bar/dash, "position:x", -130.0, 1.5)
+	hit_tween.tween_property($CanvasLayer/hit_bar/dash, "position:x", 136.0, 1.5).from(-130)
+	hit_tween.tween_property($CanvasLayer/hit_bar/dash, "position:x", -130.0, 1.5).from(136)
 
 func finale_phase2():
 	$CanvasLayer/hit_bar.visible = 0
@@ -83,7 +89,8 @@ func ghost_attack():
 	if health == 0:
 		hit_tween.kill()
 		hit_bar = 0
-
+		$CanvasLayer/restart.visible = 1
+	
 
 func check_click(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -117,8 +124,9 @@ var lightened = [
 	
 ]
 
-var lighting_count = 5
+var lighting_count = 3
 func auto_light():
+	if !health: return
 	pressed = 1
 	for i in range(lighting_count):
 		var temp = randi_range(0,3)
@@ -132,7 +140,7 @@ var phase = 1
 var pressed = 1
 
 func man_light(index):
-	if pressed: return
+	if pressed || !health: return
 	pressed = 1
 	await light(index, 0)
 	if index == lightened[0]:
@@ -145,19 +153,27 @@ func man_light(index):
 				phase += 1
 				final_game()
 			else:
-				ghost_attack()
+				lighting_count += 1
+				finale_phase2()
+
 		pressed = 0
 	else:
+		pressed = 1
+		await get_tree().create_timer(1.0).timeout
+		pressed = 0
 		print("wrong")
 		lightened.clear()
+		ghost_attack()
 		auto_light()
 
 func finale_phase3():
-	$CanvasLayer/plushie.visible = 1
+	$plushie.visible = 1
 	$CanvasLayer/health.visible = 0
-	
-	$map/Panel.visible = 0
-	$player/Camera2D.position = Vector2(0, -86)
-	$player.position = Vector2(-298, -223)
 	ghost_fight = 0
-	$CanvasLayer/dark.visible = 0
+	#$CanvasLayer/dark.visible = 0
+
+func _on_restart_pressed() -> void:
+	print("restart")
+	$CanvasLayer/hit_bar/score.text = str(3-hit_bar) + "/3"
+	$CanvasLayer/restart.visible = 0
+	final_game()

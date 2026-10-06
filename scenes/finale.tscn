@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://d1lqtmimxw1t2" path="res://scripts/finale.gd" id="1_780xw"]
 [ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="1_fi6aj"]
 [ext_resource type="FontFile" uid="uid://tkwx1fq4f8bh" path="res://assets/Baloo2-Regular.ttf" id="3_28ree"]
+[ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="4_28ree"]
+[ext_resource type="Texture2D" uid="uid://2f0obm57ddlo" path="res://assets/40-407073_scary-teddy-bear-png-png-download-creepy-teddy-removebg-preview.png" id="5_kh2f6"]
 
 [sub_resource type="Gradient" id="Gradient_6c1nw"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -43,6 +45,12 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh2f6"]
 bg_color = Color(0.2172521, 0.10908202, 0.031088699, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlew8"]
+bg_color = Color(0.57421875, 0.49765626, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mud52"]
+bg_color = Color(0.515625, 0.515625, 0.515625, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37bed"]
 bg_color = Color(0.28125, 0.11315918, 0.11315918, 1)
@@ -112,6 +120,42 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rhw0"]
+bg_color = Color(0.1796875, 0, 0.11979164, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fw2ij"]
+bg_color = Color(0.1171875, 0, 0.078124985, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmxwa"]
+bg_color = Color(0.38671875, 0, 0.26061478, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="finale" type="Node2D" unique_id=48231848]
 script = ExtResource("1_780xw")
 
@@ -124,7 +168,7 @@ texture = ExtResource("1_fi6aj")
 [node name="light" type="PointLight2D" parent="." unique_id=561421321]
 position = Vector2(0, 58.999996)
 scale = Vector2(19.09375, 11.3196335)
-energy = 0.4
+energy = 1.05
 texture = SubResource("GradientTexture2D_kaf1w")
 
 [node name="map" type="Node2D" parent="." unique_id=400988677]
@@ -571,9 +615,43 @@ scale = Vector2(-1, 1)
 color = Color(0.64705884, 0.42352942, 0.30588236, 1)
 polygon = PackedVector2Array(-318, -73, -318, -83, -420, -137, -427, -126)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=579223243]
-ignore_rotation = false
-zoom = Vector2(1.74, 1.74)
+[node name="player" type="Node2D" parent="." unique_id=46737085]
+position = Vector2(-215, 155)
+
+[node name="Panel4" type="Panel" parent="player" unique_id=751321477]
+offset_left = -65.0
+offset_top = 26.0
+offset_right = -41.0
+offset_bottom = 105.0
+mouse_filter = 2
+
+[node name="Panel5" type="Panel" parent="player" unique_id=1615125800]
+offset_left = -20.0
+offset_top = 26.0
+offset_right = 4.0
+offset_bottom = 105.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="player" unique_id=1743859805]
+offset_left = -71.0
+offset_top = -159.0
+offset_right = 9.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vlew8")
+
+[node name="Panel2" type="Panel" parent="player" unique_id=1084097943]
+offset_left = 429.0
+offset_top = -159.0
+offset_right = 509.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mud52")
+
+[node name="plushie" type="Sprite2D" parent="." unique_id=812714194 groups=["init_hide"]]
+position = Vector2(-208, 98)
+scale = Vector2(0.20216298, 0.20216294)
+texture = ExtResource("5_kh2f6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1784020413]
 
@@ -609,6 +687,16 @@ offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("3_28ree")
 theme_override_font_sizes/font_size = 21
 text = "Press 'Space' on marker to hit!"
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="CanvasLayer/hit_bar" unique_id=1640035068]
+offset_left = 145.0
+offset_top = -17.0
+offset_right = 174.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("3_28ree")
+theme_override_font_sizes/font_size = 21
+text = "0/3"
 horizontal_alignment = 1
 
 [node name="health" type="Node2D" parent="CanvasLayer" unique_id=1118515485]
@@ -702,7 +790,24 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(40, 40)
 shape = SubResource("RectangleShape2D_mud52")
 
+[node name="restart" type="Button" parent="CanvasLayer" unique_id=685295086 groups=["init_hide"]]
+offset_left = 570.0
+offset_top = 280.0
+offset_right = 742.0
+offset_bottom = 355.0
+theme_override_fonts/font = ExtResource("4_28ree")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxFlat_5rhw0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fw2ij")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gmxwa")
+text = "Restart"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=579223243]
+ignore_rotation = false
+zoom = Vector2(1.74, 1.74)
+
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b4/button4" to="." method="_on_button_4_input_event"]
+[connection signal="pressed" from="CanvasLayer/restart" to="." method="_on_restart_pressed"]
