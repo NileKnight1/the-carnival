@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://5r6ao3cyaoey" path="res://assets/pngtree-golden-ornate-key-clipart-illustration-free-png-image_16893530-removebg-preview.png" id="12_0vypl"]
 [ext_resource type="Texture2D" uid="uid://b785wos1bd3pp" path="res://assets/strength-tester-test-your-strength-amusement-game-power-strong-entertainment-festival_1284-42608.png" id="12_7t3s2"]
 [ext_resource type="Texture2D" uid="uid://tq7s7ey1e6pw" path="res://assets/c2bad5c11c2d97f5ba33165cc59f7b61.jpg" id="14_7n2o6"]
+[ext_resource type="PackedScene" uid="uid://chjrkhhhs3gli" path="res://scenes/wac_a_mole_target.tscn" id="15_rtbv5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glsmu"]
 bg_color = Color(0.033285968, 0.021057129, 0.078125, 1)
@@ -517,6 +518,98 @@ corner_radius_bottom_left = 6
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdxto"]
 size = Vector2(132, 259)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei7lg"]
+bg_color = Color(0.12156863, 0.2901961, 0.07058824, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.07058824, 0.1882353, 0.043137256, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxsyu"]
+bg_color = Color(0.18039216, 0.41960785, 0.105882354, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_7n2o6"]
+colors = PackedColorArray(0.09019608, 0.1882353, 0.101960786, 1, 0.16862746, 0.2901961, 0.17254902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rtbv5"]
+gradient = SubResource("Gradient_7n2o6")
+fill_from = Vector2(0.5131579, 1)
+fill_to = Vector2(0.48245615, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7n2o6"]
+texture = SubResource("GradientTexture2D_rtbv5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k12rm"]
+bg_color = Color(0.75, 0.9375, 1, 0.078431375)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jsik"]
+bg_color = Color(0.00390625, 0.00390625, 0.00390625, 1)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8f6f6"]
+bg_color = Color(1, 0.8235294, 0.24705882, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d1qd"]
+bg_color = Color(0.08627451, 0.12941177, 0.05882353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jdki"]
+bg_color = Color(0.043137256, 0.05882353, 0.039215688, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_qrwm6"]
+offsets = PackedFloat32Array(0, 0.11413044, 0.2173913, 0.5597826, 0.8206522, 1)
+colors = PackedColorArray(0.2901961, 0.3254902, 0.36078432, 1, 0.72156864, 0.7607843, 0.8, 1, 0.95686275, 0.96862745, 0.98039216, 1, 0.5568628, 0.6, 0.6431373, 1, 0.37254903, 0.41568628, 0.45882353, 1, 0.21176471, 0.23921569, 0.26666668, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bekt7"]
+gradient = SubResource("Gradient_qrwm6")
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlew8"]
+font = ExtResource("3_phvbg")
+font_size = 40
+font_color = Color(0.2890625, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avuq1"]
+bg_color = Color(0.4765625, 0, 0, 1)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxh7j"]
+bg_color = Color(0.4765625, 0, 0, 1)
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_bekt7"]
+font_size = 13
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 distance = 49.0
 
@@ -623,28 +716,28 @@ script = ExtResource("1_s6eg2")
 [node name="bg" type="Node2D" parent="map" unique_id=903977379]
 
 [node name="Panel25" type="Panel" parent="map/bg" unique_id=2111607840]
-offset_left = 2251.9844
+offset_left = 2610.5845
 offset_top = 1383.9487
-offset_right = 6886.495
+offset_right = 7603.6953
 offset_bottom = 1958.6249
 rotation = 3.1415927
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_glsmu")
 
 [node name="Panel26" type="Panel" parent="map/bg" unique_id=108207327]
-offset_left = 2251.9844
+offset_left = 2639.1843
 offset_top = 1794.0001
-offset_right = 6593.402
+offset_right = 7367.802
 offset_bottom = 2214.4976
 rotation = 3.1415927
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_phvbg")
 
 [node name="Panel18" type="Panel" parent="map/bg" unique_id=745878883]
-offset_left = 2172.116
+offset_left = 3044.4158
 offset_top = 1459.9999
-offset_right = 2322.116
-offset_bottom = 4611.044
+offset_right = 3194.4158
+offset_bottom = 5483.3438
 rotation = 1.5707964
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e1j6l")
@@ -1939,6 +2032,231 @@ text = "Buy"
 position = Vector2(1961, 1336)
 enabled = false
 zoom = Vector2(2.335, 2.335)
+
+[node name="claw_machine" type="Node2D" parent="map" unique_id=404601230]
+position = Vector2(0, -10)
+
+[node name="Panel13" type="Panel" parent="map/claw_machine" unique_id=2103041520]
+offset_left = 2254.0
+offset_top = 1233.0
+offset_right = 2418.0
+offset_bottom = 1470.7883
+theme_override_styles/panel = SubResource("StyleBoxFlat_ei7lg")
+
+[node name="Panel14" type="Panel" parent="map/claw_machine" unique_id=1644665834]
+offset_left = 2265.0
+offset_top = 1241.0
+offset_right = 2408.0
+offset_bottom = 1380.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxsyu")
+
+[node name="Panel15" type="Panel" parent="map/claw_machine" unique_id=829798044]
+offset_left = 2265.0
+offset_top = 1241.0
+offset_right = 2408.0
+offset_bottom = 1380.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxsyu")
+
+[node name="interior" type="Panel" parent="map/claw_machine" unique_id=499795586]
+clip_children = 2
+offset_left = 2273.0
+offset_top = 1250.0
+offset_right = 2400.0
+offset_bottom = 1371.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7n2o6")
+
+[node name="prizes" type="Node2D" parent="map/claw_machine/interior" unique_id=1205538837]
+position = Vector2(-2272, -1240)
+
+[node name="target" parent="map/claw_machine/interior/prizes" unique_id=1318577958 instance=ExtResource("15_rtbv5")]
+position = Vector2(2284, 1354)
+rotation = -0.18163994
+
+[node name="target3" parent="map/claw_machine/interior/prizes" unique_id=2110501418 instance=ExtResource("15_rtbv5")]
+position = Vector2(2301, 1359.9998)
+rotation = -0.18163994
+
+[node name="target4" parent="map/claw_machine/interior/prizes" unique_id=1829630175 instance=ExtResource("15_rtbv5")]
+position = Vector2(2343.9998, 1356)
+rotation = 0.12084147
+
+[node name="target5" parent="map/claw_machine/interior/prizes" unique_id=925518164 instance=ExtResource("15_rtbv5")]
+position = Vector2(2364, 1353)
+rotation = -0.022502854
+
+[node name="target6" parent="map/claw_machine/interior/prizes" unique_id=486599440 instance=ExtResource("15_rtbv5")]
+position = Vector2(2389, 1353)
+rotation = -0.15427
+
+[node name="target2" parent="map/claw_machine/interior/prizes" unique_id=285144010 instance=ExtResource("15_rtbv5")]
+position = Vector2(2322, 1355)
+rotation = 0.25545022
+
+[node name="Panel18" type="Panel" parent="map/claw_machine" unique_id=2066995172]
+offset_left = 2273.0
+offset_top = 1250.0
+offset_right = 2400.0
+offset_bottom = 1371.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k12rm")
+
+[node name="Panel17" type="Panel" parent="map/claw_machine" unique_id=1195541791]
+offset_left = 2332.0
+offset_top = 1271.0
+offset_right = 2339.0
+offset_bottom = 1298.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel24" type="Panel" parent="map/claw_machine" unique_id=954512817]
+offset_left = 2335.0
+offset_top = 1246.0
+offset_right = 2336.0
+offset_bottom = 1275.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel21" type="Panel" parent="map/claw_machine" unique_id=1653139986]
+offset_left = 2348.7908
+offset_top = 1285.4177
+offset_right = 2355.6995
+offset_bottom = 1312.5193
+rotation = 1.5707964
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel22" type="Panel" parent="map/claw_machine" unique_id=1340497540]
+offset_left = 2348.9368
+offset_top = 1300.6793
+offset_right = 2355.7805
+offset_bottom = 1315.3324
+rotation = 3.1415927
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel23" type="Panel" parent="map/claw_machine" unique_id=1516341844]
+offset_left = 2328.841
+offset_top = 1300.7117
+offset_right = 2335.976
+offset_bottom = 1315.3324
+rotation = 3.1415927
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel19" type="Panel" parent="map/claw_machine" unique_id=502238329]
+offset_left = 2261.0
+offset_top = 1209.0
+offset_right = 2412.0
+offset_bottom = 1246.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8f6f6")
+
+[node name="Panel16" type="Panel" parent="map/claw_machine" unique_id=1046957345]
+offset_left = 2265.0
+offset_top = 1385.0
+offset_right = 2408.0
+offset_bottom = 1459.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4d1qd")
+
+[node name="Panel20" type="Panel" parent="map/claw_machine" unique_id=1739937421]
+offset_left = 2275.0
+offset_top = 1426.0
+offset_right = 2398.0
+offset_bottom = 1454.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1jdki")
+
+[node name="Polygon2D" type="Polygon2D" parent="map/claw_machine" unique_id=723297255]
+position = Vector2(0, 8)
+texture = SubResource("GradientTexture2D_bekt7")
+texture_offset = Vector2(-2303.39, -1251.19)
+polygon = PackedVector2Array(2348, 1278, 2348, 1292, 2343, 1292, 2343, 1283, 2338, 1283, 2338, 1289, 2333, 1289, 2333, 1283, 2328, 1283, 2328, 1292, 2323, 1292, 2323, 1278, 2333, 1278, 2333, 1264, 2338, 1264, 2338, 1278)
+
+[node name="camera" type="Camera2D" parent="map/claw_machine" unique_id=156602810]
+position = Vector2(2372, 1333)
+enabled = false
+zoom = Vector2(2.27, 2.27)
+
+[node name="Label" type="Label" parent="map/claw_machine" unique_id=1762120790]
+offset_left = 2292.0
+offset_top = 1198.0
+offset_right = 2385.0
+offset_bottom = 1261.0
+text = "WIN !"
+label_settings = SubResource("LabelSettings_vlew8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="controls" type="Node2D" parent="map/claw_machine" unique_id=1619485129]
+
+[node name="Panel27" type="Panel" parent="map/claw_machine/controls" unique_id=1213715702]
+offset_left = 2294.0
+offset_top = 1401.0
+offset_right = 2304.0
+offset_bottom = 1411.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
+
+[node name="Panel28" type="Panel" parent="map/claw_machine/controls" unique_id=1379959766]
+offset_left = 2304.0
+offset_top = 1391.0
+offset_right = 2314.0
+offset_bottom = 1401.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
+
+[node name="Panel29" type="Panel" parent="map/claw_machine/controls" unique_id=971984430]
+offset_left = 2314.0
+offset_top = 1401.0
+offset_right = 2324.0
+offset_bottom = 1411.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
+
+[node name="Panel30" type="Panel" parent="map/claw_machine/controls" unique_id=1763727241]
+offset_left = 2304.0
+offset_top = 1411.0
+offset_right = 2314.0
+offset_bottom = 1421.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
+
+[node name="Panel31" type="Panel" parent="map/claw_machine/controls" unique_id=1259271427]
+offset_left = 2349.0
+offset_top = 1396.0
+offset_right = 2359.0
+offset_bottom = 1406.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxh7j")
+
+[node name="Panel32" type="Panel" parent="map/claw_machine/controls" unique_id=2140836546]
+offset_left = 2362.0
+offset_top = 1396.0
+offset_right = 2372.0
+offset_bottom = 1406.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxh7j")
+
+[node name="Label" type="Label" parent="map/claw_machine/controls" unique_id=1667324927]
+offset_left = 2295.0
+offset_top = 1397.0
+offset_right = 2305.0
+offset_bottom = 1420.0
+text = "<"
+label_settings = SubResource("LabelSettings_bekt7")
+
+[node name="Label2" type="Label" parent="map/claw_machine/controls" unique_id=1547780640]
+offset_left = 2318.0
+offset_top = 1392.0
+offset_right = 2328.0
+offset_bottom = 1415.0
+rotation = 1.5707964
+text = "<"
+label_settings = SubResource("LabelSettings_bekt7")
+
+[node name="Label3" type="Label" parent="map/claw_machine/controls" unique_id=1805745217]
+offset_left = 2323.0
+offset_top = 1415.0
+offset_right = 2333.0
+offset_bottom = 1438.0
+rotation = 3.1415927
+text = "<"
+label_settings = SubResource("LabelSettings_bekt7")
+
+[node name="Label4" type="Label" parent="map/claw_machine/controls" unique_id=299937892]
+offset_left = 2300.0
+offset_top = 1420.0
+offset_right = 2310.0
+offset_bottom = 1443.0
+rotation = 4.712389
+text = "<"
+label_settings = SubResource("LabelSettings_bekt7")
 
 [node name="StrengthTesterTestYourStrengthAmusementGamePowerStrongEntertainmentFestival128442608" type="Sprite2D" parent="." unique_id=812105229]
 visible = false

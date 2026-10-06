@@ -907,7 +907,20 @@ func temp_func():
 				$player/camera.enabled = 1
 				$map/vending_machine1/camera.enabled = 0
 		
+		if claw_machine1_area:
+			if $player.move:
+				disable_move()
+				$player.visible = 0
+				$player/camera.enabled = 0
+				$map/claw_machine/camera.enabled = 1
+			else:
+				allow_move()
+				$player.visible = 1
+				$player/camera.enabled = 1
+				$map/claw_machine/camera.enabled = 0
+				
 
+var claw_machine1_area = 0
 var vending_machine1_area = 0
 func _on_vending_machine_area_1_body_entered(body: Node2D) -> void:
 	if body == $player:
