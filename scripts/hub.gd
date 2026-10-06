@@ -97,12 +97,7 @@ func booth_zombie_filter():
 	photo_cam.enabled = true
 	photo_cam.make_current()
 
-	
-
-func _ready() -> void:
-	#msg("hello")
-	get_tree().call_group("e_buttons", "hide")
-	
+func check_rewards():
 	var key = $CanvasLayer/rewards/key
 	var add_heart = $CanvasLayer/rewards/heart
 	var plushie = $CanvasLayer/rewards/plushie
@@ -169,14 +164,8 @@ func _ready() -> void:
 		tween = create_tween().set_parallel(true)
 		tween.tween_property(plushie, "position:y", plushie.position.y-50, 1)
 		tween.tween_property(plushie, "modulate:a", 0, 1)
-	
-	allow_move()
-	assign_games_data()
-	$CanvasLayer/black.visible = 1
-	$CanvasLayer/frame.visible = 1
-	#final_game()
-	#if global.patterns_won && global.wac_highest >= 20 && global.shooter_highest >= 20 && !global.ghost_defeated:
-		#final_game()
+
+
 
 var ghost_fight = 0
 
@@ -651,6 +640,7 @@ func _on_wheel_area_body_entered(body: Node2D) -> void:
 	if body == $player:
 		wheel_area = 1
 		show_e($map/wheel/e)
+		
 func _on_wheel_area_body_exited(body: Node2D) -> void:
 	if body == $player:
 		wheel_area = 0
@@ -659,12 +649,14 @@ func _on_wheel_area_body_exited(body: Node2D) -> void:
 
 
 func _on_spin_wheel_pressed() -> void:
+	$CanvasLayer/buttons/spin_wheel.visible = 0
 	var temp = randi_range(3600, 3960)
 	print(temp)
 	#temp *= 10
 	var tween = create_tween()
 	tween.tween_property($map/wheel/spin, "rotation_degrees", temp, 4).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).from(0)
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(4).timeout
+	$CanvasLayer/buttons/spin_wheel.visible = 1
 	print(temp)
 	#temp /= 10
 	if temp < 3645:
@@ -795,6 +787,7 @@ func _on_photo_booth_area_body_exited(body: Node2D) -> void:
 
 @onready var frame_cam: Camera2D =  $map/photo_booth/camera
 func _on_capture_pressed() -> void:
+	$CanvasLayer/buttons/capture.visible = 0
 	photo_cam.global_position = frame_cam.global_position
 	photo_cam.zoom = frame_cam.zoom
 	photo_cam.force_update_scroll()
@@ -811,10 +804,11 @@ func _on_capture_pressed() -> void:
 		dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second
 	]
 	img.save_png("user://carnival_photo_%s.png" % timestamp)
-
+	$CanvasLayer/buttons/capture.visible = 1
 
 
 func _on_hammer_hit_pressed() -> void:
+	$CanvasLayer/buttons/hit.visible = 0
 	var temp
 	var dash_pos = $map/hammer_test/sprite/hit_bar/dash.position.x
 	var zone = $map/hammer_test/sprite/hit_bar/zone.position.x
@@ -846,6 +840,10 @@ func _on_hammer_hit_pressed() -> void:
 	
 	var tween =  create_tween()
 	tween.tween_property($map/hammer_test/sprite/prog, "value", temp, 2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).from(0)
+	
+	await get_tree().create_timer(2).timeout
+	$CanvasLayer/buttons/hit.visible = 1
+	hammer_hit_init()
 	
 
 func hammer_hit_init():
@@ -884,11 +882,13 @@ func temp_func():
 				$player.visible = 0
 				$player/camera.enabled = 0
 				$map/wheel/camera.enabled = 1
+				$CanvasLayer/buttons/spin_wheel.visible = 1
 			else:
 				allow_move()
 				$player.visible = 1
 				$player/camera.enabled = 1
 				$map/wheel/camera.enabled = 0
+				$CanvasLayer/buttons/spin_wheel.visible = 0
 		
 		if arcade_device1_area:
 			if $player.move:
@@ -915,8 +915,9 @@ func temp_func():
 				var tween = create_tween()
 				tween.tween_property($map/photo_booth/curtain, "size:x", 50, 1).from(268)
 				#await get_tree().create_timer(0.8).timeout
-				$player.position = Vector2(1276.0, 1425.0)
+				$player.position = Vector2(2156.0, 69.0)
 				$map/photo_booth/curtain.z_index = 1
+				$CanvasLayer/buttons/capture.visible = 1
 			else:
 				$player.gravity = 1
 				allow_move()
@@ -927,6 +928,8 @@ func temp_func():
 				$player.visible = 1
 				$player/camera.enabled = 1
 				$map/photo_booth/camera.enabled = 0
+				$CanvasLayer/buttons/capture.visible = 0
+				
 		
 		if hammer_hit_area:
 			if $player.move:
@@ -935,11 +938,15 @@ func temp_func():
 				$player.visible = 0
 				$player/camera.enabled = 0
 				$map/hammer_test/camera.enabled = 1
+				$CanvasLayer/buttons/hit.visible = 1
+				
 			else:
 				allow_move()
 				$player.visible = 1
 				$player/camera.enabled = 1
 				$map/hammer_test/camera.enabled = 0
+				$CanvasLayer/buttons/hit.visible = 0
+				
 		
 		if vending_machine1_area:
 			if $player.move:
@@ -947,12 +954,14 @@ func temp_func():
 				$player.visible = 0
 				$player/camera.enabled = 0
 				$map/vending_machine1/camera.enabled = 1
+				$CanvasLayer/buttons/vending1_buy.visible = 1
 			else:
 				allow_move()
 				$player.visible = 1
 				$player/camera.enabled = 1
 				$map/vending_machine1/camera.enabled = 0
-		
+				$CanvasLayer/buttons/vending1_buy.visible = 0
+				
 		if claw_machine1_area:
 			if $player.move:
 				disable_move()
@@ -1007,10 +1016,26 @@ func hide_e(node):
 var gate_msg = 0
 func _on_gate_area_body_entered(body: Node2D) -> void:
 	if body == $player:
-		gate_msg = 0
+		gate_msg = 1
 func _on_entering_body_entered(body: Node2D) -> void:
-	if body == $player:
+	if body == $player && gate_msg:
+		msg("Welcome to the carnival!")
 		gate_msg = 0
 func _on_leaving_body_entered(body: Node2D) -> void:
-	if body == $player:
+	if body == $player && gate_msg:
+		msg("Visit us again!")
+		gate_msg = 0
 		
+func _ready() -> void:
+	#msg("hello")
+	get_tree().call_group("e_buttons", "hide")
+	get_tree().call_group("init_hide", "hide")
+	
+	booth_zombie_filter()
+	
+	assign_games_data()
+	$CanvasLayer/black.visible = 1
+	$CanvasLayer/frame.visible = 1
+	await check_rewards()
+	
+	allow_move()

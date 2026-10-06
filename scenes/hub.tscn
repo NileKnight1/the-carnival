@@ -238,8 +238,6 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
 size = Vector2(295, 156)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i48gs"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n2o6"]
 bg_color = Color(0, 0, 0, 1)
 border_color = Color(0, 0, 0, 1)
@@ -729,10 +727,47 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i48gs"]
+bg_color = Color(0.1796875, 0, 0.11979164, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hfln"]
+bg_color = Color(0.1171875, 0, 0.078124985, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejskg"]
+bg_color = Color(0.38671875, 0, 0.26061478, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="hub" type="Node2D" unique_id=963411909]
 script = ExtResource("1_s6eg2")
 
 [node name="map" type="Node2D" parent="." unique_id=1982507535]
+position = Vector2(1066, -1354)
 
 [node name="bg" type="Node2D" parent="map" unique_id=903977379]
 
@@ -1159,7 +1194,7 @@ energy = 0.4
 texture = SubResource("GradientTexture2D_kvpfn")
 
 [node name="tentx" type="Node2D" parent="map" unique_id=610933534]
-position = Vector2(-719, -211)
+position = Vector2(1449, -838)
 
 [node name="outline" type="Polygon2D" parent="map/tentx" unique_id=1121885389]
 color = Color(1, 1, 1, 0)
@@ -1286,10 +1321,10 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gee14")
 
 [node name="stranger" type="Panel" parent="map" unique_id=989356581]
-offset_left = -209.0
-offset_top = -785.0
-offset_right = -145.0
-offset_bottom = -634.6
+offset_left = 815.0
+offset_top = -1061.0
+offset_right = 879.0
+offset_bottom = -910.6
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_trtic")
 
@@ -1298,13 +1333,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_trtic")
 [node name="left" type="Area2D" parent="map/stranger_area" unique_id=2047427654]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/stranger_area/left" unique_id=667096715]
-position = Vector2(-363, -646)
+position = Vector2(661, -922)
 shape = SubResource("SegmentShape2D_kvuet")
 
 [node name="right" type="Area2D" parent="map/stranger_area" unique_id=1095316361]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="map/stranger_area/right" unique_id=2066741990]
-position = Vector2(15, -653)
+position = Vector2(1039, -929)
 shape = SubResource("SegmentShape2D_61bfx")
 
 [node name="lights" type="Node2D" parent="map" unique_id=1709814078]
@@ -1618,14 +1653,6 @@ zoom = Vector2(2.565, 2.565)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="spin_wheel" type="Button" parent="map/wheel" unique_id=1599754864]
-offset_left = 136.0
-offset_top = 5.0
-offset_right = 170.0
-offset_bottom = 28.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_i48gs")
-text = "Spin"
-
 [node name="e" type="Sprite2D" parent="map/wheel" unique_id=620979145 groups=["e_buttons"]]
 position = Vector2(-4, -19)
 scale = Vector2(0.19531249, 0.19531249)
@@ -1882,6 +1909,7 @@ position = Vector2(1280, 1398)
 shape = SubResource("RectangleShape2D_5ox4q")
 
 [node name="capture" type="Button" parent="map/photo_booth" unique_id=1685841221]
+visible = false
 offset_left = 1309.0
 offset_top = 1361.0
 offset_right = 1351.0
@@ -2078,6 +2106,7 @@ text = "Press 'Space' on marker to hit!"
 horizontal_alignment = 1
 
 [node name="hammer_hit" type="Button" parent="map/hammer_test" unique_id=975982035]
+visible = false
 offset_left = 1734.0
 offset_top = 1325.0
 offset_right = 1776.0
@@ -2143,6 +2172,7 @@ position = Vector2(1959, 1393.5)
 shape = SubResource("RectangleShape2D_hdxto")
 
 [node name="vending_machine1_buy" type="Button" parent="map/vending_machine1" unique_id=205513142]
+visible = false
 offset_left = 1995.0
 offset_top = 1334.0
 offset_right = 2037.0
@@ -2451,7 +2481,7 @@ shape = SubResource("WorldBoundaryShape2D_vlew8")
 disabled = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="boundary/StaticBody2D" unique_id=188381831]
-position = Vector2(608, 1549)
+position = Vector2(1258, 184)
 rotation = -6.2831855
 shape = SubResource("WorldBoundaryShape2D_vlew8")
 
@@ -2471,7 +2501,7 @@ texture = ExtResource("7_mw5nc")
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." unique_id=1650756719 instance=ExtResource("8_7t3s2")]
-position = Vector2(-266, 1464)
+position = Vector2(2156, 69)
 script = ExtResource("9_glsmu")
 
 [node name="camera" type="Camera2D" parent="player" unique_id=1472360180]
@@ -2710,6 +2740,56 @@ label_settings = ExtResource("27_8rcoo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="buttons" type="Node2D" parent="CanvasLayer" unique_id=1740039085]
+
+[node name="spin_wheel" type="Button" parent="CanvasLayer/buttons" unique_id=2118993838 groups=["init_hide"]]
+offset_left = 1038.0
+offset_top = 60.0
+offset_right = 1187.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("3_phvbg")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxFlat_i48gs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5hfln")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ejskg")
+text = "Spin"
+
+[node name="capture" type="Button" parent="CanvasLayer/buttons" unique_id=1044482305 groups=["init_hide"]]
+offset_left = 1038.0
+offset_top = 60.0
+offset_right = 1187.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("3_phvbg")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxFlat_i48gs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5hfln")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ejskg")
+text = "Capture"
+
+[node name="hit" type="Button" parent="CanvasLayer/buttons" unique_id=2065558541 groups=["init_hide"]]
+offset_left = 1038.0
+offset_top = 60.0
+offset_right = 1187.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("3_phvbg")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxFlat_i48gs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5hfln")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ejskg")
+text = "Hit"
+
+[node name="vending1_buy" type="Button" parent="CanvasLayer/buttons" unique_id=118670174 groups=["init_hide"]]
+offset_left = 1038.0
+offset_top = 60.0
+offset_right = 1187.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("3_phvbg")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/normal = SubResource("StyleBoxFlat_i48gs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5hfln")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ejskg")
+text = "Buy"
+
 [connection signal="body_entered" from="map/tent1/info_area" to="." method="_on_tent1_info_area_body_entered"]
 [connection signal="body_exited" from="map/tent1/info_area" to="." method="_on_tent1_info_area_body_exited"]
 [connection signal="body_entered" from="map/tent1/game_enter" to="." method="_on_tent_shooter_body_entered"]
@@ -2735,7 +2815,6 @@ vertical_alignment = 1
 [connection signal="body_entered" from="map/gate/leaving" to="." method="_on_leaving_body_entered"]
 [connection signal="body_entered" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_entered"]
 [connection signal="body_exited" from="map/wheel/wheel_area" to="." method="_on_wheel_area_body_exited"]
-[connection signal="pressed" from="map/wheel/spin_wheel" to="." method="_on_spin_wheel_pressed"]
 [connection signal="body_entered" from="map/arcade_device1/screen/ref/ref_area" to="map/arcade_device1/screen/ref/ref_area" method="_on_body_entered"]
 [connection signal="pressed" from="map/arcade_device1/screen/aracde1_restart" to="." method="_on_aracde_1_restart_pressed"]
 [connection signal="body_entered" from="map/arcade_device1/arcade_device1_area" to="." method="_on_arcade_device_1_area_body_entered"]
@@ -2753,3 +2832,7 @@ vertical_alignment = 1
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b4/button4" to="." method="_on_button_4_input_event"]
+[connection signal="pressed" from="CanvasLayer/buttons/spin_wheel" to="." method="_on_spin_wheel_pressed"]
+[connection signal="pressed" from="CanvasLayer/buttons/capture" to="." method="_on_capture_pressed"]
+[connection signal="pressed" from="CanvasLayer/buttons/hit" to="." method="_on_hammer_hit_pressed"]
+[connection signal="pressed" from="CanvasLayer/buttons/vending1_buy" to="." method="_on_vending_machine_1_buy_pressed"]
