@@ -18,12 +18,18 @@ func check_click(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		return 1
 
+
+func update_tickets(change = 0):
+	global.tickets += change
+	$CanvasLayer/tickets/count.text = "x" + str(global.tickets)
+
+
 func _ready() -> void:
 	#light($table/buttons/b1)
 	#light($table/buttons/b2)
 	#light($table/buttons/b3)
 	#light($table/buttons/b4)
-	
+	update_tickets()
 	$CanvasLayer/dark.visible = 1
 	$CanvasLayer/start_menu.visible = 1
 	#$CanvasLayer/score.visible = 0
@@ -31,7 +37,31 @@ func _ready() -> void:
 	#start_game()
 	
 
+func msg(msg):
+	var temp = $CanvasLayer/msg.duplicate()
+	temp.text = msg
+	var pos_y = temp.position.y
+	$CanvasLayer.add_child(temp)
+	
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property(temp, "position:y", pos_y-50, 2)
+	tween.tween_property(temp, "modulate:a", 1, 0.7)
+	
+	
+	
+	await get_tree().create_timer(3).timeout
+	tween = create_tween()
+	tween.tween_property(temp, "modulate:a", 0, 0.7)
+	await get_tree().create_timer(1).timeout
+	
+	temp.queue_free()
+
 func start_game():
+	if !global.tickets:
+		msg("You have no tickets.")
+		return
+	update_tickets(-1)
+	
 	lighting_count = 1
 	print("start")
 	play_sound(sound_start)
@@ -125,4 +155,4 @@ func _on_start_pressed() -> void:
 	start_game()
 
 func _on_leave_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/hub.tscn")

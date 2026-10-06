@@ -641,9 +641,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.52991456, 0.99572647)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
-bg_color = Color(0, 0, 0, 1)
-
 [sub_resource type="Gradient" id="Gradient_u5sy4"]
 offsets = PackedFloat32Array(0.5743243, 0.98507464)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
@@ -762,6 +759,9 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="hub" type="Node2D" unique_id=963411909]
 script = ExtResource("1_s6eg2")
@@ -2437,21 +2437,6 @@ position = Vector2(2336, 1314)
 scale = Vector2(0.19531249, 0.19531249)
 texture = ExtResource("5_8hrlh")
 
-[node name="StrengthTesterTestYourStrengthAmusementGamePowerStrongEntertainmentFestival128442608" type="Sprite2D" parent="." unique_id=812105229]
-visible = false
-modulate = Color(1, 1, 1, 0.49411765)
-position = Vector2(1704.0001, 1329)
-scale = Vector2(0.46663234, 0.46663228)
-texture = ExtResource("12_7t3s2")
-metadata/_edit_lock_ = true
-
-[node name="StrengthTesterTestYourStrengthAmusementGamePowerStrongEntertainmentFestival128442610" type="Sprite2D" parent="." unique_id=2131596981]
-visible = false
-position = Vector2(1704, 1329)
-scale = Vector2(0.4666323, 0.46663228)
-texture = ExtResource("12_7t3s2")
-metadata/_edit_lock_ = true
-
 [node name="5Ea42Abe5b724Ea3B9c7Cbc84d4528f0" type="Sprite2D" parent="." unique_id=1400678654]
 position = Vector2(-459.99997, -5179)
 scale = Vector2(10.536673, 10.536673)
@@ -2527,15 +2512,6 @@ scale = Vector2(20.015627, 11.25)
 energy = 0.1
 texture = SubResource("GradientTexture2D_0tnpc")
 
-[node name="black" type="Panel" parent="CanvasLayer" unique_id=1028510935]
-modulate = Color(1, 1, 1, 0)
-offset_left = 155.0
-offset_top = 518.0
-offset_right = 1451.0
-offset_bottom = 1256.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
-
 [node name="frame" type="Panel" parent="CanvasLayer" unique_id=1849662775]
 modulate = Color(1, 1, 1, 0)
 offset_left = -5.0
@@ -2562,11 +2538,21 @@ theme_override_fonts/font = ExtResource("10_rtbv5")
 theme_override_font_sizes/font_size = 32
 text = "This place looks weird."
 
-[node name="plushie" type="Sprite2D" parent="CanvasLayer" unique_id=835095435]
-visible = false
-position = Vector2(560, 403)
-scale = Vector2(0.27123144, 0.2712314)
-texture = ExtResource("11_qrwm6")
+[node name="tickets" type="Node2D" parent="CanvasLayer" unique_id=1286945943]
+
+[node name="sprite" type="Sprite2D" parent="CanvasLayer/tickets" unique_id=93774437]
+position = Vector2(79, 68)
+scale = Vector2(0.32777777, 0.32777777)
+texture = ExtResource("24_fm13a")
+
+[node name="count" type="Label" parent="CanvasLayer/tickets" unique_id=1882444502]
+offset_left = 135.0
+offset_top = 36.0
+offset_right = 275.0
+offset_bottom = 99.0
+text = "x1"
+label_settings = ExtResource("27_8rcoo")
+vertical_alignment = 1
 
 [node name="hit_bar" type="Node2D" parent="CanvasLayer" unique_id=501386606]
 visible = false
@@ -2789,6 +2775,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i48gs")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5hfln")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ejskg")
 text = "Buy"
+
+[node name="black" type="Panel" parent="CanvasLayer" unique_id=1028510935]
+modulate = Color(1, 1, 1, 0)
+offset_left = -3.0
+offset_top = -18.0
+offset_right = 1293.0
+offset_bottom = 742.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
 
 [connection signal="body_entered" from="map/tent1/info_area" to="." method="_on_tent1_info_area_body_entered"]
 [connection signal="body_exited" from="map/tent1/info_area" to="." method="_on_tent1_info_area_body_exited"]

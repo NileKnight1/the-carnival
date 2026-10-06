@@ -141,6 +141,7 @@ var pressed = 1
 
 func man_light(index):
 	if pressed || !health: return
+	if lightened == []: return
 	pressed = 1
 	await light(index, 0)
 	if index == lightened[0]:
@@ -168,11 +169,14 @@ func man_light(index):
 
 func finale_phase3():
 	$plushie.visible = 1
+	$CanvasLayer/patterns.visible = 0
+	$CanvasLayer/hit_bar.visible = 0
 	$CanvasLayer/health.visible = 0
 	ghost_fight = 0
 	#$CanvasLayer/dark.visible = 0
 
 func _on_restart_pressed() -> void:
+	lighting_count = 3
 	print("restart")
 	$CanvasLayer/hit_bar/score.text = str(3-hit_bar) + "/3"
 	$CanvasLayer/restart.visible = 0

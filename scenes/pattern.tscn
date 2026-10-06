@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhj7cwojfnewd" path="res://assets/rect.png" id="2_6c1nw"]
 [ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="3_w8fan"]
 [ext_resource type="FontFile" uid="uid://dfqtjpati34j1" path="res://assets/Baloo2-Bold.ttf" id="4_pc74k"]
+[ext_resource type="Texture2D" uid="uid://b2pc6raqy627v" path="res://assets/pngtree-golden-ticket-png-image_6621563.png" id="5_pc74k"]
 
 [sub_resource type="Gradient" id="Gradient_w8fan"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -638,6 +639,33 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2u02j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i0fo8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_188gm")
 text = "Leave"
+
+[node name="tickets" type="Node2D" parent="CanvasLayer" unique_id=1939011721]
+
+[node name="sprite" type="Sprite2D" parent="CanvasLayer/tickets" unique_id=1235800941]
+position = Vector2(79, 68)
+scale = Vector2(0.32777777, 0.32777777)
+texture = ExtResource("5_pc74k")
+
+[node name="count" type="Label" parent="CanvasLayer/tickets" unique_id=979726463]
+offset_left = 135.0
+offset_top = 36.0
+offset_right = 275.0
+offset_bottom = 99.0
+text = "x1"
+label_settings = ExtResource("3_w8fan")
+vertical_alignment = 1
+
+[node name="msg" type="Label" parent="CanvasLayer" unique_id=162382950]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1.0
+offset_top = 128.0
+offset_right = 1282.0
+offset_bottom = 191.0
+text = "Play the shooter game!"
+label_settings = ExtResource("3_w8fan")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="input_event" from="table/buttons/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="table/buttons/b2/button2" to="." method="_on_button_2_input_event"]

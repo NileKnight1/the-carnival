@@ -201,6 +201,7 @@ func _process(delta: float) -> void:
 
 func enter_game(game):
 	disable_move()
+	global.player_pos = $player.position
 	var tween = create_tween()
 	tween.tween_property($CanvasLayer/black, "modulate:a", 1, 0.3)
 	
@@ -666,6 +667,7 @@ func _on_spin_wheel_pressed() -> void:
 	elif temp <= 3690:
 		print(8)
 		msg("You won a free ticket!")
+		update_tickets(1)
 	elif temp <= 3735:
 		print(7)
 		msg("Go test your strength!")
@@ -1025,9 +1027,19 @@ func _on_leaving_body_entered(body: Node2D) -> void:
 	if body == $player && gate_msg:
 		msg("Visit us again!")
 		gate_msg = 0
-		
+
+func update_tickets(change = 0):
+	global.tickets += change
+	$CanvasLayer/tickets/count.text = "x" + str(global.tickets)
+
 func _ready() -> void:
 	#msg("hello")
+	$CanvasLayer/black.modulate.a = 1
+	
+	if global.player_pos:
+		$player.position = global.player_pos
+	
+	update_tickets()
 	get_tree().call_group("e_buttons", "hide")
 	get_tree().call_group("init_hide", "hide")
 	
@@ -1036,6 +1048,9 @@ func _ready() -> void:
 	assign_games_data()
 	$CanvasLayer/black.visible = 1
 	$CanvasLayer/frame.visible = 1
+	await get_tree().create_timer(1).timeout
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/black, "modulate:a", 0, 0.5)
 	await check_rewards()
 	
 	allow_move()
