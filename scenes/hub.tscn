@@ -607,11 +607,6 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_vlew8"]
-font = ExtResource("3_phvbg")
-font_size = 40
-font_color = Color(0.2890625, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avuq1"]
 bg_color = Color(0.4765625, 0, 0, 1)
 border_color = Color(0, 0, 0, 0)
@@ -625,9 +620,26 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdxto"]
+bg_color = Color(0.47843137, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lan4j"]
+bg_color = Color(0.28515625, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6ich"]
+bg_color = Color(0.69921875, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_bekt7"]
 font = ExtResource("8_3q32m")
 font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlew8"]
+font = ExtResource("3_phvbg")
+font_size = 40
+font_color = Color(0.2890625, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qarp1"]
+size = Vector2(182, 323)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vlew8"]
 distance = 49.0
@@ -2192,28 +2204,30 @@ texture = ExtResource("5_8hrlh")
 [node name="claw_machine" type="Node2D" parent="map" unique_id=404601230]
 position = Vector2(-77, -10)
 
-[node name="Panel13" type="Panel" parent="map/claw_machine" unique_id=2103041520]
+[node name="sprite" type="Node2D" parent="map/claw_machine" unique_id=1478407533]
+
+[node name="Panel13" type="Panel" parent="map/claw_machine/sprite" unique_id=2103041520]
 offset_left = 2254.0
 offset_top = 1233.0
 offset_right = 2418.0
 offset_bottom = 1470.7883
 theme_override_styles/panel = SubResource("StyleBoxFlat_ei7lg")
 
-[node name="Panel14" type="Panel" parent="map/claw_machine" unique_id=1644665834]
+[node name="Panel14" type="Panel" parent="map/claw_machine/sprite" unique_id=1644665834]
 offset_left = 2265.0
 offset_top = 1241.0
 offset_right = 2408.0
 offset_bottom = 1380.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nxsyu")
 
-[node name="Panel15" type="Panel" parent="map/claw_machine" unique_id=829798044]
+[node name="Panel15" type="Panel" parent="map/claw_machine/sprite" unique_id=829798044]
 offset_left = 2265.0
 offset_top = 1241.0
 offset_right = 2408.0
 offset_bottom = 1380.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nxsyu")
 
-[node name="interior" type="Panel" parent="map/claw_machine" unique_id=499795586]
+[node name="interior" type="Panel" parent="map/claw_machine/sprite" unique_id=499795586]
 clip_children = 2
 offset_left = 2273.0
 offset_top = 1250.0
@@ -2221,55 +2235,24 @@ offset_right = 2400.0
 offset_bottom = 1371.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7n2o6")
 
-[node name="prizes" type="Node2D" parent="map/claw_machine/interior" unique_id=1205538837]
-position = Vector2(-2272, -1240)
+[node name="claw" type="Node2D" parent="map/claw_machine/sprite/interior" unique_id=2123938210]
+position = Vector2(-2209, -1282)
 
-[node name="target" parent="map/claw_machine/interior/prizes" unique_id=1318577958 instance=ExtResource("15_rtbv5")]
-position = Vector2(2284, 1354)
-rotation = -0.18163994
+[node name="Panel24" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=954512817]
+offset_left = 2335.0
+offset_top = 1131.0
+offset_right = 2336.0
+offset_bottom = 1275.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
 
-[node name="target3" parent="map/claw_machine/interior/prizes" unique_id=2110501418 instance=ExtResource("15_rtbv5")]
-position = Vector2(2301, 1359.9998)
-rotation = -0.18163994
-
-[node name="target4" parent="map/claw_machine/interior/prizes" unique_id=1829630175 instance=ExtResource("15_rtbv5")]
-position = Vector2(2343.9998, 1356)
-rotation = 0.12084147
-
-[node name="target5" parent="map/claw_machine/interior/prizes" unique_id=925518164 instance=ExtResource("15_rtbv5")]
-position = Vector2(2364, 1353)
-rotation = -0.022502854
-
-[node name="target6" parent="map/claw_machine/interior/prizes" unique_id=486599440 instance=ExtResource("15_rtbv5")]
-position = Vector2(2389, 1353)
-rotation = -0.15427
-
-[node name="target2" parent="map/claw_machine/interior/prizes" unique_id=285144010 instance=ExtResource("15_rtbv5")]
-position = Vector2(2322, 1355)
-rotation = 0.25545022
-
-[node name="Panel18" type="Panel" parent="map/claw_machine" unique_id=2066995172]
-offset_left = 2273.0
-offset_top = 1250.0
-offset_right = 2400.0
-offset_bottom = 1371.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_k12rm")
-
-[node name="Panel17" type="Panel" parent="map/claw_machine" unique_id=1195541791]
+[node name="Panel17" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1195541791]
 offset_left = 2332.0
 offset_top = 1271.0
 offset_right = 2339.0
 offset_bottom = 1298.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
 
-[node name="Panel24" type="Panel" parent="map/claw_machine" unique_id=954512817]
-offset_left = 2335.0
-offset_top = 1246.0
-offset_right = 2336.0
-offset_bottom = 1275.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
-
-[node name="Panel21" type="Panel" parent="map/claw_machine" unique_id=1653139986]
+[node name="Panel21" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1653139986]
 offset_left = 2348.7908
 offset_top = 1285.4177
 offset_right = 2355.6995
@@ -2277,7 +2260,7 @@ offset_bottom = 1312.5193
 rotation = 1.5707964
 theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
 
-[node name="Panel22" type="Panel" parent="map/claw_machine" unique_id=1340497540]
+[node name="Panel22" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1340497540]
 offset_left = 2348.9368
 offset_top = 1300.6793
 offset_right = 2355.7805
@@ -2285,7 +2268,7 @@ offset_bottom = 1315.3324
 rotation = 3.1415927
 theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
 
-[node name="Panel23" type="Panel" parent="map/claw_machine" unique_id=1516341844]
+[node name="Panel23" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1516341844]
 offset_left = 2328.841
 offset_top = 1300.7117
 offset_right = 2335.976
@@ -2293,39 +2276,206 @@ offset_bottom = 1315.3324
 rotation = 3.1415927
 theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
 
-[node name="Panel19" type="Panel" parent="map/claw_machine" unique_id=502238329]
+[node name="Polygon2D" type="Polygon2D" parent="map/claw_machine/sprite/interior/claw" unique_id=723297255]
+position = Vector2(0, 8)
+texture = SubResource("GradientTexture2D_bekt7")
+texture_offset = Vector2(-2303.39, -1251.19)
+polygon = PackedVector2Array(2348, 1278, 2348, 1292, 2343, 1292, 2343, 1283, 2338, 1283, 2338, 1289, 2333, 1289, 2333, 1283, 2328, 1283, 2328, 1292, 2323, 1292, 2323, 1278, 2333, 1278, 2333, 1264, 2338, 1264, 2338, 1278)
+
+[node name="prizes" type="Node2D" parent="map/claw_machine/sprite/interior" unique_id=1205538837]
+position = Vector2(-2272, -1240)
+
+[node name="target" parent="map/claw_machine/sprite/interior/prizes" unique_id=1318577958 instance=ExtResource("15_rtbv5")]
+position = Vector2(2284, 1354)
+rotation = -0.18163994
+
+[node name="target3" parent="map/claw_machine/sprite/interior/prizes" unique_id=2110501418 instance=ExtResource("15_rtbv5")]
+position = Vector2(2301, 1359.9998)
+rotation = -0.18163994
+
+[node name="target4" parent="map/claw_machine/sprite/interior/prizes" unique_id=1829630175 instance=ExtResource("15_rtbv5")]
+position = Vector2(2343.9998, 1356)
+rotation = 0.12084147
+
+[node name="target5" parent="map/claw_machine/sprite/interior/prizes" unique_id=925518164 instance=ExtResource("15_rtbv5")]
+position = Vector2(2364, 1353)
+rotation = -0.022502854
+
+[node name="target6" parent="map/claw_machine/sprite/interior/prizes" unique_id=486599440 instance=ExtResource("15_rtbv5")]
+position = Vector2(2389, 1353)
+rotation = -0.15427
+
+[node name="target2" parent="map/claw_machine/sprite/interior/prizes" unique_id=285144010 instance=ExtResource("15_rtbv5")]
+position = Vector2(2322, 1355)
+rotation = 0.25545022
+
+[node name="Panel18" type="Panel" parent="map/claw_machine/sprite" unique_id=2066995172]
+offset_left = 2273.0
+offset_top = 1250.0
+offset_right = 2400.0
+offset_bottom = 1371.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k12rm")
+
+[node name="Panel19" type="Panel" parent="map/claw_machine/sprite" unique_id=502238329]
 offset_left = 2261.0
 offset_top = 1209.0
 offset_right = 2412.0
 offset_bottom = 1246.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8f6f6")
 
-[node name="Panel16" type="Panel" parent="map/claw_machine" unique_id=1046957345]
+[node name="Panel16" type="Panel" parent="map/claw_machine/sprite" unique_id=1046957345]
 offset_left = 2265.0
 offset_top = 1385.0
 offset_right = 2408.0
 offset_bottom = 1459.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4d1qd")
 
-[node name="Panel20" type="Panel" parent="map/claw_machine" unique_id=1739937421]
+[node name="Panel20" type="Panel" parent="map/claw_machine/sprite" unique_id=1739937421]
 offset_left = 2275.0
 offset_top = 1426.0
 offset_right = 2398.0
 offset_bottom = 1454.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1jdki")
 
-[node name="Polygon2D" type="Polygon2D" parent="map/claw_machine" unique_id=723297255]
-position = Vector2(0, 8)
-texture = SubResource("GradientTexture2D_bekt7")
-texture_offset = Vector2(-2303.39, -1251.19)
-polygon = PackedVector2Array(2348, 1278, 2348, 1292, 2343, 1292, 2343, 1283, 2338, 1283, 2338, 1289, 2333, 1289, 2333, 1283, 2328, 1283, 2328, 1292, 2323, 1292, 2323, 1278, 2333, 1278, 2333, 1264, 2338, 1264, 2338, 1278)
+[node name="controls" type="Node2D" parent="map/claw_machine/sprite" unique_id=1619485129]
+
+[node name="Panel27" type="Panel" parent="map/claw_machine/sprite/controls" unique_id=1213715702]
+offset_left = 2294.0
+offset_top = 1401.0
+offset_right = 2304.0
+offset_bottom = 1411.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
+
+[node name="Panel28" type="Panel" parent="map/claw_machine/sprite/controls" unique_id=1379959766]
+offset_left = 2304.0
+offset_top = 1391.0
+offset_right = 2314.0
+offset_bottom = 1401.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
+
+[node name="Panel29" type="Panel" parent="map/claw_machine/sprite/controls" unique_id=971984430]
+offset_left = 2314.0
+offset_top = 1401.0
+offset_right = 2324.0
+offset_bottom = 1411.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
+
+[node name="Panel30" type="Panel" parent="map/claw_machine/sprite/controls" unique_id=1763727241]
+offset_left = 2304.0
+offset_top = 1411.0
+offset_right = 2314.0
+offset_bottom = 1421.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
+
+[node name="Panel31" type="Panel" parent="map/claw_machine/sprite/controls" unique_id=1259271427]
+offset_left = 2349.0
+offset_top = 1396.0
+offset_right = 2359.0
+offset_bottom = 1406.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxh7j")
+
+[node name="Panel32" type="Panel" parent="map/claw_machine/sprite/controls" unique_id=2140836546]
+offset_left = 2362.0
+offset_top = 1396.0
+offset_right = 2372.0
+offset_bottom = 1406.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxh7j")
+
+[node name="claw_machine1_up" type="Button" parent="map/claw_machine/sprite/controls" unique_id=1488687769]
+offset_left = 2304.0
+offset_top = 1391.0
+offset_right = 2314.0
+offset_bottom = 1401.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdxto")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lan4j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v6ich")
+
+[node name="claw_machine1_right" type="Button" parent="map/claw_machine/sprite/controls" unique_id=897176780]
+offset_left = 2314.0
+offset_top = 1401.0
+offset_right = 2324.0
+offset_bottom = 1411.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdxto")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lan4j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v6ich")
+
+[node name="claw_machine1_left" type="Button" parent="map/claw_machine/sprite/controls" unique_id=408438539]
+offset_left = 2294.0
+offset_top = 1401.0
+offset_right = 2304.0
+offset_bottom = 1411.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdxto")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lan4j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v6ich")
+
+[node name="claw_machine1_down" type="Button" parent="map/claw_machine/sprite/controls" unique_id=265884313]
+offset_left = 2304.0
+offset_top = 1411.0
+offset_right = 2314.0
+offset_bottom = 1421.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hdxto")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lan4j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v6ich")
+
+[node name="Label" type="Label" parent="map/claw_machine/sprite/controls" unique_id=1667324927]
+offset_left = 2294.0
+offset_top = 1395.0
+offset_right = 2304.0
+offset_bottom = 1418.0
+text = "<"
+label_settings = SubResource("LabelSettings_bekt7")
+
+[node name="Label2" type="Label" parent="map/claw_machine/sprite/controls" unique_id=1547780640]
+offset_left = 2320.0
+offset_top = 1391.0
+offset_right = 2330.0
+offset_bottom = 1414.0
+rotation = 1.5707964
+text = "<"
+label_settings = SubResource("LabelSettings_bekt7")
+
+[node name="Label3" type="Label" parent="map/claw_machine/sprite/controls" unique_id=1805745217]
+offset_left = 2324.0
+offset_top = 1417.0
+offset_right = 2334.0
+offset_bottom = 1440.0
+rotation = 3.1415927
+text = "<"
+label_settings = SubResource("LabelSettings_bekt7")
+
+[node name="Label4" type="Label" parent="map/claw_machine/sprite/controls" unique_id=299937892]
+offset_left = 2298.0
+offset_top = 1421.0
+offset_right = 2308.0
+offset_bottom = 1444.0
+rotation = 4.712389
+text = "<"
+label_settings = SubResource("LabelSettings_bekt7")
+
+[node name="Label5" type="Label" parent="map/claw_machine/sprite/controls" unique_id=1205157544]
+offset_left = 2343.0002
+offset_top = 1396.0001
+offset_right = 2353.0002
+offset_bottom = 1419.0001
+rotation = 5.4977875
+text = "+"
+label_settings = SubResource("LabelSettings_bekt7")
+
+[node name="Label6" type="Label" parent="map/claw_machine/sprite/controls" unique_id=2009551481]
+offset_left = 2356.0
+offset_top = 1406.0
+offset_right = 2366.0
+offset_bottom = 1429.0
+rotation = 4.712389
+text = "+"
+label_settings = SubResource("LabelSettings_bekt7")
 
 [node name="camera" type="Camera2D" parent="map/claw_machine" unique_id=156602810]
-position = Vector2(2372, 1333)
+position = Vector2(2336, 1333)
 enabled = false
-zoom = Vector2(2.27, 2.27)
+zoom = Vector2(2.905, 2.905)
 
-[node name="Label" type="Label" parent="map/claw_machine" unique_id=1762120790]
+[node name="title" type="Label" parent="map/claw_machine" unique_id=1762120790]
 offset_left = 2292.0
 offset_top = 1198.0
 offset_right = 2385.0
@@ -2335,107 +2485,17 @@ label_settings = SubResource("LabelSettings_vlew8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="controls" type="Node2D" parent="map/claw_machine" unique_id=1619485129]
-
-[node name="Panel27" type="Panel" parent="map/claw_machine/controls" unique_id=1213715702]
-offset_left = 2294.0
-offset_top = 1401.0
-offset_right = 2304.0
-offset_bottom = 1411.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
-
-[node name="Panel28" type="Panel" parent="map/claw_machine/controls" unique_id=1379959766]
-offset_left = 2304.0
-offset_top = 1391.0
-offset_right = 2314.0
-offset_bottom = 1401.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
-
-[node name="Panel29" type="Panel" parent="map/claw_machine/controls" unique_id=971984430]
-offset_left = 2314.0
-offset_top = 1401.0
-offset_right = 2324.0
-offset_bottom = 1411.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
-
-[node name="Panel30" type="Panel" parent="map/claw_machine/controls" unique_id=1763727241]
-offset_left = 2304.0
-offset_top = 1411.0
-offset_right = 2314.0
-offset_bottom = 1421.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_avuq1")
-
-[node name="Panel31" type="Panel" parent="map/claw_machine/controls" unique_id=1259271427]
-offset_left = 2349.0
-offset_top = 1396.0
-offset_right = 2359.0
-offset_bottom = 1406.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qxh7j")
-
-[node name="Panel32" type="Panel" parent="map/claw_machine/controls" unique_id=2140836546]
-offset_left = 2362.0
-offset_top = 1396.0
-offset_right = 2372.0
-offset_bottom = 1406.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qxh7j")
-
-[node name="Label" type="Label" parent="map/claw_machine/controls" unique_id=1667324927]
-offset_left = 2294.0
-offset_top = 1395.0
-offset_right = 2304.0
-offset_bottom = 1418.0
-text = "<"
-label_settings = SubResource("LabelSettings_bekt7")
-
-[node name="Label2" type="Label" parent="map/claw_machine/controls" unique_id=1547780640]
-offset_left = 2320.0
-offset_top = 1391.0
-offset_right = 2330.0
-offset_bottom = 1414.0
-rotation = 1.5707964
-text = "<"
-label_settings = SubResource("LabelSettings_bekt7")
-
-[node name="Label3" type="Label" parent="map/claw_machine/controls" unique_id=1805745217]
-offset_left = 2324.0
-offset_top = 1417.0
-offset_right = 2334.0
-offset_bottom = 1440.0
-rotation = 3.1415927
-text = "<"
-label_settings = SubResource("LabelSettings_bekt7")
-
-[node name="Label4" type="Label" parent="map/claw_machine/controls" unique_id=299937892]
-offset_left = 2298.0
-offset_top = 1421.0
-offset_right = 2308.0
-offset_bottom = 1444.0
-rotation = 4.712389
-text = "<"
-label_settings = SubResource("LabelSettings_bekt7")
-
-[node name="Label5" type="Label" parent="map/claw_machine/controls" unique_id=1205157544]
-offset_left = 2343.0002
-offset_top = 1396.0001
-offset_right = 2353.0002
-offset_bottom = 1419.0001
-rotation = 5.4977875
-text = "+"
-label_settings = SubResource("LabelSettings_bekt7")
-
-[node name="Label6" type="Label" parent="map/claw_machine/controls" unique_id=2009551481]
-offset_left = 2356.0
-offset_top = 1406.0
-offset_right = 2366.0
-offset_bottom = 1429.0
-rotation = 4.712389
-text = "+"
-label_settings = SubResource("LabelSettings_bekt7")
-
 [node name="e" type="Sprite2D" parent="map/claw_machine" unique_id=960975861 groups=["e_buttons"]]
 position = Vector2(2336, 1314)
 scale = Vector2(0.19531249, 0.19531249)
 texture = ExtResource("5_8hrlh")
+
+[node name="claw_machine1_area" type="Area2D" parent="map/claw_machine" unique_id=400939719]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/claw_machine/claw_machine1_area" unique_id=1621930016]
+position = Vector2(2337, 1372.5)
+shape = SubResource("RectangleShape2D_qarp1")
 
 [node name="5Ea42Abe5b724Ea3B9c7Cbc84d4528f0" type="Sprite2D" parent="." unique_id=1400678654]
 position = Vector2(-459.99997, -5179)
@@ -2486,7 +2546,7 @@ texture = ExtResource("7_mw5nc")
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." unique_id=1650756719 instance=ExtResource("8_7t3s2")]
-position = Vector2(2156, 69)
+position = Vector2(3176, 69)
 script = ExtResource("9_glsmu")
 
 [node name="camera" type="Camera2D" parent="player" unique_id=1472360180]
@@ -2823,6 +2883,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
 [connection signal="body_entered" from="map/vending_machine1/vending_machine_area1" to="." method="_on_vending_machine_area_1_body_entered"]
 [connection signal="body_exited" from="map/vending_machine1/vending_machine_area1" to="." method="_on_vending_machine_area_1_body_exited"]
 [connection signal="pressed" from="map/vending_machine1/vending_machine1_buy" to="." method="_on_vending_machine_1_buy_pressed"]
+[connection signal="button_down" from="map/claw_machine/sprite/controls/claw_machine1_up" to="." method="_on_claw_machine_1_up_button_down"]
+[connection signal="button_up" from="map/claw_machine/sprite/controls/claw_machine1_up" to="." method="_on_claw_machine_1_up_button_up"]
+[connection signal="button_down" from="map/claw_machine/sprite/controls/claw_machine1_right" to="." method="_on_claw_machine_1_right_button_down"]
+[connection signal="button_up" from="map/claw_machine/sprite/controls/claw_machine1_right" to="." method="_on_claw_machine_1_right_button_up"]
+[connection signal="button_down" from="map/claw_machine/sprite/controls/claw_machine1_left" to="." method="_on_claw_machine_1_left_button_down"]
+[connection signal="button_up" from="map/claw_machine/sprite/controls/claw_machine1_left" to="." method="_on_claw_machine_1_left_button_up"]
+[connection signal="button_down" from="map/claw_machine/sprite/controls/claw_machine1_down" to="." method="_on_claw_machine_1_down_button_down"]
+[connection signal="button_up" from="map/claw_machine/sprite/controls/claw_machine1_down" to="." method="_on_claw_machine_1_down_button_up"]
+[connection signal="body_entered" from="map/claw_machine/claw_machine1_area" to="." method="_on_claw_machine_1_area_body_entered"]
+[connection signal="body_exited" from="map/claw_machine/claw_machine1_area" to="." method="_on_claw_machine_1_area_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b2/button2" to="." method="_on_button_2_input_event"]
 [connection signal="input_event" from="CanvasLayer/patterns/b3/button3" to="." method="_on_button_3_input_event"]

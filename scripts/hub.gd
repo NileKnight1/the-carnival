@@ -188,7 +188,7 @@ func _process(delta: float) -> void:
 			await enter_game(game4_location)
 	if Input.is_action_just_pressed("Interact") && chatting:
 		show_chat(cur_chat)
-	
+	claw_machine_1_move()
 	hammer_hit_game()
 	
 	temp_func()
@@ -876,6 +876,93 @@ func _on_hammer_hit_area_body_exited(body: Node2D) -> void:
 		
 
 var hammer_hit_area = 0
+
+var claw_machine1_area = 0
+var vending_machine1_area = 0
+func _on_vending_machine_area_1_body_entered(body: Node2D) -> void:
+	if body == $player:
+		vending_machine1_area = 1
+		show_e($map/vending_machine1/e)
+		
+func _on_vending_machine_area_1_body_exited(body: Node2D) -> void:
+	if body == $player:
+		vending_machine1_area = 0
+		hide_e($map/vending_machine1/e)
+		
+
+func _on_vending_machine_1_buy_pressed() -> void:
+	$map/vending_machine1/open.visible = 1
+	await get_tree().create_timer(0.5).timeout
+	$map/vending_machine1/open.visible = 0
+
+var pulsex
+var og_scalex
+var tw_scalex
+
+func show_e(node):
+	var e = node
+	og_scalex = e.scale.x
+	tw_scalex = e.scale.x + 0.04
+	e.visible = 1
+	pulsex = create_tween().set_loops()
+	pulsex.tween_property(e, "scale", Vector2(tw_scalex, tw_scalex), 0.3).from(Vector2(og_scalex, og_scalex))
+	pulsex.tween_property(e, "scale", Vector2(og_scalex, og_scalex), 0.3).from(Vector2(tw_scalex, tw_scalex))
+
+func hide_e(node):
+	node.visible = 0
+	if pulsex: pulsex.kill()
+	node.scale = Vector2(og_scalex, tw_scalex)
+
+var gate_msg = 0
+func _on_gate_area_body_entered(body: Node2D) -> void:
+	if body == $player:
+		gate_msg = 1
+func _on_entering_body_entered(body: Node2D) -> void:
+	if body == $player && gate_msg:
+		msg("Welcome to the carnival!")
+		gate_msg = 0
+func _on_leaving_body_entered(body: Node2D) -> void:
+	if body == $player && gate_msg:
+		msg("Visit us again!")
+		gate_msg = 0
+
+func update_tickets(change = 0):
+	global.tickets += change
+	$CanvasLayer/tickets/count.text = "x" + str(global.tickets)
+
+func _ready() -> void:
+	#msg("hello")
+	$CanvasLayer/black.modulate.a = 1
+	
+	if global.player_pos:
+		$player.position = global.player_pos
+	
+	update_tickets()
+	get_tree().call_group("e_buttons", "hide")
+	get_tree().call_group("init_hide", "hide")
+	
+	booth_zombie_filter()
+	
+	assign_games_data()
+	$CanvasLayer/black.visible = 1
+	$CanvasLayer/frame.visible = 1
+	await get_tree().create_timer(1).timeout
+	var tween = create_tween()
+	tween.tween_property($CanvasLayer/black, "modulate:a", 0, 0.5)
+	await check_rewards()
+	
+	allow_move()
+
+
+func _on_claw_machine_1_area_body_entered(body: Node2D) -> void:
+	if body == $player:
+		claw_machine1_area = 1
+		show_e($map/claw_machine/e)
+func _on_claw_machine_1_area_body_exited(body: Node2D) -> void:
+	if body == $player:
+		claw_machine1_area = 0
+		hide_e($map/claw_machine/e)
+
 func temp_func():
 	if Input.is_action_just_pressed("Interact"):
 		if wheel_area:
@@ -931,7 +1018,6 @@ func temp_func():
 				$player/camera.enabled = 1
 				$map/photo_booth/camera.enabled = 0
 				$CanvasLayer/buttons/capture.visible = 0
-				
 		
 		if hammer_hit_area:
 			if $player.move:
@@ -948,7 +1034,6 @@ func temp_func():
 				$player/camera.enabled = 1
 				$map/hammer_test/camera.enabled = 0
 				$CanvasLayer/buttons/hit.visible = 0
-				
 		
 		if vending_machine1_area:
 			if $player.move:
@@ -963,7 +1048,7 @@ func temp_func():
 				$player/camera.enabled = 1
 				$map/vending_machine1/camera.enabled = 0
 				$CanvasLayer/buttons/vending1_buy.visible = 0
-				
+		
 		if claw_machine1_area:
 			if $player.move:
 				disable_move()
@@ -975,82 +1060,50 @@ func temp_func():
 				$player.visible = 1
 				$player/camera.enabled = 1
 				$map/claw_machine/camera.enabled = 0
-
-var claw_machine1_area = 0
-var vending_machine1_area = 0
-func _on_vending_machine_area_1_body_entered(body: Node2D) -> void:
-	if body == $player:
-		vending_machine1_area = 1
-		show_e($map/vending_machine1/e)
-		
-func _on_vending_machine_area_1_body_exited(body: Node2D) -> void:
-	if body == $player:
-		vending_machine1_area = 0
-		hide_e($map/vending_machine1/e)
 		
 
-func _on_vending_machine_1_buy_pressed() -> void:
-	$map/vending_machine1/open.visible = 1
-	await get_tree().create_timer(0.5).timeout
-	$map/vending_machine1/open.visible = 0
+var claw_machine_1_up = 0
+var claw_machine_1_right = 0
+var claw_machine_1_down = 0
+var claw_machine_1_left = 0
 
-var pulsex
-var og_scalex
-var tw_scalex
-
-func show_e(node):
-	var e = node
-	og_scalex = e.scale.x
-	tw_scalex = e.scale.x + 0.04
-	e.visible = 1
-	pulsex = create_tween().set_loops()
-	pulsex.tween_property(e, "scale", Vector2(tw_scalex, tw_scalex), 0.3).from(Vector2(og_scalex, og_scalex))
-	pulsex.tween_property(e, "scale", Vector2(og_scalex, og_scalex), 0.3).from(Vector2(tw_scalex, tw_scalex))
-
-func hide_e(node):
-	node.visible = 0
-	if pulsex: pulsex.kill()
-	node.scale = Vector2(og_scalex, tw_scalex)
-
-
-#
-
-var gate_msg = 0
-func _on_gate_area_body_entered(body: Node2D) -> void:
-	if body == $player:
-		gate_msg = 1
-func _on_entering_body_entered(body: Node2D) -> void:
-	if body == $player && gate_msg:
-		msg("Welcome to the carnival!")
-		gate_msg = 0
-func _on_leaving_body_entered(body: Node2D) -> void:
-	if body == $player && gate_msg:
-		msg("Visit us again!")
-		gate_msg = 0
-
-func update_tickets(change = 0):
-	global.tickets += change
-	$CanvasLayer/tickets/count.text = "x" + str(global.tickets)
-
-func _ready() -> void:
-	#msg("hello")
-	$CanvasLayer/black.modulate.a = 1
+func claw_machine_1_move():
+	if !$map/claw_machine/camera.enabled: return
+	var temp = $map/claw_machine/sprite/interior/claw
 	
-	if global.player_pos:
-		$player.position = global.player_pos
+	if claw_machine_1_up || Input.is_action_pressed("up"):
+		temp.position.y -= 1
+	if claw_machine_1_right || Input.is_action_pressed("right"):
+		temp.position.x += 1
+	if claw_machine_1_down  || Input.is_action_pressed("down"):
+		temp.position.y += 1
+	if claw_machine_1_left || Input.is_action_pressed("left"):
+		temp.position.x -= 1
+	if temp.position.x < -2335.0:
+		temp.position.x = -2334.0
+	if temp.position.y > -1184.0:
+		temp.position.y = -1183.0
+	if temp.position.x > -2209.0:
+		temp.position.x = -2210.0
+	if temp.position.y < -1282.0:
+		temp.position.y = -1283.0
 	
-	update_tickets()
-	get_tree().call_group("e_buttons", "hide")
-	get_tree().call_group("init_hide", "hide")
-	
-	booth_zombie_filter()
-	
-	assign_games_data()
-	$CanvasLayer/black.visible = 1
-	$CanvasLayer/frame.visible = 1
-	await get_tree().create_timer(1).timeout
-	var tween = create_tween()
-	tween.tween_property($CanvasLayer/black, "modulate:a", 0, 0.5)
-	await check_rewards()
-	
-	allow_move()
+
+func _on_claw_machine_1_up_button_down() -> void:
+	claw_machine_1_up = 1
+func _on_claw_machine_1_up_button_up() -> void:
+	claw_machine_1_up = 0
+
+
+func _on_claw_machine_1_right_button_down() -> void:
+	claw_machine_1_right = 1
+func _on_claw_machine_1_right_button_up() -> void:
+	claw_machine_1_right = 0
+func _on_claw_machine_1_left_button_down() -> void:
+	claw_machine_1_left = 1
+func _on_claw_machine_1_left_button_up() -> void:
+	claw_machine_1_left = 0
+func _on_claw_machine_1_down_button_down() -> void:
+	claw_machine_1_down = 1
+func _on_claw_machine_1_down_button_up() -> void:
+	claw_machine_1_down = 0
