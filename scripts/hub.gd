@@ -707,6 +707,11 @@ func msg(msg):
 	temp.queue_free()
 
 func arcade_game1_run():
+	if !global.coins:
+		msg("You don't have coins.")
+		return
+	update_coins(-1)
+	
 	arcade1_score = 0
 	$map/arcade_device1/screen/highest.text = "Highest: " + str(global.arcade1_highest)
 	$map/arcade_device1/screen/score.text = "Score: " + str(arcade1_score) 
@@ -789,6 +794,12 @@ func _on_photo_booth_area_body_exited(body: Node2D) -> void:
 
 @onready var frame_cam: Camera2D =  $map/photo_booth/camera
 func _on_capture_pressed() -> void:
+	if !global.coins:
+		msg("You don't have coins.")
+		return
+	update_coins(-1)
+	
+	
 	$CanvasLayer/buttons/capture.visible = 0
 	photo_cam.global_position = frame_cam.global_position
 	photo_cam.zoom = frame_cam.zoom
@@ -810,6 +821,12 @@ func _on_capture_pressed() -> void:
 
 
 func _on_hammer_hit_pressed() -> void:
+	if !global.coins:
+		msg("You don't have coins.")
+		return
+	update_coins(-1)
+	
+	
 	$CanvasLayer/buttons/hit.visible = 0
 	var temp
 	var dash_pos = $map/hammer_test/sprite/hit_bar/dash.position.x
@@ -860,10 +877,6 @@ func hammer_hit_init():
 var hit_bar = 0
 var hit_tween
 
-func hammer_hit_game():
-	pass
-
-
 func _on_hammer_hit_area_body_entered(body: Node2D) -> void:
 	if body == $player:
 		hammer_hit_area = 1
@@ -890,6 +903,14 @@ func _on_vending_machine_area_1_body_exited(body: Node2D) -> void:
 		hide_e($map/vending_machine1/e)
 
 func _on_vending_machine_1_buy_pressed() -> void:
+	if $map/vending_machine1/open/mask.get_child_count() > 1:
+		msg("There's already a bought one!")
+		return
+	if !global.coins:
+		msg("You don't have coins.")
+		return
+	update_coins(-1)
+	
 	$map/vending_machine1/open.visible = 1
 	var temp = $map/vending_machine1/open/mask/target.duplicate()
 	temp.visible = 1
@@ -940,6 +961,12 @@ func update_tickets(change = 0):
 	global.tickets += change
 	$CanvasLayer/tickets/count.text = "x" + str(global.tickets)
 
+func update_coins(change = 0):
+	global.coins += change
+	$CanvasLayer/coins/count.text = "x" + str(global.coins)
+
+
+
 func _ready() -> void:
 	#msg("hello")
 	$CanvasLayer/black.modulate.a = 1
@@ -948,6 +975,8 @@ func _ready() -> void:
 		$player.position = global.player_pos
 	
 	update_tickets()
+	update_coins()
+	
 	get_tree().call_group("e_buttons", "hide")
 	get_tree().call_group("init_hide", "hide")
 	
@@ -1065,6 +1094,7 @@ func temp_func():
 				$player.visible = 0
 				$player/camera.enabled = 0
 				$map/claw_machine/camera.enabled = 1
+				
 			else:
 				allow_move()
 				$player.visible = 1
@@ -1077,8 +1107,19 @@ var claw_machine_1_right = 0
 var claw_machine_1_down = 0
 var claw_machine_1_left = 0
 
+var claw_machine1_paid = 0
+
 func claw_machine_1_move():
-	if !$map/claw_machine/camera.enabled: return
+	
+	if !claw_machine1_paid:
+		if !global.coins:
+			msg("You don't have coins.")
+			return
+		else:
+			msg("Spend a coin first!")
+			return
+
+	
 	var temp = $map/claw_machine/sprite/interior/claw
 	
 	if claw_machine_1_up || Input.is_action_pressed("up"):
@@ -1098,13 +1139,12 @@ func claw_machine_1_move():
 	if temp.position.y < 11:
 		temp.position.y = 10
 	
+var claw_machine1_open = 0
 
 func _on_claw_machine_1_up_button_down() -> void:
 	claw_machine_1_up = 1
 func _on_claw_machine_1_up_button_up() -> void:
 	claw_machine_1_up = 0
-
-
 func _on_claw_machine_1_right_button_down() -> void:
 	claw_machine_1_right = 1
 func _on_claw_machine_1_right_button_up() -> void:
@@ -1121,8 +1161,18 @@ func _on_claw_machine_1_down_button_up() -> void:
 var claw_machine_1_attached = 0
 var claw_machine_1_prize_last_pos
 func _on_claw_machine_1_attach_pressed() -> void:
+	if !claw_machine1_paid:
+		if !global.coins:
+			msg("You don't have coins.")
+			return
+		else:
+			msg("Spend a coin first!")
+			return
+	
 	#print($map/claw_machine/sprite/interior/claw.global_position)
-	if claw_machine_1_attached: return 
+	if claw_machine_1_attached: 
+		msg("Something is already attached.")
+		return 
 	var prizes = $map/claw_machine/sprite/interior/prizes
 	var claw = $map/claw_machine/sprite/interior/claw
 	print(claw.global_position)
@@ -1142,7 +1192,18 @@ func _on_claw_machine_1_attach_pressed() -> void:
 		
 
 func _on_claw_machine_1_disattach_pressed() -> void:
-	if !claw_machine_1_attached: return
+	if !claw_machine1_paid:
+		if !global.coins:
+			msg("You don't have coins.")
+			return
+		else:
+			msg("Spend a coin first!")
+			return
+
+	if !claw_machine_1_attached: 
+		msg("Nothing is attached.")
+		return
+	
 	claw_machine_1_attached = 0
 	var prizes = $map/claw_machine/sprite/interior/prizes
 	var out = $map/claw_machine/sprite/out_box
@@ -1157,7 +1218,22 @@ func _on_claw_machine_1_disattach_pressed() -> void:
 	else:
 		claw.get_child(claw.get_child_count()-1).reparent(out)
 		out.get_child(0).position = Vector2(34, 21)
+	claw_machine1_paid = 0
+	
 
 func check_click(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		return 1
+
+
+func _on_claw_machine_1_pay_pressed() -> void:
+	if !claw_machine1_paid:
+		if !global.coins:
+			msg("You don't have coins.")
+			return
+		else:
+			update_coins(-1)
+			claw_machine1_paid = 1
+	else:
+		msg("A game is already running.")
+		
