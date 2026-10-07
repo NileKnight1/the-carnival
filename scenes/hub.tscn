@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://b785wos1bd3pp" path="res://assets/strength-tester-test-your-strength-amusement-game-power-strong-entertainment-festival_1284-42608.png" id="12_7t3s2"]
 [ext_resource type="Texture2D" uid="uid://tq7s7ey1e6pw" path="res://assets/c2bad5c11c2d97f5ba33165cc59f7b61.jpg" id="14_7n2o6"]
 [ext_resource type="PackedScene" uid="uid://chjrkhhhs3gli" path="res://scenes/wac_a_mole_target.tscn" id="15_rtbv5"]
+[ext_resource type="PackedScene" uid="uid://0pwxr7nvwpry" path="res://scenes/vending_machine_cargo.tscn" id="20_8rcoo"]
+[ext_resource type="Texture2D" uid="uid://cnhdxpv0702xv" path="res://assets/purepng.com-gold-coinsflatcoinsroundmetalgold-1421526479302uo2qp.png" id="21_jjmck"]
 [ext_resource type="Texture2D" uid="uid://b2pc6raqy627v" path="res://assets/pngtree-golden-ticket-png-image_6621563.png" id="24_fm13a"]
 [ext_resource type="Texture2D" uid="uid://c7i1ht2u714qa" path="res://assets/purepng.com-musclemusclemuscle-manbody-builderssix-packmuscle-boysclipartmuscle-black-and-white-1421526926379umdss.png" id="25_tmir4"]
 [ext_resource type="LabelSettings" uid="uid://brwt2oauyjqw7" path="res://font_style.tres" id="27_8rcoo"]
@@ -534,6 +536,18 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tijeh"]
+bg_color = Color(0.7890625, 0.7697983, 0.75823975, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwlcx"]
 bg_color = Color(0.08627451, 0.08235294, 0.105882354, 1)
 border_width_left = 2
@@ -548,6 +562,34 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdxto"]
 size = Vector2(132, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c02t"]
+size = Vector2(63, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2mqw"]
+bg_color = Color(0, 0, 0, 0.5372549)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybjqy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdg4r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50psv"]
+bg_color = Color(0, 0, 0, 0.63529414)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvyuv"]
+bg_color = Color(0, 0, 0, 0.35686275)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei7lg"]
 bg_color = Color(0.12156863, 0.2901961, 0.07058824, 1)
@@ -576,6 +618,14 @@ fill_to = Vector2(0.48245615, 0)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7n2o6"]
 texture = SubResource("GradientTexture2D_rtbv5")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jdki"]
+bg_color = Color(0.043137256, 0.05882353, 0.039215688, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k12rm"]
 bg_color = Color(0.75, 0.9375, 1, 0.078431375)
 
@@ -593,14 +643,6 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d1qd"]
 bg_color = Color(0.08627451, 0.12941177, 0.05882353, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jdki"]
-bg_color = Color(0.043137256, 0.05882353, 0.039215688, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -628,6 +670,27 @@ bg_color = Color(0.28515625, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6ich"]
 bg_color = Color(0.69921875, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85pgy"]
+bg_color = Color(0.47843137, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6oo5"]
+bg_color = Color(0.28627452, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8631l"]
+bg_color = Color(0.69803923, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_bekt7"]
 font = ExtResource("8_3q32m")
@@ -2149,6 +2212,7 @@ offset_left = 1905.0
 offset_top = 1267.0
 offset_right = 2019.0
 offset_bottom = 1458.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bfghi")
 
 [node name="C2Bad5c11c2d97f5Ba33165Cc59f7b61" type="Sprite2D" parent="map/vending_machine1" unique_id=1267584441]
@@ -2158,20 +2222,44 @@ texture = ExtResource("14_7n2o6")
 region_enabled = true
 region_rect = Rect2(0, 23.440948, 730.84, 1280.9966)
 
+[node name="Panel13" type="Panel" parent="map/vending_machine1" unique_id=206563359]
+offset_left = 1996.0
+offset_top = 1277.0
+offset_right = 2011.0
+offset_bottom = 1387.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tijeh")
+
 [node name="open" type="Node2D" parent="map/vending_machine1" unique_id=1754982812]
 visible = false
 
-[node name="Panel13" type="Panel" parent="map/vending_machine1/open" unique_id=251995938]
+[node name="out" type="Panel" parent="map/vending_machine1/open" unique_id=251995938]
+clip_children = 2
 offset_left = 1923.0
 offset_top = 1415.0
 offset_right = 1987.0
 offset_bottom = 1437.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qwlcx")
 
+[node name="mask" type="Panel" parent="map/vending_machine1/open" unique_id=1481601427]
+clip_children = 1
+offset_left = 1924.0
+offset_top = 1417.0
+offset_right = 1985.0
+offset_bottom = 1435.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qwlcx")
+
+[node name="target" parent="map/vending_machine1/open/mask" unique_id=1318577958 instance=ExtResource("20_8rcoo")]
+visible = false
+position = Vector2(14, 13)
+rotation = -0.43545687
+
 [node name="opening" type="Sprite2D" parent="map/vending_machine1/open" unique_id=1037061721]
-position = Vector2(1961.0001, 1423)
+position = Vector2(1961.9999, 1419)
 scale = Vector2(0.14560544, 0.14266331)
-skew = -0.84124875
+skew = -1.1903145
 texture = ExtResource("14_7n2o6")
 region_enabled = true
 region_rect = Rect2(95.00011, 1011, 454.05225, 166)
@@ -2183,14 +2271,6 @@ visible = false
 position = Vector2(1959, 1393.5)
 shape = SubResource("RectangleShape2D_hdxto")
 
-[node name="vending_machine1_buy" type="Button" parent="map/vending_machine1" unique_id=205513142]
-visible = false
-offset_left = 1995.0
-offset_top = 1334.0
-offset_right = 2037.0
-offset_bottom = 1365.0
-text = "Buy"
-
 [node name="camera" type="Camera2D" parent="map/vending_machine1" unique_id=845962145]
 position = Vector2(1961, 1336)
 enabled = false
@@ -2200,6 +2280,36 @@ zoom = Vector2(2.335, 2.335)
 position = Vector2(1961, 1305)
 scale = Vector2(0.19531249, 0.19531249)
 texture = ExtResource("5_8hrlh")
+
+[node name="vending_machine1_out" type="Area2D" parent="map/vending_machine1" unique_id=650211235]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/vending_machine1/vending_machine1_out" unique_id=225737717]
+position = Vector2(1955.5, 1426)
+shape = SubResource("RectangleShape2D_3c02t")
+
+[node name="bg" type="Button" parent="map/vending_machine1" unique_id=576112366]
+offset_left = 1998.0
+offset_top = 1304.0
+offset_right = 2008.0
+offset_bottom = 1314.0
+theme_override_font_sizes/font_size = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_l2mqw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ybjqy")
+
+[node name="Purepng_comGoldCoinsflatcoinsroundmetalgold1421526479302Uo2Qp" type="Sprite2D" parent="map/vending_machine1" unique_id=29161567]
+position = Vector2(2003, 1309)
+scale = Vector2(0.015624523, 0.015624523)
+texture = ExtResource("21_jjmck")
+
+[node name="vending_machine1_buy" type="Button" parent="map/vending_machine1" unique_id=1517990523]
+offset_left = 1998.0
+offset_top = 1304.0
+offset_right = 2008.0
+offset_bottom = 1314.0
+theme_override_font_sizes/font_size = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fdg4r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_50psv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qvyuv")
 
 [node name="claw_machine" type="Node2D" parent="map" unique_id=404601230]
 position = Vector2(-77, -10)
@@ -2235,57 +2345,18 @@ offset_right = 2400.0
 offset_bottom = 1371.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7n2o6")
 
-[node name="claw" type="Node2D" parent="map/claw_machine/sprite/interior" unique_id=2123938210]
-position = Vector2(-2209, -1282)
-
-[node name="Panel24" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=954512817]
-offset_left = 2335.0
-offset_top = 1131.0
-offset_right = 2336.0
-offset_bottom = 1275.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
-
-[node name="Panel17" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1195541791]
-offset_left = 2332.0
-offset_top = 1271.0
-offset_right = 2339.0
-offset_bottom = 1298.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
-
-[node name="Panel21" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1653139986]
-offset_left = 2348.7908
-offset_top = 1285.4177
-offset_right = 2355.6995
-offset_bottom = 1312.5193
-rotation = 1.5707964
-theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
-
-[node name="Panel22" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1340497540]
-offset_left = 2348.9368
-offset_top = 1300.6793
-offset_right = 2355.7805
-offset_bottom = 1315.3324
-rotation = 3.1415927
-theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
-
-[node name="Panel23" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1516341844]
-offset_left = 2328.841
-offset_top = 1300.7117
-offset_right = 2335.976
-offset_bottom = 1315.3324
-rotation = 3.1415927
-theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
-
-[node name="Polygon2D" type="Polygon2D" parent="map/claw_machine/sprite/interior/claw" unique_id=723297255]
-position = Vector2(0, 8)
-texture = SubResource("GradientTexture2D_bekt7")
-texture_offset = Vector2(-2303.39, -1251.19)
-polygon = PackedVector2Array(2348, 1278, 2348, 1292, 2343, 1292, 2343, 1283, 2338, 1283, 2338, 1289, 2333, 1289, 2333, 1283, 2328, 1283, 2328, 1292, 2323, 1292, 2323, 1278, 2333, 1278, 2333, 1264, 2338, 1264, 2338, 1278)
+[node name="hole" type="Panel" parent="map/claw_machine/sprite/interior" unique_id=1391743288]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 42.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1jdki")
 
 [node name="prizes" type="Node2D" parent="map/claw_machine/sprite/interior" unique_id=1205538837]
 position = Vector2(-2272, -1240)
 
-[node name="target" parent="map/claw_machine/sprite/interior/prizes" unique_id=1318577958 instance=ExtResource("15_rtbv5")]
+[node name="target" parent="map/claw_machine/sprite/interior/prizes" unique_id=1369911711 instance=ExtResource("15_rtbv5")]
 position = Vector2(2284, 1354)
 rotation = -0.18163994
 
@@ -2309,12 +2380,60 @@ rotation = -0.15427
 position = Vector2(2322, 1355)
 rotation = 0.25545022
 
+[node name="claw" type="Node2D" parent="map/claw_machine/sprite/interior" unique_id=2123938210]
+position = Vector2(1, 114)
+
+[node name="Panel24" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=954512817]
+offset_left = -0.689209
+offset_top = -165.0
+offset_right = 0.31079102
+offset_bottom = -21.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel17" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1195541791]
+offset_left = -3.689209
+offset_top = -25.0
+offset_right = 3.310791
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel21" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1653139986]
+offset_left = 13.1015625
+offset_top = -10.582275
+offset_right = 20.010254
+offset_bottom = 16.519287
+rotation = 1.5707964
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel22" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1340497540]
+offset_left = 13.247559
+offset_top = 4.6793213
+offset_right = 20.091309
+offset_bottom = 19.332397
+rotation = 3.1415927
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Panel23" type="Panel" parent="map/claw_machine/sprite/interior/claw" unique_id=1516341844]
+offset_left = -6.8481445
+offset_top = 4.71167
+offset_right = 0.28686523
+offset_bottom = 19.332397
+rotation = 3.1415927
+theme_override_styles/panel = SubResource("StyleBoxFlat_6jsik")
+
+[node name="Polygon2D" type="Polygon2D" parent="map/claw_machine/sprite/interior/claw" unique_id=723297255]
+position = Vector2(-2335.6892, -1288)
+texture = SubResource("GradientTexture2D_bekt7")
+texture_offset = Vector2(-2303.39, -1251.19)
+polygon = PackedVector2Array(2348, 1278, 2348, 1292, 2343, 1292, 2343, 1283, 2338, 1283, 2338, 1289, 2333, 1289, 2333, 1283, 2328, 1283, 2328, 1292, 2323, 1292, 2323, 1278, 2333, 1278, 2333, 1264, 2338, 1264, 2338, 1278)
+
 [node name="Panel18" type="Panel" parent="map/claw_machine/sprite" unique_id=2066995172]
 offset_left = 2273.0
 offset_top = 1250.0
 offset_right = 2400.0
 offset_bottom = 1371.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_k12rm")
+metadata/_edit_lock_ = true
 
 [node name="Panel19" type="Panel" parent="map/claw_machine/sprite" unique_id=502238329]
 offset_left = 2261.0
@@ -2333,6 +2452,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4d1qd")
 [node name="Panel20" type="Panel" parent="map/claw_machine/sprite" unique_id=1739937421]
 offset_left = 2275.0
 offset_top = 1426.0
+offset_right = 2398.0
+offset_bottom = 1454.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1jdki")
+
+[node name="out_box" type="Panel" parent="map/claw_machine/sprite" unique_id=522059777]
+clip_children = 2
+offset_left = 2275.0
+offset_top = 1423.0
 offset_right = 2398.0
 offset_bottom = 1454.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1jdki")
@@ -2417,18 +2544,36 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hdxto")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lan4j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_v6ich")
 
+[node name="claw_machine1_attach" type="Button" parent="map/claw_machine/sprite/controls" unique_id=540213687]
+offset_left = 2362.0
+offset_top = 1396.0
+offset_right = 2372.0
+offset_bottom = 1406.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_85pgy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n6oo5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8631l")
+
+[node name="claw_machine1_disattach" type="Button" parent="map/claw_machine/sprite/controls" unique_id=712900350]
+offset_left = 2349.0
+offset_top = 1396.0
+offset_right = 2359.0
+offset_bottom = 1406.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_85pgy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n6oo5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8631l")
+
 [node name="Label" type="Label" parent="map/claw_machine/sprite/controls" unique_id=1667324927]
 offset_left = 2294.0
-offset_top = 1395.0
+offset_top = 1396.0
 offset_right = 2304.0
-offset_bottom = 1418.0
+offset_bottom = 1419.0
 text = "<"
 label_settings = SubResource("LabelSettings_bekt7")
 
 [node name="Label2" type="Label" parent="map/claw_machine/sprite/controls" unique_id=1547780640]
-offset_left = 2320.0
+offset_left = 2319.0
 offset_top = 1391.0
-offset_right = 2330.0
+offset_right = 2329.0
 offset_bottom = 1414.0
 rotation = 1.5707964
 text = "<"
@@ -2436,35 +2581,35 @@ label_settings = SubResource("LabelSettings_bekt7")
 
 [node name="Label3" type="Label" parent="map/claw_machine/sprite/controls" unique_id=1805745217]
 offset_left = 2324.0
-offset_top = 1417.0
+offset_top = 1416.0
 offset_right = 2334.0
-offset_bottom = 1440.0
+offset_bottom = 1439.0
 rotation = 3.1415927
 text = "<"
 label_settings = SubResource("LabelSettings_bekt7")
 
 [node name="Label4" type="Label" parent="map/claw_machine/sprite/controls" unique_id=299937892]
-offset_left = 2298.0
+offset_left = 2299.0
 offset_top = 1421.0
-offset_right = 2308.0
+offset_right = 2309.0
 offset_bottom = 1444.0
 rotation = 4.712389
 text = "<"
 label_settings = SubResource("LabelSettings_bekt7")
 
 [node name="Label5" type="Label" parent="map/claw_machine/sprite/controls" unique_id=1205157544]
-offset_left = 2343.0002
-offset_top = 1396.0001
-offset_right = 2353.0002
-offset_bottom = 1419.0001
+offset_left = 2344.0002
+offset_top = 1397.0
+offset_right = 2354.0002
+offset_bottom = 1420.0
 rotation = 5.4977875
 text = "+"
 label_settings = SubResource("LabelSettings_bekt7")
 
 [node name="Label6" type="Label" parent="map/claw_machine/sprite/controls" unique_id=2009551481]
-offset_left = 2356.0
+offset_left = 2357.0
 offset_top = 1406.0
-offset_right = 2366.0
+offset_right = 2367.0
 offset_bottom = 1429.0
 rotation = 4.712389
 text = "+"
@@ -2882,6 +3027,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
 [connection signal="body_exited" from="map/hammer_test/hammer_hit_area" to="." method="_on_hammer_hit_area_body_exited"]
 [connection signal="body_entered" from="map/vending_machine1/vending_machine_area1" to="." method="_on_vending_machine_area_1_body_entered"]
 [connection signal="body_exited" from="map/vending_machine1/vending_machine_area1" to="." method="_on_vending_machine_area_1_body_exited"]
+[connection signal="input_event" from="map/vending_machine1/vending_machine1_out" to="." method="_on_vending_machine_1_out_input_event"]
 [connection signal="pressed" from="map/vending_machine1/vending_machine1_buy" to="." method="_on_vending_machine_1_buy_pressed"]
 [connection signal="button_down" from="map/claw_machine/sprite/controls/claw_machine1_up" to="." method="_on_claw_machine_1_up_button_down"]
 [connection signal="button_up" from="map/claw_machine/sprite/controls/claw_machine1_up" to="." method="_on_claw_machine_1_up_button_up"]
@@ -2891,6 +3037,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
 [connection signal="button_up" from="map/claw_machine/sprite/controls/claw_machine1_left" to="." method="_on_claw_machine_1_left_button_up"]
 [connection signal="button_down" from="map/claw_machine/sprite/controls/claw_machine1_down" to="." method="_on_claw_machine_1_down_button_down"]
 [connection signal="button_up" from="map/claw_machine/sprite/controls/claw_machine1_down" to="." method="_on_claw_machine_1_down_button_up"]
+[connection signal="pressed" from="map/claw_machine/sprite/controls/claw_machine1_attach" to="." method="_on_claw_machine_1_attach_pressed"]
+[connection signal="pressed" from="map/claw_machine/sprite/controls/claw_machine1_disattach" to="." method="_on_claw_machine_1_disattach_pressed"]
 [connection signal="body_entered" from="map/claw_machine/claw_machine1_area" to="." method="_on_claw_machine_1_area_body_entered"]
 [connection signal="body_exited" from="map/claw_machine/claw_machine1_area" to="." method="_on_claw_machine_1_area_body_exited"]
 [connection signal="input_event" from="CanvasLayer/patterns/b1/button" to="." method="_on_button_input_event"]

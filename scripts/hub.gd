@@ -888,12 +888,22 @@ func _on_vending_machine_area_1_body_exited(body: Node2D) -> void:
 	if body == $player:
 		vending_machine1_area = 0
 		hide_e($map/vending_machine1/e)
-		
 
 func _on_vending_machine_1_buy_pressed() -> void:
 	$map/vending_machine1/open.visible = 1
-	await get_tree().create_timer(0.5).timeout
-	$map/vending_machine1/open.visible = 0
+	var temp = $map/vending_machine1/open/mask/target.duplicate()
+	temp.visible = 1
+	var rand = randi_range(0,2)
+	temp.get_node("skins").get_child(rand).visible = 1
+	
+	$map/vending_machine1/open/mask.add_child(temp)
+
+func _on_vending_machine_1_out_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if check_click(event):
+		print("x")
+		if $map/vending_machine1/open/mask.get_child_count() > 1:
+			$map/vending_machine1/open.visible = 0
+			$map/vending_machine1/open/mask.get_child(1).queue_free()
 
 var pulsex
 var og_scalex
@@ -1079,14 +1089,14 @@ func claw_machine_1_move():
 		temp.position.y += 1
 	if claw_machine_1_left || Input.is_action_pressed("left"):
 		temp.position.x -= 1
-	if temp.position.x < -2335.0:
-		temp.position.x = -2334.0
-	if temp.position.y > -1184.0:
-		temp.position.y = -1183.0
-	if temp.position.x > -2209.0:
-		temp.position.x = -2210.0
-	if temp.position.y < -1282.0:
-		temp.position.y = -1283.0
+	if temp.position.x < 1:
+		temp.position.x = 0
+	if temp.position.y > 114:
+		temp.position.y = 115
+	if temp.position.x > 126:
+		temp.position.x = 127
+	if temp.position.y < 11:
+		temp.position.y = 10
 	
 
 func _on_claw_machine_1_up_button_down() -> void:
@@ -1107,3 +1117,47 @@ func _on_claw_machine_1_down_button_down() -> void:
 	claw_machine_1_down = 1
 func _on_claw_machine_1_down_button_up() -> void:
 	claw_machine_1_down = 0
+
+var claw_machine_1_attached = 0
+var claw_machine_1_prize_last_pos
+func _on_claw_machine_1_attach_pressed() -> void:
+	#print($map/claw_machine/sprite/interior/claw.global_position)
+	if claw_machine_1_attached: return 
+	var prizes = $map/claw_machine/sprite/interior/prizes
+	var claw = $map/claw_machine/sprite/interior/claw
+	print(claw.global_position)
+	var temp
+	var min = 21
+	for i in prizes.get_children():
+		#print(i.global_position)
+		print(claw.global_position.distance_to(i.global_position))
+		if claw.global_position.distance_to(i.global_position) < min:
+			min = claw.global_position.distance_to(i.global_position)
+			temp = i.get_index()
+	if temp != null:
+		claw_machine_1_attached = 1
+		claw_machine_1_prize_last_pos = prizes.get_child(temp).position
+		prizes.get_child(temp).reparent(claw)
+		
+		
+
+func _on_claw_machine_1_disattach_pressed() -> void:
+	if !claw_machine_1_attached: return
+	claw_machine_1_attached = 0
+	var prizes = $map/claw_machine/sprite/interior/prizes
+	var out = $map/claw_machine/sprite/out_box
+	var claw = $map/claw_machine/sprite/interior/claw
+	var hole = $map/claw_machine/sprite/interior/hole
+	var dis = claw.global_position.distance_to(hole.global_position)
+	print(dis)
+	if dis > 40:
+		#print(claw.get_child(5))
+		claw.get_child(claw.get_child_count()-1).reparent(prizes)
+		prizes.get_child(prizes.get_child_count()-1).position = claw_machine_1_prize_last_pos
+	else:
+		claw.get_child(claw.get_child_count()-1).reparent(out)
+		out.get_child(0).position = Vector2(34, 21)
+
+func check_click(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		return 1
