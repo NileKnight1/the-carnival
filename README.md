@@ -15,6 +15,10 @@ You walk around the grounds, play the booths, pick up what they give you, and at
 - **Photo booth.** You take a very normal picture, only with a zombie filter on it.
 - **Vending machine.** You can get food from here.
 
+**Inventory**
+- You can sell food or prizes you get, and you can eat food, and buy tickets with the coins!
+  (Currently tickets booth gives you free tickets)
+
 The main games give you a key, a health item, a plushie, you'll use these in the finale.
 **The finale.** You fight the ghost in three phases. The first is timing, the second is memory, and the third isn't really a fight.
 
